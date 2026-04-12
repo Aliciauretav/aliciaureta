@@ -1,94 +1,139 @@
-import { Palette, Wallpaper, ChartScatter, Route, Lightbulb, Handshake } from "lucide-react";
+const leadSkills = [
+  {
+    title: "Liderazgo de equipos UX",
+    desc: "Dirección, revisión de entregables y desarrollo de diseñadores",
+  },
+  {
+    title: "Gobernanza de diseño",
+    desc: "Sistemas, procesos y estándares que escalan",
+  },
+  {
+    title: "Estrategia de producto",
+    desc: "Alineación entre objetivos de negocio y experiencia de usuario",
+  },
+  {
+    title: "Gestión de stakeholders",
+    desc: "Priorización, validación y coordinación transversal",
+  },
+];
+
+const processSkills = [
+  { title: "Investigación UX", desc: "Cualitativa, cuantitativa, entrevistas, testing" },
+  { title: "Facilitación", desc: "Workshops, Design Sprints, co-creación" },
+  { title: "Arquitectura de información", desc: "Flujos, jerarquías, navegación" },
+  { title: "UX Writing", desc: "Tono, estilo y comunicación en interfaz" },
+  { title: "Métricas de experiencia", desc: "Interpretación y seguimiento de KPIs UX" },
+  { title: "Accesibilidad", desc: "WCAG, diseño inclusivo, mobile first" },
+];
+
+const tools = [
+  "Figma", "Maze", "Optimal Workshop", "Jira",
+  "Illustrator", "Photoshop", "HTML / CSS", "Visual Studio Code",
+];
 
 export function Skills() {
-  const skillCategories = [
-    {
-      icon: Palette,
-      title: "Diseño de Producto",
-      skills: ["Figma", "Tokens", "Component Librarie", "Accesibilidad (WCAG 2.1"],
-    },
-    {
-      icon: Wallpaper,
-      title: "Prototipado",
-      skills: ["Prototipos interactivos","Microinteracciones","Hand-off"],
-    },
-    {
-      icon: ChartScatter,
-      title: "Investigación UX y Analytics",
-      skills: ["User Interviews", "User Testing", "Benchmarking", "Personas", "Journey Maps","Service blueprint","Google Analytics"],
-    },
-    {
-      icon: Route,
-      title: "Estrategia y Gobernanza",
-      skills: ["Google Analytics", "Hotjar", "Mixpanel", "UserTesting", "Maze"],
-    },
-    {
-      icon: Lightbulb,
-      title: "Metodologías",
-      skills: ["Design Thinking", "Agile/Scrum", "Design Sprint", "Lean UX", "Atomic Design"],
-    },
-    {
-      icon: Handshake,
-      title: "Liderazgo y gestión",
-      skills: ["Team Management", "Stakeholder Communication", "Mentoring"],
-    },
-  ];
-
-  const expertise = [
-    { name: "UX Research", level: 95 },
-    { name: "UI Design", level: 90 },
-    { name: "Prototyping", level: 92 },
-    { name: "Design Systems", level: 88 },
-    { name: "User Testing", level: 94 },
-    { name: "Leadership", level: 85 },
-  ];
-
   return (
-    <section id="skills" className="py-12 px-6 lg:px-8">
+    <section className="py-24 px-6 lg:px-8 bg-muted">
       <div className="max-w-7xl mx-auto">
-        {/* Section Header */}
-        <div className="max-w-2xl mb-16">
-          <p className="text-secondary uppercase tracking-wider mb-4"> Habilidades </p>
-          <h2 className="text-4xl lg:text-5xl mb-6" style={{ fontFamily: 'Sora, sans-serif' }}>
-            Unir creatividad, análisis y propósito
-          </h2>
-          <p className="text-foreground/70">
-            Un conjunto diverso de habilidades que me permiten liderar proyectos UX 
-            de principio a fin, desde la investigación hasta la implementación.
-          </p>
-        </div>
+        <div className="grid lg:grid-cols-3 gap-12 lg:gap-16">
 
-        {/* Skills Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
-          {skillCategories.map((category, index) => {
-            const Icon = category.icon;
-            return (
-              <div
-                key={index}
-                className="bg-card border border-border rounded-2xl p-6 hover:shadow-lg transition-shadow"
-              >
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-secondary/20 flex items-center justify-center flex-shrink-0">
-                    <Icon className="w-6 h-6 text-primary" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="mb-3">{category.title}</h3>
-                    <div className="flex flex-wrap gap-2">
-                      {category.skills.map((skill, skillIndex) => (
-                        <span
-                          key={skillIndex}
-                          className="text-xs text-foreground/60"
-                        >
-                          {skill}
-                          {skillIndex < category.skills.length - 1 ? " •" : ""}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
+          {/* Intro */}
+          <div className="lg:col-span-1">
+            <div className="flex items-center gap-3 mb-4">
+              <span className="w-6 h-px bg-primary" />
+              <p className="text-xs font-medium tracking-widest uppercase text-primary">
+                Habilidades
+              </p>
+            </div>
+            <h2
+              className="text-3xl lg:text-4xl text-foreground mb-4"
+              style={{ fontFamily: "var(--font-serif)", letterSpacing: "-0.02em" }}
+            >
+              Unir creatividad, análisis y propósito
+            </h2>
+            <p className="text-sm text-foreground/60 leading-relaxed">
+              Un conjunto diverso de habilidades que me permite liderar proyectos UX
+              de principio a fin, desde la investigación hasta la implementación.
+            </p>
+          </div>
+
+          {/* Habilidades */}
+          <div className="lg:col-span-2 flex flex-col gap-10">
+
+            {/* Nivel 1 — Liderazgo */}
+            <div>
+              <div className="flex items-center gap-3 mb-5">
+                <p className="text-xs font-medium tracking-widest uppercase text-primary">
+                  Liderazgo y estrategia
+                </p>
+                <span className="flex-1 h-px bg-border" />
               </div>
-            );
-          })}
+              <div className="grid sm:grid-cols-2 gap-3">
+                {leadSkills.map((s) => (
+                  <div
+                    key={s.title}
+                    className="rounded-xl p-4 border border-primary/20"
+                    style={{ background: "var(--background-3)" }}
+                  >
+                    <p
+                      className="text-sm font-medium text-primary mb-1"
+                    >
+                      {s.title}
+                    </p>
+                    <p className="text-xs text-foreground/60 leading-relaxed">
+                      {s.desc}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Nivel 2 — Proceso */}
+            <div>
+              <div className="flex items-center gap-3 mb-5">
+                <p className="text-xs font-medium tracking-widest uppercase text-foreground/50">
+                  Habilidades de proceso
+                </p>
+                <span className="flex-1 h-px bg-border" />
+              </div>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                {processSkills.map((s) => (
+                  <div
+                    key={s.title}
+                    className="rounded-xl p-4 bg-card border border-border"
+                  >
+                    <p className="text-sm font-medium text-foreground mb-1">
+                      {s.title}
+                    </p>
+                    <p className="text-xs text-foreground/50 leading-relaxed">
+                      {s.desc}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Nivel 3 — Herramientas */}
+            <div>
+              <div className="flex items-center gap-3 mb-5">
+                <p className="text-xs font-medium tracking-widest uppercase text-foreground/40">
+                  Herramientas
+                </p>
+                <span className="flex-1 h-px bg-border" />
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {tools.map((tool) => (
+                  <span
+                    key={tool}
+                    className="text-sm px-4 py-2 rounded-full bg-background border border-border text-foreground/60"
+                  >
+                    {tool}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+          </div>
         </div>
       </div>
     </section>

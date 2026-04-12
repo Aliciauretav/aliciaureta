@@ -1,110 +1,163 @@
-import { ArrowUpRight } from "lucide-react";
-import { Button } from "./ui/button";
-import { ImageWithFallback } from "./figma/ImageWithFallback";
+import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import project1Image from "figma:asset/3b04e164125b03ca67abc8f0b68a9b160583f595.png";
-import project2Image from "figma:asset/29eb7cb583fcf7479bf518933480a1e4878498e7.png";
-import project3Image from "figma:asset/5d2cd3119eef87d1a9281e35d5b95b0f1baa0dbe.png";
+
+const projects = [
+  {
+    id: "governance",
+    href: "/proyectos/governance",
+    category: "UX Management · Design System",
+    title: "Construir el sistema que hace posible el buen diseño a escala",
+    description:
+      "Implementé la infraestructura de diseño de AFP Modelo: desde el sistema de gobernanza hasta los componentes que redujeron el tiempo de diseño en un 30% y mejoraron la experiencia percibida por los usuarios.",
+    tags: ["Design System", "Gobernanza UX", "Design Tokens", "Atomic Design"],
+    metrics: [
+      { num: "30%", label: "Reducción en\ntiempo de diseño" },
+      { num: "+5", label: "Sitios bajo\ngobernanza unificada" },
+    ],
+    image: "https://aliciaureta.com/image/afp-cover.jpg",
+    imageBg: "var(--background-3)",
+    reverse: false,
+  },
+  {
+    id: "web-app-design",
+    href: "/proyectos/web-app-design",
+    category: "Product Design · UX Research",
+    title: "De un proceso roto a una plataforma que la gente realmente usa",
+    description:
+      "Rediseñé el proceso digital de reclutamiento de Teamwork Chile: de 60 inputs a 4, con mejora medible en la experiencia percibida por más de 300 personas.",
+    tags: ["UX Research", "Arquitectura de información", "Prototipado Hi-Fi", "Validación con usuarios"],
+    metrics: [
+      { num: "60→4", label: "Inputs en el\nproceso de contratación" },
+      { num: "+300", label: "Personas con\nflujo optimizado" },
+    ],
+    image: "https://aliciaureta.com/image/teamwork-cover.jpg",
+    imageBg: "#E8F0F5",
+    reverse: true,
+  },
+  {
+    id: "web-design",
+    href: "/proyectos/web-design",
+    category: "Consultoría UX · Sector Público",
+    title: "Rediseñar un sitio institucional del Estado con restricciones reales",
+    description:
+      "Rediseñé el sitio oficial de DIRPLAN para su migración a WordPress, trabajando dentro del Sistema de Diseño Gubernamental y reduciendo en un 65% los pasos para acceder a información clave.",
+    tags: ["Consultoría externa", "Mobile First", "Sistema Gubernamental", "Accesibilidad"],
+    metrics: [
+      { num: "65%", label: "Reducción en pasos\npara encontrar info" },
+      { num: "88%", label: "Satisfacción en\npruebas de usabilidad" },
+    ],
+    image: "https://aliciaureta.com/image/dirplan-cover.jpg",
+    imageBg: "#EEF2F0",
+    reverse: false,
+  },
+];
 
 export function Projects() {
-  const projects = [
-    {
-      title: "Gobernanza de diseño en AFP Modelo",
-      category: "Ux Management",
-      description: "Implementación de un sistema de gobernanza para mantener la consistencia y escalabilidad del diseño en una organización previsional.",
-      image: "https://aliciaureta.com/image/modelo.png",
-      tags: ["Design System", "Governance", "Documentation", "Collaboration"],
-      color: "primary",
-      href: "/proyectos/governance",
-    },
-    {
-      title: "Digitalizar la experiencia de atracción de talento en empresa de RRHH",
-      category: "Web App Design",
-      description: "Con este proyecto, no sólo se agilizó el proceso de reclutamiento, sino que también se disminuyeron los errores asociados al proceso.",
-      image: "https://aliciaureta.com/image/teamwork.png",
-      tags: ["UX Research", "UI Design", "Prototyping", "Information Architecture"],
-      color: "secondary",
-      href: "/proyectos/web-app-design",
-    },
-    {
-      title: "Rediseño sitio web oficial DIRPLAN para migración tecnológica",
-      category: "Web Design",
-      description: "Rediseño que facilitó el acceso a la información de la Dirección de Planeamiento del Ministerio de Obras Públicas del Gobierno de Chile.",
-      image: "https://aliciaureta.com/image/dirplan.png",
-      tags: ["UI Design", "Design System"],
-      color: "accent",
-      href: "/proyectos/web-design",
-    },
-  ];
-
   return (
-    <section id="projects" className="py-12 px-6 lg:px-8 bg-muted/30">
+    <section id="projects" className="py-24 px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        {/* Section Header */}
-        <div className="max-w-2xl mb-16">
-          <p className="text-secondary uppercase tracking-wider mb-4">Proyectos destacados</p>
-          <h2 className="text-4xl lg:text-5xl mb-6" style={{ fontFamily: 'Sora, sans-serif' }}>
+
+        {/* Header */}
+        <div className="mb-16">
+          <div className="flex items-center gap-3 mb-4">
+            <span className="w-6 h-px bg-primary" />
+            <p className="text-xs font-medium tracking-widest uppercase text-primary">
+              Proyectos destacados
+            </p>
+          </div>
+          <h2
+            className="text-4xl lg:text-5xl text-foreground mb-4"
+            style={{ fontFamily: "var(--font-serif)", letterSpacing: "-0.02em" }}
+          >
             Casos de éxito
           </h2>
-          <p className="text-foreground/70">
-            Una selección de proyectos que demuestran mi capacidad para resolver problemas 
-            complejos con soluciones de diseño elegantes y efectivas.
+          <p className="text-foreground/60 max-w-xl leading-relaxed">
+            Una selección de proyectos que demuestran mi capacidad para resolver
+            problemas complejos con soluciones claras y medibles.
           </p>
         </div>
 
-        {/* Projects Grid */}
-        <div className="space-y-12">
-          {projects.map((project, index) => (
-            <div
-              key={index}
-              className="group bg-card border border-border rounded-3xl overflow-hidden hover:shadow-2xl transition-all duration-500"
+        {/* Proyectos */}
+        <div className="flex flex-col gap-6">
+          {projects.map((project) => (
+            <Link
+              key={project.id}
+              to={project.href}
+              className="group grid lg:grid-cols-2 bg-muted rounded-2xl overflow-hidden border border-border hover:-translate-y-1 hover:shadow-xl transition-all duration-300"
             >
-              <div className={`grid lg:grid-cols-2 gap-8 ${index % 2 === 1 ? 'lg:grid-flow-dense' : ''}`}>
-                {/* Image */}
-                <div className={`relative aspect-[4/3] lg:aspect-auto overflow-hidden ${index % 2 === 1 ? 'lg:col-start-2' : ''}`}>
-                  <ImageWithFallback
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent" />
-                </div>
-
-                {/* Content */}
-                <div className={`p-8 lg:p-12 flex flex-col justify-center ${index % 2 === 1 ? 'lg:col-start-1 lg:row-start-1' : ''}`}>
-                  <p className="text-sm text-secondary uppercase tracking-wider mb-3">
-                    {project.category}
-                  </p>
-                  <h3 className="text-3xl lg:text-4xl mb-4" style={{ fontFamily: 'Sora, sans-serif' }}>
-                    {project.title}
-                  </h3>
-                  <p className="text-foreground/70 mb-6">
-                    {project.description}
-                  </p>
-
-                  {/* Tags */}
-                  <div className="flex flex-wrap gap-2 mb-8">
-                    {project.tags.map((tag, tagIndex) => (
-                      <span
-                        key={tagIndex}
-                        className="px-4 py-2 bg-secondary/10 text-secondary rounded-full text-sm"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-
-                  <div>
-                    <Link to={project.href}>
-                      <Button variant="outline" className="group/btn">
-                        Ir a proyecto
-                        <ArrowUpRight className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
-                      </Button>
-                    </Link>
-                  </div>
-                </div>
+              {/* Imagen */}
+              <div
+                className={`aspect-[4/3] overflow-hidden ${project.reverse ? "lg:order-2" : ""}`}
+                style={{ background: project.imageBg }}
+              >
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover object-center group-hover:scale-[1.02] transition-transform duration-500"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = "none";
+                  }}
+                />
               </div>
-            </div>
+
+              {/* Info */}
+              <div
+                className={`p-8 lg:p-12 flex flex-col justify-center ${
+                  project.reverse ? "lg:order-1" : ""
+                }`}
+              >
+                <p className="text-xs font-medium tracking-widest uppercase text-primary mb-4">
+                  {project.category}
+                </p>
+
+                <h3
+                  className="text-2xl lg:text-3xl text-foreground mb-4 leading-tight"
+                  style={{ fontFamily: "var(--font-serif)", letterSpacing: "-0.01em" }}
+                >
+                  {project.title}
+                </h3>
+
+                <p className="text-sm text-foreground/60 leading-relaxed mb-6">
+                  {project.description}
+                </p>
+
+                {/* Tags */}
+                <div className="flex flex-wrap gap-2 mb-8">
+                  {project.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="text-xs px-3 py-1.5 rounded-full bg-background border border-border text-foreground/60"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Métricas */}
+                <div className="flex gap-8 pt-6 border-t border-border mb-6">
+                  {project.metrics.map((m) => (
+                    <div key={m.num}>
+                      <p
+                        className="text-2xl text-foreground"
+                        style={{ fontFamily: "var(--font-serif)" }}
+                      >
+                        {m.num}
+                      </p>
+                      <p className="text-xs text-foreground/50 mt-1 whitespace-pre-line leading-relaxed">
+                        {m.label}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+
+                {/* CTA */}
+                <span className="inline-flex items-center gap-2 text-sm font-medium text-primary group-hover:gap-3 transition-all">
+                  Ver caso completo
+                  <ArrowRight className="w-4 h-4" />
+                </span>
+              </div>
+            </Link>
           ))}
         </div>
       </div>

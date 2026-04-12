@@ -1,130 +1,95 @@
 import { useEffect } from "react";
 import { Navigation } from "../components/Navigation";
 import { Footer } from "../components/Footer";
-import { ArrowUpRight, Target, Users, TrendingUp, ArrowLeft } from "lucide-react";
+import { ArrowUpRight, ArrowLeft, TrendingUp, Users, BarChart3, Search, Layers, TestTube, Rocket, Eye } from "lucide-react";
 import { Button } from "../components/ui/button";
-import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import { Link } from "react-router-dom";
-import project1Image from "figma:asset/3b04e164125b03ca67abc8f0b68a9b160583f595.png";
-import wireframeImage from "figma:asset/93e8e0959d7c61a99b2d0e6ad696f0af5e54a5eb.png";
-import mockupsImage from "figma:asset/e929a01870fc9e73dcd0f8e1872ad0ad47e8f9e8.png";
-import researchImage from "figma:asset/be4cbb83efce088130d4866ebe1ae89b9c2ed76f.png";
+import { motion } from "motion/react";
+
+const metrics = [
+  { icon: TrendingUp, value: "60→4", label: "Inputs eliminados en el proceso de contratación" },
+  { icon: Users, value: "+300", label: "Personas con flujo de contratación optimizado" },
+  { icon: BarChart3, value: "+3 pts", label: "Mejora en escala de percepción de experiencia (sobre 7)" },
+];
+
+const process = [
+  { step: "1", title: "Descubrir", icon: Search, desc: "Entrevistas con RRHH, mapeo de pain points y análisis del sistema existente" },
+  { step: "2", title: "Definir", icon: Layers, desc: "Arquitectura de información, flujos actuales vs. ideales" },
+  { step: "3", title: "Diseñar", icon: Eye, desc: "Wireframes, prototipos Hi-Fi, estandarización con UI Kit" },
+  { step: "4", title: "Validar", icon: TestTube, desc: "Testing con usuarios, iteración y ajustes" },
+  { step: "5", title: "Lanzar", icon: Rocket, desc: "Seguimiento post-lanzamiento y medición de resultados" },
+];
+
+const beforeAfter = {
+  before: [
+    "Plataforma digital con flujos incompletos",
+    "60 campos de entrada por proceso",
+    "Errores operacionales frecuentes",
+    "Baja adopción del equipo de RRHH",
+  ],
+  after: [
+    "Flujo rediseñado end-to-end",
+    "4 inputs esenciales por proceso",
+    "Reducción de errores operacionales",
+    "+3 puntos en percepción de experiencia",
+  ],
+};
+
+const keyImages = [
+  { label: "Arquitectura de información", desc: "Muestra el razonamiento estructural del rediseño", src: "https://aliciaureta.com/image/teamwork-ai.jpg" },
+  { label: "Mockup final Hi-Fi", desc: "Pantalla representativa del resultado", src: "https://aliciaureta.com/image/teamwork-mockup.jpg" },
+  { label: "Digitalización de informes", desc: "Proceso de transformación de documentos clave", src: "https://aliciaureta.com/image/teamwork-docs.jpg" },
+];
 
 export function WebAppDesignPage() {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-  const project = {
-    title: "Digitalizar la experiencia de atracción de talento en empresa de RRHH",
-    category: "Web App Design",
-    role: "Product Designer",
-    description: "Se me propuso el desafío de digitalizar el proceso de reclutamiento y gestión operacional de los candidatos en Teamwork Chile.",
-    image: "https://aliciaureta.com/image/teamwork.png",
-    tags: ["UX Research", "Design System", "Prototyping","Information Architecture","Digital Transformation"],
-    purpose: "Transformar el proceso manual de reclutamiento en una experiencia digital fluida que permita a los reclutadores gestionar candidatos de manera más eficiente y reducir errores operacionales.",
-    metrics: [
-      { label: "Mejora en tiempo de gestión de candidatos", value: "40%", icon: TrendingUp },
-      { label: "Usuarios activos", value: "50+", icon: Users },
-      { label: "Perfiles gestionados por día", value: "+5000", icon: Target },
-    ],
-    workDone: [
-      "Investigación de usuarios y análisis de necesidades",
-      "Mapeo de flujos de trabajo actuales y pain points",
-      "Diseño de arquitectura de información",
-      "Creación de sistema de diseño reutilizable",
-      "Diseño de interfaz de alta fidelidad",
-      "Prototipo interactivo y testing con usuarios",
-      "Documentación y entrega a desarrollo",
-    ],
-    processImages: [
-       {
-        title: "Investigación UX",
-        image: "https://aliciaureta.com/image/personas_sel.png",
-      },
-      {
-        title: "Arquitectura de la información",
-        image: "https://aliciaureta.com/image/flujo_gen.png",
-      },
-      {
-        title: "Mockups finales",
-        image: "https://aliciaureta.com/image/pantallas.png",
-      },
-      {
-        title: "Digitalización informe referencias",
-        image: "https://aliciaureta.com/image/referencias.png",
-      },
-      {
-        title: "Digitalización cuadros comparativos",
-        image: "https://aliciaureta.com/image/informe_ps.png",
-      },
-      {
-        title: "Digitalización informe psicolaboral",
-        image: "https://aliciaureta.com/image/informe_com.png",
-      },
-     
-    ],
-  };
+  useEffect(() => { window.scrollTo(0, 0); }, []);
 
   return (
     <div className="min-h-screen">
       <Navigation />
       <main className="pt-20">
-        <section className="py-12 px-6 lg:px-8 bg-muted/30">
+        <section className="py-12 px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
-            {/* Back Button */}
-            <Button 
-              variant="ghost" 
-              className="group/back mb-6 hover:bg-secondary/10" 
-              asChild
-            >
+
+            <Button variant="ghost" className="group/back mb-8 hover:bg-secondary -ml-3" asChild>
               <Link to="/">
                 <ArrowLeft className="mr-2 w-4 h-4 group-hover/back:-translate-x-1 transition-transform" />
                 Volver
               </Link>
             </Button>
 
-            {/* Project Detail */}
-            <div className="bg-card border border-border rounded-3xl overflow-hidden shadow-2xl">
-              {/* Hero Section */}
-              <div className="grid lg:grid-cols-2 gap-8">
-                {/* Image */}
-                <div className="relative aspect-[4/3] lg:aspect-auto overflow-hidden">
-                  <ImageWithFallback
-                    src={project.image}
-                    alt={project.title}
+            <div className="bg-card border border-border rounded-3xl overflow-hidden">
+
+              {/* Hero */}
+              <div className="grid lg:grid-cols-2">
+                <div className="aspect-[4/3] lg:aspect-auto overflow-hidden bg-[#E8F0F5]">
+                  <img
+                    src="https://aliciaureta.com/image/teamwork-cover.jpg"
+                    alt="Digitalización RRHH Teamwork"
                     className="w-full h-full object-cover"
+                    onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent" />
                 </div>
-
-                {/* Content */}
                 <div className="p-8 lg:p-12 flex flex-col justify-center">
-                  <p className="text-sm text-secondary uppercase tracking-wider mb-3">
-                    {project.category}
+                  <p className="text-xs font-medium tracking-widest uppercase text-primary mb-4">
+                    Product Design · UX Research · Rediseño
                   </p>
-                  <h1 className="text-3xl lg:text-4xl mb-4" style={{ fontFamily: 'Sora, sans-serif' }}>
-                    {project.title}
+                  <h1
+                    className="text-3xl lg:text-4xl text-foreground mb-5 leading-tight"
+                    style={{ fontFamily: "var(--font-serif)", letterSpacing: "-0.02em" }}
+                  >
+                    De un proceso roto a una plataforma que la gente realmente usa
                   </h1>
-                  
-                  {/* Role */}
-                  <div className="mb-4">
-                    <span className="inline-flex items-center gap-2 px-4 py-2 bg-accent/10 text-accent rounded-full">
-                      <span className="w-2 h-2 rounded-full bg-accent" />
-                      {project.role}
-                    </span>
-                  </div>
-                  
-                  <p className="text-foreground/70 mb-6">
-                    {project.description}
+                  <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm mb-6 w-fit" style={{ background: "var(--background-3)", color: "var(--primary)" }}>
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                    UX/UI Designer — ciclo completo
+                  </span>
+                  <p className="text-foreground/60 leading-relaxed mb-6">
+                    Teamwork Chile tenía una plataforma digital de reclutamiento que no funcionaba como debía: flujos incompletos, demasiados pasos y una experiencia que generaba errores y frustración en el equipo de RRHH.
                   </p>
-
-                  {/* Tags */}
-                  <div className="flex flex-wrap gap-2 mb-8">
-                    {project.tags.map((tag, tagIndex) => (
-                      <span
-                        key={tagIndex}
-                        className="px-4 py-2 bg-secondary/10 text-secondary rounded-full text-sm"
-                      >
+                  <div className="flex flex-wrap gap-2">
+                    {["UX Research", "Arquitectura de información", "Prototipado Hi-Fi", "Design System", "Validación con usuarios", "Low-code"].map((tag) => (
+                      <span key={tag} className="text-xs px-3 py-1.5 rounded-full bg-muted border border-border text-foreground/50">
                         {tag}
                       </span>
                     ))}
@@ -132,95 +97,145 @@ export function WebAppDesignPage() {
                 </div>
               </div>
 
-              {/* Purpose Section */}
-              <div className="px-8 lg:px-12 py-12 border-t border-border bg-muted/20">
-                <h2 className="text-xl mb-4 text-secondary" style={{ fontFamily: 'Sora, sans-serif' }}>
-                  Propósito del proyecto
-                </h2>
-                <p className="text-foreground/70 text-lg leading-relaxed">
-                  {project.purpose}
+              {/* Propósito */}
+              <div className="px-8 lg:px-12 py-12 border-t border-border bg-muted/40">
+                <p className="text-xs font-medium tracking-widest uppercase text-primary mb-4">Propósito del proyecto</p>
+                <p className="text-lg text-foreground/70 leading-relaxed max-w-3xl">
+                  Transformar el proceso manual de reclutamiento en una experiencia digital fluida que permitiera a los reclutadores gestionar candidatos de manera más eficiente y reducir errores operacionales. El desafío no era digitalizar desde cero, sino entender qué estaba fallando, rediseñar con criterio y construir algo que la gente realmente adoptara.
                 </p>
               </div>
 
-              {/* Metrics Section */}
+              {/* Métricas */}
               <div className="px-8 lg:px-12 py-12 border-t border-border">
-                <h2 className="text-xl mb-8 text-secondary" style={{ fontFamily: 'Sora, sans-serif' }}>
-                  Métricas de éxito
-                </h2>
+                <p className="text-xs font-medium tracking-widest uppercase text-primary mb-8">Métricas de impacto</p>
                 <div className="grid md:grid-cols-3 gap-6">
-                  {project.metrics.map((metric, index) => {
-                    const Icon = metric.icon;
+                  {metrics.map((m, i) => {
+                    const Icon = m.icon;
                     return (
-                      <div 
-                        key={index}
-                        className="bg-gradient-to-br from-secondary/5 to-accent/5 rounded-2xl p-6 border border-secondary/20 hover:border-secondary/40 transition-colors"
+                      <motion.div
+                        key={i}
+                        initial={{ opacity: 0, y: 16 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: i * 0.1 }}
+                        className="rounded-2xl p-6 border border-border hover:border-primary/30 transition-colors"
+                        style={{ background: "var(--background-3)" }}
                       >
-                        <Icon className="w-8 h-8 text-secondary mb-4" />
-                        <div className="text-4xl mb-2" style={{ fontFamily: 'Sora, sans-serif' }}>
-                          {metric.value}
-                        </div>
-                        <p className="text-foreground/70">{metric.label}</p>
-                      </div>
+                        <Icon className="w-6 h-6 text-primary mb-4 opacity-60" />
+                        <p className="text-3xl text-foreground mb-2" style={{ fontFamily: "var(--font-serif)" }}>
+                          {m.value}
+                        </p>
+                        <p className="text-sm text-foreground/55 leading-relaxed">{m.label}</p>
+                      </motion.div>
                     );
                   })}
                 </div>
               </div>
 
-              {/* Work Done Section */}
-              <div className="px-8 lg:px-12 py-12 border-t border-border bg-muted/20">
-                <h2 className="text-xl mb-6 text-secondary" style={{ fontFamily: 'Sora, sans-serif' }}>
-                  Trabajo realizado
-                </h2>
-                <ul className="grid md:grid-cols-2 gap-4">
-                  {project.workDone.map((work, index) => (
-                    <li key={index} className="flex items-start gap-3">
-                      <div className="w-2 h-2 rounded-full bg-secondary mt-2 flex-shrink-0" />
-                      <span className="text-foreground/80">{work}</span>
-                    </li>
-                  ))}
-                </ul>
+              {/* Antes y después */}
+              <div className="px-8 lg:px-12 py-12 border-t border-border bg-muted/40">
+                <p className="text-xs font-medium tracking-widest uppercase text-primary mb-8">Antes y después</p>
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="rounded-2xl p-6" style={{ background: "#FCEBEB" }}>
+                    <p className="text-xs font-medium uppercase tracking-wider mb-4" style={{ color: "#A32D2D" }}>Antes</p>
+                    <ul className="space-y-3">
+                      {beforeAfter.before.map((item, i) => (
+                        <li key={i} className="flex items-start gap-3 text-sm" style={{ color: "#791F1F" }}>
+                          <span className="mt-1.5 w-1.5 h-1.5 rounded-full shrink-0" style={{ background: "#A32D2D" }} />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div className="rounded-2xl p-6" style={{ background: "#EAF3DE" }}>
+                    <p className="text-xs font-medium uppercase tracking-wider mb-4" style={{ color: "#3B6D11" }}>Después</p>
+                    <ul className="space-y-3">
+                      {beforeAfter.after.map((item, i) => (
+                        <li key={i} className="flex items-start gap-3 text-sm" style={{ color: "#27500A" }}>
+                          <span className="mt-1.5 w-1.5 h-1.5 rounded-full shrink-0" style={{ background: "#3B6D11" }} />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
               </div>
 
-              {/* Process Images Section */}
+              {/* Proceso */}
               <div className="px-8 lg:px-12 py-12 border-t border-border">
-                <h2 className="text-xl mb-8 text-secondary" style={{ fontFamily: 'Sora, sans-serif' }}>
-                  Proceso de diseño
-                </h2>
+                <p className="text-xs font-medium tracking-widest uppercase text-primary mb-8">Proceso de diseño</p>
+                <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
+                  {process.map((step, i) => {
+                    const Icon = step.icon;
+                    return (
+                      <motion.div
+                        key={i}
+                        initial={{ opacity: 0, y: 12 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: i * 0.08 }}
+                        className="flex-1 min-w-[140px] max-w-[180px] rounded-2xl p-5 border border-border text-center bg-muted hover:border-primary/20 transition-colors"
+                      >
+                        <div className="w-10 h-10 rounded-full flex items-center justify-center mx-auto mb-3 border border-border" style={{ background: "var(--background-3)" }}>
+                          <Icon className="w-4 h-4 text-primary" strokeWidth={1.5} />
+                        </div>
+                        <p className="text-sm font-medium text-foreground mb-2">{step.title}</p>
+                        <p className="text-xs text-foreground/50 leading-relaxed">{step.desc}</p>
+                      </motion.div>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Imágenes clave */}
+              <div className="px-8 lg:px-12 py-12 border-t border-border bg-muted/40">
+                <p className="text-xs font-medium tracking-widest uppercase text-primary mb-8">Imágenes del proceso</p>
                 <div className="grid md:grid-cols-3 gap-6">
-                  {project.processImages.map((item, index) => (
-                    <div key={index} className="group">
-                      <div className="relative h-80 rounded-xl overflow-hidden mb-3 border border-border bg-muted/20">
-                        <ImageWithFallback
-                          src={item.image}
-                          alt={item.title}
-                          className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
+                  {keyImages.map((img, i) => (
+                    <div key={i} className="rounded-xl overflow-hidden border border-border bg-card">
+                      <div className="aspect-[4/3] bg-muted overflow-hidden">
+                        <img
+                          src={img.src}
+                          alt={img.label}
+                          className="w-full h-full object-cover"
+                          onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
                         />
                       </div>
-                      <p className="text-sm text-foreground/70">{item.title}</p>
+                      <div className="p-4">
+                        <p className="text-sm font-medium text-foreground mb-1">{img.label}</p>
+                        <p className="text-xs text-foreground/50">{img.desc}</p>
+                      </div>
                     </div>
                   ))}
                 </div>
               </div>
 
-              {/* CTA Section */}
-              <div className="px-8 lg:px-12 py-12 border-t border-border bg-gradient-to-br from-secondary/5 to-accent/5">
+              {/* Lo que aprendí */}
+              <div className="px-8 lg:px-12 py-12 border-t border-border">
+                <p className="text-xs font-medium tracking-widest uppercase text-primary mb-4">Lo que aprendí</p>
+                <p className="text-lg text-foreground/60 leading-relaxed max-w-3xl" style={{ fontFamily: "var(--font-serif)", fontStyle: "italic" }}>
+                  "Rediseñar algo que ya existe es más complejo que diseñar desde cero — hay que entender por qué falló primero. En este proyecto aprendí que la mayoría de los problemas no eran de interfaz sino de arquitectura: demasiadas decisiones mal distribuidas a lo largo del flujo. Simplificar radicalmente fue la solución, y validarlo con usuarios reales fue lo que dio confianza para hacerlo."
+                </p>
+              </div>
+
+              {/* CTA */}
+              <div className="px-8 lg:px-12 py-12 border-t border-border bg-muted/40">
                 <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
                   <div>
-                    <h2 className="text-xl mb-2" style={{ fontFamily: 'Sora, sans-serif' }}>
+                    <p className="text-lg font-medium text-foreground mb-1" style={{ fontFamily: "var(--font-serif)" }}>
                       ¿Te interesa saber más sobre este proyecto?
-                    </h2>
-                    <p className="text-foreground/70">
-                      Contáctame y hablemos
                     </p>
+                    <p className="text-sm text-foreground/50">Contáctame y hablemos</p>
                   </div>
-                  <Button variant="outline" className="group/btn" asChild>
+                  <Button variant="outline" className="group/btn hover:border-primary hover:text-primary" asChild>
                     <Link to="/contacto">
                       Contactar
-                      <ArrowUpRight className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
+                      <ArrowUpRight className="ml-2 w-4 h-4 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
                     </Link>
                   </Button>
                 </div>
               </div>
+
             </div>
           </div>
         </section>
