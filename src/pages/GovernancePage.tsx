@@ -68,12 +68,32 @@ export function GovernancePage() {
         <section className="py-12 px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
 
-            <Button variant="ghost" className="group/back mb-8 hover:bg-secondary -ml-3" asChild>
-              <Link to="/">
-                <ArrowLeft className="mr-2 w-4 h-4 group-hover/back:-translate-x-1 transition-transform" />
-                Volver
-              </Link>
-            </Button>
+            <button
+              onClick={() => window.history.back()}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "8px",
+                fontSize: "14px",
+                color: "var(--foreground-muted)",
+                background: "none",
+                border: "none",
+                cursor: "pointer",
+                marginBottom: "2rem",
+                padding: "0",
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.style.color = "var(--primary)";
+                e.currentTarget.style.textDecoration = "underline";
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.color = "var(--foreground-muted)";
+                e.currentTarget.style.textDecoration = "none";
+              }}
+            >
+              <ArrowLeft className="w-4 h-4" />
+              <span>Volver</span>
+            </button>
 
             <div className="bg-card border border-border rounded-3xl overflow-hidden">
 
@@ -84,7 +104,7 @@ export function GovernancePage() {
                   style={{ background: "var(--background-3)" }}
                 >
                   <img
-                    src="https://aliciaureta.com/image/modelo.png"
+                    src="https://aliciaureta.com/image/afp-cover.png"
                     alt="Gobernanza de diseño AFP Modelo"
                     className="w-full h-full object-cover"
                     onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
@@ -259,7 +279,7 @@ export function GovernancePage() {
                     </p>
                     <p className="text-sm text-foreground/50">Contáctame y hablemos</p>
                   </div>
-                  <Button variant="outline" className="group/btn hover:border-primary hover:text-primary" asChild>
+                  <Button variant="outline" className="group/btn" style={{ borderColor: "var(--border)" }} asChild>
                     <Link to="/contacto">
                       Contactar
                       <ArrowUpRight className="ml-2 w-4 h-4 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />

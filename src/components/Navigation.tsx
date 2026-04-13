@@ -32,28 +32,39 @@ export function Navigation() {
         <div className="flex items-center justify-between h-20">
 
           {/* Logo */}
-          <Link
-            to="/"
-            className="text-xl text-foreground transition-opacity hover:opacity-70"
-            style={{ fontFamily: "var(--font-serif)", letterSpacing: "-0.01em" }}
-          >
-            Alicia Ureta
+          <Link to="/" className="flex items-center">
+            <img
+              src="https://aliciaureta.com/image/LOGO.png"
+              alt="Alicia Ureta"
+              className="h-12 w-auto object-contain"
+            />
           </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             <Link
               to="/sobre-mi"
-              className="text-sm text-foreground/70 hover:text-foreground transition-colors"
+              className="text-sm transition-colors"
+              style={{ color: "var(--foreground)" }}
+              onMouseEnter={e => (e.currentTarget.style.color = "var(--primary)")}
+              onMouseLeave={e => (e.currentTarget.style.color = "var(--foreground)")}
             >
               Sobre mí
             </Link>
 
             {/* Projects Dropdown */}
-            <div
+           <div
               className="relative"
-              onMouseEnter={() => setIsProjectsOpen(true)}
-              onMouseLeave={() => setIsProjectsOpen(false)}
+              onMouseEnter={(e) => {
+                setIsProjectsOpen(true);
+                const btn = e.currentTarget.querySelector('button');
+                if (btn) btn.style.color = "var(--primary)";
+              }}
+              onMouseLeave={(e) => {
+                setIsProjectsOpen(false);
+                const btn = e.currentTarget.querySelector('button');
+                if (btn) btn.style.color = "var(--foreground)";
+              }}
             >
               <button className="text-sm text-foreground/70 hover:text-foreground transition-colors flex items-center gap-1">
                 Proyectos
@@ -83,8 +94,11 @@ export function Navigation() {
             </div>
 
             <Link
-              to="/contacto"
-              className="text-sm text-foreground/70 hover:text-foreground transition-colors"
+               to="/contacto"
+                className="text-sm transition-colors"
+                style={{ color: "var(--foreground)" }}
+                onMouseEnter={e => (e.currentTarget.style.color = "var(--primary)")}
+                onMouseLeave={e => (e.currentTarget.style.color = "var(--foreground)")}
             >
               Contacto
             </Link>
@@ -96,7 +110,7 @@ export function Navigation() {
               asChild
             >
               <a
-                href="https://aliciaureta.com/image/CV_ALICIA_URETA.pdf"
+                href="https://aliciaureta.com/image/CV_ALICIA_URETA_2026.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -129,15 +143,14 @@ export function Navigation() {
 
               <div>
                 <button
-                  className="text-sm text-foreground/70 hover:text-primary transition-colors flex items-center gap-1 w-full"
+                  className="text-sm transition-colors flex items-center gap-1"
+                  style={{ color: "var(--foreground)" }}
+                  onMouseEnter={e => (e.currentTarget.style.color = "var(--primary)")}
+                  onMouseLeave={e => (e.currentTarget.style.color = "var(--foreground)")}
                   onClick={() => setIsProjectsOpen(!isProjectsOpen)}
                 >
                   Proyectos
-                  <ChevronDown
-                    className={`w-3.5 h-3.5 transition-transform ${
-                      isProjectsOpen ? "rotate-180" : ""
-                    }`}
-                  />
+                    <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${isProjectsOpen ? "rotate-180" : ""}`} />
                 </button>
 
                 {isProjectsOpen && (
@@ -158,8 +171,10 @@ export function Navigation() {
 
               <Link
                 to="/contacto"
-                className="text-sm text-foreground/70 hover:text-primary transition-colors"
-                onClick={() => setIsOpen(false)}
+                className="text-sm transition-colors"
+                style={{ color: "var(--foreground)" }}
+                onMouseEnter={e => (e.currentTarget.style.color = "var(--primary)")}
+                onMouseLeave={e => (e.currentTarget.style.color = "var(--foreground)")}
               >
                 Contacto
               </Link>

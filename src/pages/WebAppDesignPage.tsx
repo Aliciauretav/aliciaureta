@@ -36,9 +36,9 @@ const beforeAfter = {
 };
 
 const keyImages = [
-  { label: "Arquitectura de información", desc: "Muestra el razonamiento estructural del rediseño", src: "https://aliciaureta.com/image/teamwork-ai.jpg" },
-  { label: "Mockup final Hi-Fi", desc: "Pantalla representativa del resultado", src: "https://aliciaureta.com/image/teamwork-mockup.jpg" },
-  { label: "Digitalización de informes", desc: "Proceso de transformación de documentos clave", src: "https://aliciaureta.com/image/teamwork-docs.jpg" },
+  { label: "Arquitectura de información", desc: "Muestra el razonamiento estructural del rediseño", src: "https://aliciaureta.com/image/arquitecturaTW.png" },
+  { label: "Mockup final Hi-Fi", desc: "Pantalla representativa del resultado", src: "https://aliciaureta.com/image/mockupTW.png" },
+  { label: "Digitalización de informes", desc: "Proceso de transformación de documentos clave", src: "https://aliciaureta.com/image/informeTW.png" },
 ];
 
 export function WebAppDesignPage() {
@@ -51,12 +51,32 @@ export function WebAppDesignPage() {
         <section className="py-12 px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
 
-            <Button variant="ghost" className="group/back mb-8 hover:bg-secondary -ml-3" asChild>
-              <Link to="/">
-                <ArrowLeft className="mr-2 w-4 h-4 group-hover/back:-translate-x-1 transition-transform" />
-                Volver
-              </Link>
-            </Button>
+            <button
+            onClick={() => window.history.back()}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "8px",
+              fontSize: "14px",
+              color: "var(--foreground-muted)",
+              background: "none",
+              border: "none",
+              cursor: "pointer",
+              marginBottom: "2rem",
+              padding: "0",
+            }}
+            onMouseEnter={e => {
+              e.currentTarget.style.color = "var(--primary)";
+              e.currentTarget.style.textDecoration = "underline";
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.color = "var(--foreground-muted)";
+              e.currentTarget.style.textDecoration = "none";
+            }}
+          >
+            <ArrowLeft className="w-4 h-4" />
+            <span>Volver</span>
+          </button>
 
             <div className="bg-card border border-border rounded-3xl overflow-hidden">
 
@@ -64,7 +84,7 @@ export function WebAppDesignPage() {
               <div className="grid lg:grid-cols-2">
                 <div className="aspect-[4/3] lg:aspect-auto overflow-hidden bg-[#E8F0F5]">
                   <img
-                    src="https://aliciaureta.com/image/teamwork-cover.jpg"
+                    src="https://aliciaureta.com/image/teamwork-cover.png"
                     alt="Digitalización RRHH Teamwork"
                     className="w-full h-full object-cover"
                     onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
@@ -164,7 +184,7 @@ export function WebAppDesignPage() {
               {/* Proceso */}
               <div className="px-8 lg:px-12 py-12 border-t border-border">
                 <p className="text-xs font-medium tracking-widest uppercase text-primary mb-8">Proceso de diseño</p>
-                <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
+                <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))", gap: "1rem" }}>
                   {process.map((step, i) => {
                     const Icon = step.icon;
                     return (
@@ -174,7 +194,7 @@ export function WebAppDesignPage() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: i * 0.08 }}
-                        className="flex-1 min-w-[140px] max-w-[180px] rounded-2xl p-5 border border-border text-center bg-muted hover:border-primary/20 transition-colors"
+                        className="rounded-2xl border border-border text-center bg-muted hover:border-primary/20 transition-colors" style={{ padding: "1.5rem" }}
                       >
                         <div className="w-10 h-10 rounded-full flex items-center justify-center mx-auto mb-3 border border-border" style={{ background: "var(--background-3)" }}>
                           <Icon className="w-4 h-4 text-primary" strokeWidth={1.5} />
@@ -218,16 +238,18 @@ export function WebAppDesignPage() {
                 </p>
               </div>
 
-              {/* CTA */}
+           {/* CTA */}
               <div className="px-8 lg:px-12 py-12 border-t border-border bg-muted/40">
                 <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
                   <div>
                     <p className="text-lg font-medium text-foreground mb-1" style={{ fontFamily: "var(--font-serif)" }}>
                       ¿Te interesa saber más sobre este proyecto?
                     </p>
-                    <p className="text-sm text-foreground/50">Contáctame y hablemos</p>
+                    <a href="https://www.notion.so/aliciaureta/Digitalizaci-n-del-proceso-de-atracci-n-de-talento-en-Teamwork-858b3582d80444e8879397290c9e9670" target="_blank" rel="noopener noreferrer" className="text-sm transition-colors" style={{ color: "var(--primary)" }} onMouseEnter={e => (e.currentTarget.style.textDecoration = "underline")} onMouseLeave={e => (e.currentTarget.style.textDecoration = "none")}>
+                      Ver documentación completa en Notion →
+                    </a>
                   </div>
-                  <Button variant="outline" className="group/btn hover:border-primary hover:text-primary" asChild>
+                  <Button variant="outline" className="group/btn" style={{ borderColor: "var(--border)" }} asChild>
                     <Link to="/contacto">
                       Contactar
                       <ArrowUpRight className="ml-2 w-4 h-4 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />

@@ -18,7 +18,7 @@ const metrics = [
 
 export function MetricsBar() {
   return (
-    <div className="py-16 px-6 lg:px-8" style={{ background: "var(--foreground)" }}>
+    <div className="px-6 lg:px-8" style={{ background: "var(--foreground)", paddingTop: "4rem", paddingBottom: "4rem" }}>
       <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-8 text-center">
         {metrics.map((m, i) => (
           <div key={i}>

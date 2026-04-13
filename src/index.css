@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap');
 /*! tailwindcss v4.1.3 | MIT License | https://tailwindcss.com */
 @layer properties {
   @supports (((-webkit-hyphens: none)) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
@@ -2445,43 +2445,50 @@
 
 :root {
   --font-size: 16px;
-  --background: #f5f3f0;
-  --foreground: #1a1b2e;
-  --card: #fff;
-  --card-foreground: #1a1b2e;
-  --popover: #fff;
-  --popover-foreground: #1a1b2e;
-  --primary: #2a3a5a;
-  --primary-foreground: #fff;
-  --secondary: #8b9fd9;
-  --secondary-foreground: #1a1b2e;
-  --muted: #f5f3f0;
-  --muted-foreground: #6b7280;
-  --accent: #8cb3ce;
-  --accent-foreground: #1a1b2e;
-  --destructive: #d997a5;
-  --destructive-foreground: #fff;
-  --border: #2a3a5a1a;
+  --background: #FAFAF8;
+  --background-2: #F1EFE8;
+  --background-3: #EDE8F5;
+  --foreground: #2C2C2A;
+  --foreground-muted: #5F5E5A;
+  --foreground-subtle: #9C9A92;
+  --card: #ffffff;
+  --card-foreground: #2C2C2A;
+  --popover: #ffffff;
+  --popover-foreground: #2C2C2A;
+  --primary: #6B4F8C;
+  --primary-foreground: #ffffff;
+  --primary-light: #EDE8F5;
+  --secondary: #EDE8F5;
+  --secondary-foreground: #2C2C2A;
+  --muted: #F1EFE8;
+  --muted-foreground: #5F5E5A;
+  --accent: #6B4F8C;
+  --accent-foreground: #ffffff;
+  --destructive: #C0392B;
+  --destructive-foreground: #ffffff;
+  --border: rgba(44, 44, 42, 0.1);
   --input: transparent;
-  --input-background: #fff;
-  --switch-background: #c9ddf7;
+  --input-background: #ffffff;
+  --switch-background: #EDE8F5;
   --font-weight-medium: 500;
   --font-weight-normal: 400;
-  --ring: #8b9fd9;
-  --chart-1: #8b9fd9;
-  --chart-2: #c9ddf7;
-  --chart-3: #d997a5;
-  --chart-4: #2a3a5a;
-  --chart-5: #1a1b2e;
+  --ring: #6B4F8C;
+  --chart-1: #6B4F8C;
+  --chart-2: #EDE8F5;
+  --chart-3: #9C7AB5;
+  --chart-4: #2C2C2A;
+  --chart-5: #5F5E5A;
   --radius: .75rem;
-  --sidebar: #fff;
-  --sidebar-foreground: #1a1b2e;
-  --sidebar-primary: #2a3a5a;
-  --sidebar-primary-foreground: #fff;
-  --sidebar-accent: #f5f3f0;
-  --sidebar-accent-foreground: #1a1b2e;
-  --sidebar-border: #2a3a5a1a;
-  --sidebar-ring: #8b9fd9;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #2C2C2A;
+  --sidebar-primary: #6B4F8C;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #F1EFE8;
+  --sidebar-accent-foreground: #2C2C2A;
+  --sidebar-border: rgba(44, 44, 42, 0.1);
+  --sidebar-ring: #6B4F8C;
+  --font-serif: 'DM Serif Display', Georgia, serif;
+  --font-sans: 'DM Sans', system-ui, sans-serif;
 }
 
 .dark {

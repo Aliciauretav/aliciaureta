@@ -54,12 +54,32 @@ export function WebDesignPage() {
         <section className="py-12 px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
 
-            <Button variant="ghost" className="group/back mb-8 hover:bg-secondary -ml-3" asChild>
-              <Link to="/">
-                <ArrowLeft className="mr-2 w-4 h-4 group-hover/back:-translate-x-1 transition-transform" />
-                Volver
-              </Link>
-            </Button>
+           <button
+            onClick={() => window.history.back()}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "8px",
+              fontSize: "14px",
+              color: "var(--foreground-muted)",
+              background: "none",
+              border: "none",
+              cursor: "pointer",
+              marginBottom: "2rem",
+              padding: "0",
+            }}
+            onMouseEnter={e => {
+              e.currentTarget.style.color = "var(--primary)";
+              e.currentTarget.style.textDecoration = "underline";
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.color = "var(--foreground-muted)";
+              e.currentTarget.style.textDecoration = "none";
+            }}
+          >
+            <ArrowLeft className="w-4 h-4" />
+            <span>Volver</span>
+          </button>
 
             <div className="bg-card border border-border rounded-3xl overflow-hidden">
 
@@ -67,7 +87,7 @@ export function WebDesignPage() {
               <div className="grid lg:grid-cols-2">
                 <div className="aspect-[4/3] lg:aspect-auto overflow-hidden bg-[#EEF2F0]">
                   <img
-                    src="https://aliciaureta.com/image/dirplan-cover.jpg"
+                    src="https://aliciaureta.com/image/dirplan-cover.png"
                     alt="Rediseño DIRPLAN"
                     className="w-full h-full object-cover"
                     onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
@@ -122,7 +142,7 @@ export function WebDesignPage() {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: i * 0.08 }}
-                      className="rounded-xl p-5 border border-border bg-muted hover:border-primary/20 transition-colors"
+                      className="rounded-xl border border-border bg-muted hover:border-primary/20 transition-colors" style={{ padding: "1.5rem" }}
                     >
                       <p className="text-sm font-medium text-foreground mb-2">{c.title}</p>
                       <p className="text-xs text-foreground/55 leading-relaxed">{c.desc}</p>
@@ -161,7 +181,7 @@ export function WebDesignPage() {
               {/* Proceso */}
               <div className="px-8 lg:px-12 py-12 border-t border-border">
                 <p className="text-xs font-medium tracking-widest uppercase text-primary mb-8">Proceso de diseño</p>
-                <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
+                <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))", gap: "1rem" }}>
                   {process.map((step, i) => {
                     const Icon = step.icon;
                     return (
@@ -171,7 +191,7 @@ export function WebDesignPage() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: i * 0.08 }}
-                        className="flex-1 min-w-[130px] max-w-[160px] rounded-2xl p-5 border border-border text-center bg-muted hover:border-primary/20 transition-colors"
+                        className="rounded-2xl border border-border text-center bg-muted hover:border-primary/20 transition-colors" style={{ padding: "1.5rem" }}
                       >
                         <div className="w-10 h-10 rounded-full flex items-center justify-center mx-auto mb-3 border border-border" style={{ background: "var(--background-3)" }}>
                           <Icon className="w-4 h-4 text-primary" strokeWidth={1.5} />
@@ -218,12 +238,12 @@ export function WebDesignPage() {
 
                 {/* Capturas antes/después */}
                 <div className="grid md:grid-cols-2 gap-4">
-                  {["https://aliciaureta.com/image/dirplan-before.jpg", "https://aliciaureta.com/image/dirplan-after.jpg"].map((src, i) => (
+                  {["https://aliciaureta.com/image/dir_old.png", "https://aliciaureta.com/image/dir_new.png"].map((src, i) => (
                     <div key={i} className="rounded-xl overflow-hidden border border-border bg-muted aspect-[4/3]">
                       <img
                         src={src}
                         alt={i === 0 ? "Sitio antes del rediseño" : "Sitio después del rediseño"}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-contain"
                         onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
                       />
                     </div>
@@ -246,9 +266,11 @@ export function WebDesignPage() {
                     <p className="text-lg font-medium text-foreground mb-1" style={{ fontFamily: "var(--font-serif)" }}>
                       ¿Te interesa saber más sobre este proyecto?
                     </p>
-                    <p className="text-sm text-foreground/50">Contáctame y hablemos</p>
+                    <a href="https://www.notion.so/aliciaureta/Redise-o-sitio-web-Dirplan-MOP-Gobierno-de-Chile-1ffd24bbae704503b51eb18cb929a8c2" target="_blank" rel="noopener noreferrer" className="text-sm transition-colors" style={{ color: "var(--primary)" }} onMouseEnter={e => (e.currentTarget.style.textDecoration = "underline")} onMouseLeave={e => (e.currentTarget.style.textDecoration = "none")}>
+                      Ver documentación completa en Notion →
+                    </a>
                   </div>
-                  <Button variant="outline" className="group/btn hover:border-primary hover:text-primary" asChild>
+                  <Button variant="outline" className="group/btn" style={{ borderColor: "var(--border)" }} asChild>
                     <Link to="/contacto">
                       Contactar
                       <ArrowUpRight className="ml-2 w-4 h-4 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />

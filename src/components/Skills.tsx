@@ -33,9 +33,9 @@ const tools = [
 
 export function Skills() {
   return (
-    <section className="py-24 px-6 lg:px-8 bg-muted">
+    <section className="pb-24 px-6 lg:px-8 bg-muted" style={{ paddingTop: "8rem" }}>
       <div className="max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-3 gap-12 lg:gap-16">
+        <div style={{ display: "flex", flexDirection: "column", gap: "3rem" }}>
 
           {/* Intro */}
           <div className="lg:col-span-1">
@@ -58,7 +58,7 @@ export function Skills() {
           </div>
 
           {/* Habilidades */}
-          <div className="lg:col-span-2 flex flex-col gap-10">
+          <div className="lg:col-span-2 flex flex-col" style={{ gap: "3rem" }}>
 
             {/* Nivel 1 — Liderazgo */}
             <div>
@@ -96,7 +96,7 @@ export function Skills() {
                 </p>
                 <span className="flex-1 h-px bg-border" />
               </div>
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: "0.75rem" }}>
                 {processSkills.map((s) => (
                   <div
                     key={s.title}
@@ -114,7 +114,7 @@ export function Skills() {
             </div>
 
             {/* Nivel 3 — Herramientas */}
-            <div>
+            <div style={{ paddingBottom: "2rem" }}>
               <div className="flex items-center gap-3 mb-5">
                 <p className="text-xs font-medium tracking-widest uppercase text-foreground/40">
                   Herramientas

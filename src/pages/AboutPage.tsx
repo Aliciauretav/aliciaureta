@@ -31,12 +31,24 @@ const workTimeline = [
 ];
 
 const studyTimeline = [
-  {
+   {
     title: "Diplomado en Estrategia y Experiencia de Productos en la Era de la IA",
     org: "FEN — Universidad de Chile",
     date: "Mayo 2025 — en curso",
     desc: "Estrategia de producto, liderazgo UX e inteligencia artificial",
     highlight: true,
+  },
+   {
+    title: "Transformaciones digital con IA y Automatización (150 hrs)",
+    org: "Desafío Latam",
+    date: "2025",
+    desc: "",
+  },
+  {
+    title: "Paleta de colores accesibles",
+    org: "Weaaare",
+    date: "2025",
+    desc: "",
   },
   {
     title: "UX Writing para Principiantes",
@@ -75,7 +87,7 @@ export function AboutPage() {
       <main className="pt-20">
 
         {/* Hero */}
-        <section className="pt-24 pb-16 px-6 lg:px-8">
+        <section className="pt-24 px-6 lg:px-8" style={{ paddingBottom: "5rem" }}>
           <div className="max-w-7xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -109,7 +121,7 @@ export function AboutPage() {
         </section>
 
         {/* Historia + Foto */}
-        <section className="py-16 px-6 lg:px-8 bg-muted">
+        <section className="px-6 lg:px-8 bg-muted" style={{ paddingTop: "5rem", paddingBottom: "5rem" }}>
           <div className="max-w-7xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
@@ -123,7 +135,7 @@ export function AboutPage() {
               >
                 <div className="relative rounded-3xl overflow-hidden aspect-[3/4] max-w-sm mx-auto lg:mx-0 bg-secondary border border-border">
                   <img
-                    src="https://aliciaureta.com/image/alicia-about.jpg"
+                    src="https://aliciaureta.com/image/alicia-about.png"
                     alt="Alicia Ureta"
                     className="w-full h-full object-cover object-center"
                     onError={(e) => {
@@ -188,218 +200,135 @@ export function AboutPage() {
           </div>
         </section>
 
-        {/* Timeline dual */}
-        <section className="py-24 px-6 lg:px-8">
-          <div className="max-w-7xl mx-auto">
+       {/* Timeline */}
+<section className="px-6 lg:px-8" style={{ paddingTop: "5rem", paddingBottom: "5rem" }}>
+  <div className="max-w-7xl mx-auto">
 
+    <motion.div
+      initial={{ opacity: 0, y: 16 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      style={{ marginBottom: "3rem" }}
+    >
+      <div className="flex items-center gap-3 mb-4">
+        <span className="w-6 h-px bg-primary" />
+        <p className="text-xs font-medium tracking-widest uppercase text-primary">
+          Trayectoria
+        </p>
+      </div>
+      <h2
+        className="text-3xl lg:text-4xl text-foreground"
+        style={{ fontFamily: "var(--font-serif)", letterSpacing: "-0.02em" }}
+      >
+        Experiencia y formación
+      </h2>
+    </motion.div>
+
+    {/* Grid responsivo */}
+    <div style={{
+      display: "grid",
+      gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+      gap: "2rem",
+      alignItems: "start"
+    }}>
+
+      {/* Columna Trabajo */}
+      <div>
+        <div style={{
+          display: "flex", alignItems: "center", gap: "8px",
+          marginBottom: "1.5rem", paddingBottom: "1rem",
+          borderBottom: "1px solid var(--border)"
+        }}>
+          <span style={{ width: "8px", height: "8px", borderRadius: "50%", background: "var(--primary)", display: "inline-block" }} />
+          <p style={{ fontSize: "11px", fontWeight: 500, letterSpacing: ".1em", textTransform: "uppercase", color: "var(--primary)" }}>
+            Experiencia laboral
+          </p>
+        </div>
+        <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+          {workTimeline.map((item, i) => (
             <motion.div
-              initial={{ opacity: 0, y: 16 }}
+              key={i}
+              initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="mb-12"
+              transition={{ delay: i * 0.08 }}
+              style={{
+                background: "var(--card)",
+                border: "1px solid var(--border)",
+                borderRadius: "12px",
+                padding: "1.25rem"
+              }}
             >
-              <div className="flex items-center gap-3 mb-4">
-                <span className="w-6 h-px bg-primary" />
-                <p className="text-xs font-medium tracking-widest uppercase text-primary">
-                  Trayectoria
+              <div style={{ display: "flex", justifyContent: "space-between", gap: "8px", marginBottom: "4px" }}>
+                <p style={{ fontSize: "14px", fontWeight: 500, color: "var(--foreground)", fontFamily: "var(--font-serif)" }}>
+                  {item.title}
                 </p>
+                <span style={{ fontSize: "11px", color: "var(--foreground-subtle)", whiteSpace: "nowrap", flexShrink: 0 }}>
+                  {item.date}
+                </span>
               </div>
-              <h2
-                className="text-3xl lg:text-4xl text-foreground"
-                style={{ fontFamily: "var(--font-serif)", letterSpacing: "-0.02em" }}
-              >
-                Experiencia y formación
-              </h2>
+              <p style={{ fontSize: "12px", color: "var(--primary)", marginBottom: "6px" }}>{item.org}</p>
+              {item.desc && <p style={{ fontSize: "12px", color: "var(--foreground-muted)", lineHeight: 1.6 }}>{item.desc}</p>}
             </motion.div>
+          ))}
+        </div>
+      </div>
 
-            {/* Desktop: grid dual */}
-            <div className="hidden lg:grid lg:grid-cols-[1fr_40px_1fr] gap-0">
-
-              {/* Headers */}
-              <div className="pb-6 border-b border-border">
-                <span className="text-xs font-medium tracking-widest uppercase text-primary flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-primary inline-block" />
-                  Experiencia laboral
+      {/* Columna Formación */}
+      <div>
+        <div style={{
+          display: "flex", alignItems: "center", gap: "8px",
+          marginBottom: "1.5rem", paddingBottom: "1rem",
+          borderBottom: "1px solid var(--border)"
+        }}>
+          <span style={{ width: "8px", height: "8px", borderRadius: "50%", background: "var(--foreground-subtle)", display: "inline-block" }} />
+          <p style={{ fontSize: "11px", fontWeight: 500, letterSpacing: ".1em", textTransform: "uppercase", color: "var(--foreground-subtle)" }}>
+            Formación
+          </p>
+        </div>
+        <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+          {studyTimeline.map((item, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.08 }}
+              style={{
+                background: item.highlight ? "var(--background-3)" : "var(--card)",
+                border: item.highlight ? "1px solid rgba(107,79,140,0.2)" : "1px solid var(--border)",
+                borderRadius: "12px",
+                padding: "1.25rem"
+              }}
+            >
+              <div style={{ display: "flex", justifyContent: "space-between", gap: "8px", marginBottom: "4px" }}>
+                <p style={{ fontSize: "14px", fontWeight: 500, color: item.highlight ? "var(--primary)" : "var(--foreground)", fontFamily: "var(--font-serif)" }}>
+                  {item.title}
+                </p>
+                <span style={{
+                  fontSize: "11px",
+                  color: item.highlight ? "var(--primary)" : "var(--foreground-subtle)",
+                  whiteSpace: "nowrap",
+                  flexShrink: 0,
+                  background: item.highlight ? "rgba(107,79,140,0.1)" : "transparent",
+                  padding: item.highlight ? "2px 8px" : "0",
+                  borderRadius: "20px"
+                }}>
+                  {item.date}
                 </span>
               </div>
-              <div />
-              <div className="pb-6 border-b border-border">
-                <span className="text-xs font-medium tracking-widest uppercase text-foreground/40 flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-foreground/30 inline-block" />
-                  Formación
-                </span>
-              </div>
+              <p style={{ fontSize: "12px", color: item.highlight ? "var(--primary)" : "var(--foreground-muted)", marginBottom: "6px" }}>
+                {item.org}
+              </p>
+              {item.desc && <p style={{ fontSize: "12px", color: "var(--foreground-muted)", lineHeight: 1.6 }}>{item.desc}</p>}
+            </motion.div>
+          ))}
+        </div>
+      </div>
 
-              {/* Filas */}
-              {Array.from({ length: Math.max(workTimeline.length, studyTimeline.length) }).map((_, i) => {
-                const work = workTimeline[i];
-                const study = studyTimeline[i];
-                return (
-                  <div key={i} className="contents">
-                    {/* Trabajo */}
-                    <div className="py-6 pr-8">
-                      {work && (
-                        <motion.div
-                          initial={{ opacity: 0, x: -16 }}
-                          whileInView={{ opacity: 1, x: 0 }}
-                          viewport={{ once: true }}
-                          transition={{ delay: i * 0.08 }}
-                          className="bg-card border border-border rounded-xl p-5 hover:border-primary/30 hover:shadow-sm transition-all"
-                        >
-                          <div className="flex items-start justify-between gap-2 mb-1">
-                            <p
-                              className="text-sm font-medium text-foreground"
-                              style={{ fontFamily: "var(--font-serif)" }}
-                            >
-                              {work.title}
-                            </p>
-                            <span className="text-xs text-foreground/40 whitespace-nowrap shrink-0">
-                              {work.date}
-                            </span>
-                          </div>
-                          <p className="text-xs text-primary mb-2">{work.org}</p>
-                          {work.desc && (
-                            <p className="text-xs text-foreground/50 leading-relaxed">
-                              {work.desc}
-                            </p>
-                          )}
-                        </motion.div>
-                      )}
-                    </div>
-
-                    {/* Línea central */}
-                    <div className="flex flex-col items-center py-6">
-                      <div
-                        className="w-2.5 h-2.5 rounded-full mt-5 shrink-0"
-                        style={{ background: work ? "var(--primary)" : "var(--foreground-subtle)" }}
-                      />
-                      <div className="flex-1 w-px bg-border mt-2" />
-                    </div>
-
-                    {/* Estudio */}
-                    <div className="py-6 pl-8">
-                      {study && (
-                        <motion.div
-                          initial={{ opacity: 0, x: 16 }}
-                          whileInView={{ opacity: 1, x: 0 }}
-                          viewport={{ once: true }}
-                          transition={{ delay: i * 0.08 + 0.04 }}
-                          className={`rounded-xl p-5 transition-all hover:shadow-sm ${
-                            study.highlight
-                              ? "bg-primary/5 border border-primary/20 hover:border-primary/40"
-                              : "bg-card border border-border hover:border-foreground/20"
-                          }`}
-                        >
-                          <div className="flex items-start justify-between gap-2 mb-1">
-                            <p
-                              className={`text-sm font-medium ${
-                                study.highlight ? "text-primary" : "text-foreground"
-                              }`}
-                              style={{ fontFamily: "var(--font-serif)" }}
-                            >
-                              {study.title}
-                            </p>
-                            <span
-                              className={`text-xs whitespace-nowrap shrink-0 ${
-                                study.highlight
-                                  ? "text-primary/70 bg-primary/10 px-2 py-0.5 rounded-full"
-                                  : "text-foreground/40"
-                              }`}
-                            >
-                              {study.date}
-                            </span>
-                          </div>
-                          <p
-                            className={`text-xs mb-2 ${
-                              study.highlight ? "text-primary/70" : "text-foreground/50"
-                            }`}
-                          >
-                            {study.org}
-                          </p>
-                          {study.desc && (
-                            <p className="text-xs text-foreground/50 leading-relaxed">
-                              {study.desc}
-                            </p>
-                          )}
-                        </motion.div>
-                      )}
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-
-            {/* Mobile: columnas separadas */}
-            <div className="lg:hidden space-y-12">
-              <div>
-                <p className="text-xs font-medium tracking-widest uppercase text-primary mb-6 flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-primary inline-block" />
-                  Experiencia laboral
-                </p>
-                <div className="space-y-4 border-l-2 border-border pl-6">
-                  {workTimeline.map((item, i) => (
-                    <motion.div
-                      key={i}
-                      initial={{ opacity: 0, y: 12 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: i * 0.08 }}
-                      className="bg-card border border-border rounded-xl p-5 relative"
-                    >
-                      <div className="absolute -left-[1.85rem] top-5 w-2.5 h-2.5 rounded-full bg-primary border-2 border-background" />
-                      <div className="flex items-start justify-between gap-2 mb-1">
-                        <p className="text-sm font-medium text-foreground">{item.title}</p>
-                        <span className="text-xs text-foreground/40 whitespace-nowrap shrink-0">{item.date}</span>
-                      </div>
-                      <p className="text-xs text-primary mb-1">{item.org}</p>
-                      {item.desc && <p className="text-xs text-foreground/50">{item.desc}</p>}
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-              <div>
-                <p className="text-xs font-medium tracking-widest uppercase text-foreground/40 mb-6 flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-foreground/30 inline-block" />
-                  Formación
-                </p>
-                <div className="space-y-4 border-l-2 border-border pl-6">
-                  {studyTimeline.map((item, i) => (
-                    <motion.div
-                      key={i}
-                      initial={{ opacity: 0, y: 12 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: i * 0.08 }}
-                      className={`rounded-xl p-5 relative ${
-                        item.highlight
-                          ? "bg-primary/5 border border-primary/20"
-                          : "bg-card border border-border"
-                      }`}
-                    >
-                      <div
-                        className="absolute -left-[1.85rem] top-5 w-2.5 h-2.5 rounded-full border-2 border-background"
-                        style={{ background: item.highlight ? "var(--primary)" : "var(--foreground-subtle)" }}
-                      />
-                      <div className="flex items-start justify-between gap-2 mb-1">
-                        <p className={`text-sm font-medium ${item.highlight ? "text-primary" : "text-foreground"}`}>
-                          {item.title}
-                        </p>
-                        <span className={`text-xs whitespace-nowrap shrink-0 ${item.highlight ? "text-primary/70" : "text-foreground/40"}`}>
-                          {item.date}
-                        </span>
-                      </div>
-                      <p className={`text-xs mb-1 ${item.highlight ? "text-primary/70" : "text-foreground/50"}`}>
-                        {item.org}
-                      </p>
-                      {item.desc && <p className="text-xs text-foreground/50">{item.desc}</p>}
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </section>
+    </div>
+  </div>
+</section>
 
       </main>
       <Footer />

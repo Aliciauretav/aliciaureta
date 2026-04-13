@@ -14,7 +14,7 @@ const projects = [
       { num: "30%", label: "Reducción en\ntiempo de diseño" },
       { num: "+5", label: "Sitios bajo\ngobernanza unificada" },
     ],
-    image: "https://aliciaureta.com/image/afp-cover.jpg",
+    image: "https://aliciaureta.com/image/afp-cover.png",
     imageBg: "var(--background-3)",
     reverse: false,
   },
@@ -30,7 +30,7 @@ const projects = [
       { num: "60→4", label: "Inputs en el\nproceso de contratación" },
       { num: "+300", label: "Personas con\nflujo optimizado" },
     ],
-    image: "https://aliciaureta.com/image/teamwork-cover.jpg",
+    image: "https://aliciaureta.com/image/teamwork-cover.png",
     imageBg: "#E8F0F5",
     reverse: true,
   },
@@ -46,7 +46,7 @@ const projects = [
       { num: "65%", label: "Reducción en pasos\npara encontrar info" },
       { num: "88%", label: "Satisfacción en\npruebas de usabilidad" },
     ],
-    image: "https://aliciaureta.com/image/dirplan-cover.jpg",
+    image: "https://aliciaureta.com/image/dirplan-cover.png",
     imageBg: "#EEF2F0",
     reverse: false,
   },
@@ -54,7 +54,7 @@ const projects = [
 
 export function Projects() {
   return (
-    <section id="projects" className="py-24 px-6 lg:px-8">
+    <section id="projects" className="px-6 lg:px-8" style={{ paddingTop: "1rem", paddingBottom: "6rem" }}>
       <div className="max-w-7xl mx-auto">
 
         {/* Header */}
@@ -152,7 +152,18 @@ export function Projects() {
                 </div>
 
                 {/* CTA */}
-                <span className="inline-flex items-center gap-2 text-sm font-medium text-primary group-hover:gap-3 transition-all">
+                <span
+                  className="inline-flex items-center gap-2 text-sm font-medium transition-all"
+                  style={{ color: "var(--primary)" }}
+                  onMouseEnter={e => {
+                    (e.currentTarget as HTMLElement).style.color = "var(--foreground)";
+                    (e.currentTarget as HTMLElement).style.gap = "12px";
+                  }}
+                  onMouseLeave={e => {
+                    (e.currentTarget as HTMLElement).style.color = "var(--primary)";
+                    (e.currentTarget as HTMLElement).style.gap = "8px";
+                  }}
+                >
                   Ver caso completo
                   <ArrowRight className="w-4 h-4" />
                 </span>
