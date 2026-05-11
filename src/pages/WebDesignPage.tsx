@@ -20,11 +20,11 @@ const constraints = [
 ];
 
 const process = [
-  { step: "1", title: "Discover", icon: Search, items: ["Auditoría heurística", "Research competitivo"] },
-  { step: "2", title: "Define", icon: BookOpen, items: ["User personas", "Mapa de empatía"] },
-  { step: "3", title: "Ideate", icon: Layers, items: ["User flows", "Arquitectura de información"] },
-  { step: "4", title: "Design", icon: Pencil, items: ["Wireframes", "Prototipos Hi-Fi"] },
-  { step: "5", title: "Testing", icon: TestTube, items: ["Feedback", "Iteración"] },
+  { title: "Descubrir", desc: "Auditoría heurística y análisis del sitio existente" },
+{ title: "Definir", desc: "User personas, mapa de empatía y diagnóstico de navegación" },
+{ title: "Idear", desc: "User flows y nueva arquitectura de información" },
+{ title: "Diseñar", desc: "Wireframes y prototipos Hi-Fi dentro del Sistema Gubernamental" },
+{ title: "Validar", desc: "Feedback con stakeholders, iteración y handoff" },
 ];
 
 const beforeAfter = {
@@ -95,7 +95,7 @@ export function WebDesignPage() {
                 </div>
                 <div className="p-8 lg:p-12 flex flex-col justify-center">
                   <p className="text-xs font-medium tracking-widest uppercase text-primary mb-4">
-                    Consultoría UX · Sector Público · Rediseño
+                    Consultora UX/UI externa — investigación, arquitectura y diseño end-to-end
                   </p>
                   <h1
                     className="text-3xl lg:text-4xl text-foreground mb-5 leading-tight"
@@ -124,7 +124,7 @@ export function WebDesignPage() {
               <div className="px-8 lg:px-12 py-12 border-t border-border bg-muted/40">
                 <p className="text-xs font-medium tracking-widest uppercase text-primary mb-4">Propósito del proyecto</p>
                 <p className="text-lg text-foreground/70 leading-relaxed max-w-3xl">
-                  Modernizar la presencia digital de DIRPLAN a través de un rediseño integral enfocado en mejorar la accesibilidad, la usabilidad y la experiencia de usuario. Como consultora externa, tuve dos meses para investigar, diseñar y entregar una solución dentro de los estándares del Sistema de Diseño Gubernamental de Chile.
+                  El sitio de DIRPLAN tenía 7 niveles de navegación para llegar a un documento descargable — eso se traducía en alta tasa de rebote y ciudadanos que no encontraban información pública relevante. Como consultora externa con dos meses de plazo, el desafío fue diagnosticar el problema real, rediseñar la arquitectura de información y entregar una solución implementable dentro de los estándares del Sistema de Diseño Gubernamental.
                 </p>
               </div>
 
