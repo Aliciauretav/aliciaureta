@@ -110,7 +110,7 @@ export function Navigation() {
               asChild
             >
               <a
-                href="https://aliciaureta.com/image/CV_ALICIA_URETA_2026.pdf"
+                href="/CV_Alicia_Ureta_UX_Manager_2026.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -186,7 +186,7 @@ export function Navigation() {
                 asChild
               >
                 <a
-                  href="https://aliciaureta.com/image/CV_ALICIA_URETA.pdf"
+                  href="/CV_Alicia_Ureta_UX_Manager_2026.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
