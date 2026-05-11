@@ -13,11 +13,11 @@ const metrics = [
 ];
 
 const process = [
-  { step: "1", title: "Descubrir", icon: Search, desc: "Entrevistas con RRHH, mapeo de pain points y análisis del sistema existente" },
-  { step: "2", title: "Definir", icon: Layers, desc: "Arquitectura de información, flujos actuales vs. ideales" },
-  { step: "3", title: "Diseñar", icon: Eye, desc: "Wireframes, prototipos Hi-Fi, estandarización con UI Kit" },
-  { step: "4", title: "Validar", icon: TestTube, desc: "Testing con usuarios, iteración y ajustes" },
-  { step: "5", title: "Lanzar", icon: Rocket, desc: "Seguimiento post-lanzamiento y medición de resultados" },
+  { step: "1", title: "Descubrir", icon: Search, desc: "Entrevistas con RRHH, mapeo de pain points y auditoría del sistema existente" },
+  { step: "2", title: "Redefinir scope", icon: Layers, desc: "Detección de problema raíz en plataforma legada — decisión de ampliar el proyecto" },
+  { step: "3", title: "Diseñar", icon: Eye, desc: "Arquitectura de información, prototipos Hi-Fi y UI Kit unificado para dos stacks tecnológicos" },
+  { step: "4", title: "Validar", icon: TestTube, desc: "Testing con usuarios, iteración y ajustes sobre flujo real" },
+  { step: "5", title: "Lanzar", icon: Rocket, desc: "Seguimiento post-lanzamiento y medición de resultados con KPIs del área" },
 ];
 
 const beforeAfter = {
@@ -102,7 +102,7 @@ export function WebAppDesignPage() {
                   </h1>
                   <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm mb-6 w-fit" style={{ background: "var(--background-3)", color: "var(--primary)" }}>
                     <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-                    UX/UI Designer — ciclo completo
+                    UX/UI Designer — Liderazgo de producto y diseño end-to-end
                   </span>
                   <p className="text-foreground/60 leading-relaxed mb-6">
                     Teamwork Chile tenía una plataforma digital de reclutamiento que no funcionaba como debía: flujos incompletos, demasiados pasos y una experiencia que generaba errores y frustración en el equipo de RRHH.
@@ -121,7 +121,7 @@ export function WebAppDesignPage() {
               <div className="px-8 lg:px-12 py-12 border-t border-border bg-muted/40">
                 <p className="text-xs font-medium tracking-widest uppercase text-primary mb-4">Propósito del proyecto</p>
                 <p className="text-lg text-foreground/70 leading-relaxed max-w-3xl">
-                  Transformar el proceso manual de reclutamiento en una experiencia digital fluida que permitiera a los reclutadores gestionar candidatos de manera más eficiente y reducir errores operacionales. El desafío no era digitalizar desde cero, sino entender qué estaba fallando, rediseñar con criterio y construir algo que la gente realmente adoptara.
+                  Teamwork Chile necesitaba digitalizar su proceso de reclutamiento, pero el verdadero desafío apareció en el camino: la plataforma existente no validaba datos, el departamento se reestructuró a mitad del proyecto y el scope creció para incluir dos tecnologías distintas. Tomé la decisión de expandir el alcance, coordinar dos equipos en paralelo y crear un sistema de diseño que unificara los productos — porque sin eso, el rediseño no iba a funcionar.
                 </p>
               </div>
 
