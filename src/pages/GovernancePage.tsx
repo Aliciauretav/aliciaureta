@@ -104,7 +104,7 @@ export function GovernancePage() {
                   style={{ background: "var(--background-3)" }}
                 >
                   <img
-                    src="https://aliciaureta.com/image/afp-cover.png"
+                    src="/image/afp-cover.svg"
                     alt="Gobernanza de diseño AFP Modelo"
                     className="w-full h-full object-cover"
                     onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
