@@ -34,7 +34,7 @@ export function Navigation() {
           {/* Logo */}
           <Link to="/" className="flex items-center">
             <img
-              src="https://aliciaureta.com/image/LOGO.png"
+              src="/image/LOGO.png"
               alt="Alicia Ureta"
               className="h-12 w-auto object-contain"
             />
