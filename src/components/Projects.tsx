@@ -24,7 +24,7 @@ const projects = [
     category: "Product Design · UX Research",
     title: "De un proceso roto a una plataforma que la gente realmente usa",
     description:
-      "Rediseñé el proceso digital de reclutamiento de Teamwork Chile: de 60 inputs a 4, con mejora medible en la experiencia percibida por más de 300 personas.",
+      description: "Detecté que el problema no era de interfaz sino de arquitectura. Amplié el scope, coordiné dos equipos tecnológicos y diseñé un sistema unificado — de 60 inputs a 4, con impacto medible en más de 300 personas.",
     tags: ["UX Research", "Arquitectura de información", "Prototipado Hi-Fi", "Validación con usuarios"],
     metrics: [
       { num: "60→4", label: "Inputs en el\nproceso de contratación" },
