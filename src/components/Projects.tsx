@@ -38,8 +38,7 @@ const projects = [
     href: "/proyectos/web-design",
     category: "Consultoría UX · Sector Público",
     title: "Rediseñar un sitio institucional del Estado con restricciones reales",
-    description:
-      "Rediseñé el sitio oficial de DIRPLAN para su migración a WordPress, trabajando dentro del Sistema de Diseño Gubernamental y reduciendo en un 65% los pasos para acceder a información clave.",
+    description: "Rediseñé el sitio oficial de DIRPLAN para su migración a WordPress, trabajando dentro del Sistema de Diseño Gubernamental y reduciendo en un 65% los pasos para acceder a información clave.",
     tags: ["Consultoría externa", "Mobile First", "Sistema Gubernamental", "Accesibilidad"],
     metrics: [
       { num: "65%", label: "Reducción en pasos\npara encontrar info" },
