@@ -87,7 +87,7 @@ export function WebDesignPage() {
               <div className="grid lg:grid-cols-2">
                 <div className="aspect-[4/3] lg:aspect-auto overflow-hidden bg-[#EEF2F0]">
                   <img
-                    src="https://aliciaureta.com/image/dirplan-cover.png"
+                    src="/image/dirplan-cover.png"
                     alt="Rediseño DIRPLAN"
                     className="w-full h-full object-cover"
                     onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
@@ -238,7 +238,7 @@ export function WebDesignPage() {
 
                 {/* Capturas antes/después */}
                 <div className="grid md:grid-cols-2 gap-4">
-                  {["https://aliciaureta.com/image/dir_old.png", "https://aliciaureta.com/image/dir_new.png"].map((src, i) => (
+                  {["/image/dir_old.png", "/image/dir_new.png"].map((src, i) => (
                     <div key={i} className="rounded-xl overflow-hidden border border-border bg-muted aspect-[4/3]">
                       <img
                         src={src}
