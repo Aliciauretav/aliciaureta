@@ -135,7 +135,7 @@ export function AboutPage() {
               >
                 <div className="relative rounded-3xl overflow-hidden aspect-[3/4] max-w-sm mx-auto lg:mx-0 bg-secondary border border-border">
                   <img
-                    src="https://aliciaureta.com/image/alicia-about.png"
+                    src="/image/alicia-about.png"
                     alt="Alicia Ureta"
                     className="w-full h-full object-cover object-center"
                     onError={(e) => {
