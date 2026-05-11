@@ -22,7 +22,7 @@ const projects = [
     id: "web-app-design",
     href: "/proyectos/web-app-design",
     category: "Product Design · UX Research",
-    title: "De un proceso roto a una plataforma que la gente realmente usa",
+    title: "De un proceso roto a una plataforma que la gente realmente usa", 
       description: "Detecté que el problema no era de interfaz sino de arquitectura. Amplié el scope, coordiné dos equipos tecnológicos y diseñé un sistema unificado — de 60 inputs a 4, con impacto medible en más de 300 personas.",
     tags: ["UX Research", "Arquitectura de información", "Prototipado Hi-Fi", "Validación con usuarios"],
     metrics: [
