@@ -36,8 +36,8 @@ const beforeAfter = {
 };
 
 const keyImages = [
-  { label: "Arquitectura de información", desc: "Muestra el razonamiento estructural del rediseño", src: "https://aliciaureta.com/image/arquitecturaTW.png" },
-  { label: "Mockup final Hi-Fi", desc: "Pantalla representativa del resultado", src: "https://aliciaureta.com/image/mockupTW.png" },
+  { label: "Arquitectura de información", desc: "Muestra el razonamiento estructural del rediseño", src: "/image/arquitecturaTW.png" },
+  { label: "Mockup final Hi-Fi", desc: "Pantalla representativa del resultado", src: "/image/mockupTW.png" },
   { label: "Digitalización de informes", desc: "Proceso de transformación de documentos clave", src: "https://aliciaureta.com/image/informeTW.png" },
 ];
 
@@ -84,7 +84,7 @@ export function WebAppDesignPage() {
               <div className="grid lg:grid-cols-2">
                 <div className="aspect-[4/3] lg:aspect-auto overflow-hidden bg-[#E8F0F5]">
                   <img
-                    src="https://aliciaureta.com/image/teamwork-cover.png"
+                    src="/image/teamwork-cover.png"
                     alt="Digitalización RRHH Teamwork"
                     className="w-full h-full object-cover"
                     onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
