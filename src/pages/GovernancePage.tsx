@@ -15,16 +15,16 @@ const metrics = [
 
 const workDone = {
   sistema: [
-    "Auditoría de componentes y patrones existentes",
-    "Definición de estructura y nomenclatura bajo Atomic Design",
-    "Implementación de Design Tokens y UI Kit corporativo",
-    "Criterios de accesibilidad y escalabilidad en el sistema",
+    "Auditoría del estado real del sistema antes de definir qué conservar",
+    "Estructura Atomic Design para escalar sin duplicar componentes",
+    "Design Tokens como capa de decisión entre diseño y desarrollo",
+    "Criterios de accesibilidad integrados al sistema, no aplicados después",
   ],
   gestion: [
-    "Establecimiento de procesos de revisión de entregables",
-    "Coordinación con stakeholders para priorizar iniciativas",
-    "Facilitación de sesiones colaborativas",
-    "Acompañamiento hasta validación en producción",
+    "Proceso de revisión que redujo iteraciones tardías con desarrollo",
+    "Priorización con stakeholders basada en métricas de experiencia corporativas",
+    "Sesiones colaborativas para alinear criterios entre productos y equipos",
+    "Seguimiento hasta producción para garantizar coherencia en implementación",
   ],
 };
 
@@ -141,7 +141,7 @@ export function GovernancePage() {
               <div className="px-8 lg:px-12 py-12 border-t border-border bg-muted/40">
                 <p className="text-xs font-medium tracking-widest uppercase text-primary mb-4">Propósito del proyecto</p>
                 <p className="text-lg text-foreground/70 leading-relaxed max-w-3xl">
-                  AFP Modelo contaba con métricas de experiencia definidas a nivel corporativo. Mi rol fue construir la infraestructura de diseño que permitiera al equipo trabajar de forma consistente, eficiente y alineada a esos objetivos — creando el sistema que hace que el buen diseño sea sostenible en el tiempo, no dependiente del esfuerzo individual.
+                  Sin un sistema de diseño, cada producto se construía desde cero: criterios inconsistentes, deuda visual acumulada y decisiones que dependían de quién estaba disponible. Mi rol fue construir la infraestructura que lo cambiara — gobernanza, componentes y tokens que permitieran al equipo trabajar de forma consistente y alineada a los objetivos de experiencia corporativos.
                 </p>
               </div>
 
@@ -174,7 +174,7 @@ export function GovernancePage() {
 
               {/* Trabajo realizado */}
               <div className="px-8 lg:px-12 py-12 border-t border-border bg-muted/40">
-                <p className="text-xs font-medium tracking-widest uppercase text-primary mb-8">Trabajo realizado</p>
+                <p className="text-xs font-medium tracking-widest uppercase text-primary mb-8">Decisiones clave</p>
                 <div className="grid md:grid-cols-2 gap-8">
                   <div>
                     <p className="text-sm font-medium text-foreground mb-4 flex items-center gap-2">
