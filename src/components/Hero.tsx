@@ -68,7 +68,7 @@ export function Hero() {
                  <Button
                   size="lg"
                   variant="outline"
-                  className="rounded-lg"
+                  className="rounded-lg border-2"
                   style={{ borderColor: "var(--border)" }}
                   onMouseEnter={e => {
                     const btn = e.currentTarget as HTMLElement;
