@@ -50,23 +50,23 @@ export function Contact() {
             <h2 className="text-4xl lg:text-5xl text-foreground mb-4" style={{ fontFamily: "var(--font-serif)", letterSpacing: "-0.02em" }}>
               Hablemos
             </h2>
-            <p className="text-foreground/60 leading-relaxed mb-8 max-w-sm">
+            <p className="text-foreground/75 leading-relaxed mb-8 max-w-sm">
               Estoy siempre abierta a nuevas oportunidades y colaboraciones. ¿Tienes algo en mente? Me encantaría escucharte.
             </p>
             <div className="flex flex-col gap-4 mb-10">
-              <a href="mailto:aliciauretav@gmail.com" className="flex items-center gap-3 text-sm text-foreground/60 hover:text-primary transition-colors group">
+              <a href="mailto:aliciauretav@gmail.com" className="flex items-center gap-3 text-sm text-foreground/75 hover:text-primary transition-colors group">
                 <span className="w-9 h-9 rounded-lg border border-border flex items-center justify-center group-hover:border-primary group-hover:bg-secondary transition-colors">
                   <Mail className="w-4 h-4" />
                 </span>
                 aliciauretav@gmail.com.com
               </a>
-              <a href="https://linkedin.com/in/aliciauretavergara" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-foreground/60 hover:text-primary transition-colors group">
+              <a href="https://linkedin.com/in/aliciauretavergara" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-foreground/75 hover:text-primary transition-colors group">
                 <span className="w-9 h-9 rounded-lg border border-border flex items-center justify-center group-hover:border-primary group-hover:bg-secondary transition-colors">
                   <Linkedin className="w-4 h-4" />
                 </span>
                 /in/aliciauretavergara
               </a>
-              <span className="flex items-center gap-3 text-sm text-foreground/60">
+              <span className="flex items-center gap-3 text-sm text-foreground/75">
                 <span className="w-9 h-9 rounded-lg border border-border flex items-center justify-center">
                   <MapPin className="w-4 h-4" />
                 </span>
@@ -74,10 +74,10 @@ export function Contact() {
               </span>
             </div>
             <blockquote className="pl-5 border-l-2 border-primary" style={{ borderRadius: 0 }}>
-              <p className="text-base text-foreground/60 leading-relaxed mb-2" style={{ fontFamily: "var(--font-serif)", fontStyle: "italic" }}>
+              <p className="text-base text-foreground/75 leading-relaxed mb-2" style={{ fontFamily: "var(--font-serif)", fontStyle: "italic" }}>
                 "Las mejores interfaces de usuario son las que desaparecen. Todo lo que queda es la experiencia."
               </p>
-              <cite className="text-xs text-foreground/40 not-italic">— Jared Spool</cite>
+              <cite className="text-xs text-foreground/60 not-italic">— Jared Spool</cite>
             </blockquote>
           </div>
 
@@ -86,7 +86,7 @@ export function Contact() {
               <p className="text-3xl text-primary mb-4" style={{ fontFamily: "var(--font-serif)" }}>
                 ¡Mensaje enviado!
               </p>
-              <p className="text-foreground/60 leading-relaxed max-w-sm">
+              <p className="text-foreground/75 leading-relaxed max-w-sm">
                 Gracias por escribirme. Te responderé a la brevedad en <strong>aliciauretav@gmail.com</strong>
               </p>
             </div>
@@ -94,20 +94,20 @@ export function Contact() {
             <div className="flex flex-col gap-4">
               <div className="grid sm:grid-cols-2 gap-4">
                 <div className="flex flex-col gap-2">
-                  <label className="text-xs font-medium text-foreground/60 uppercase tracking-wider">Nombre *</label>
+                  <label className="text-xs font-medium text-foreground/75 uppercase tracking-wider">Nombre *</label>
                   <input type="text" name="nombre" value={form.nombre} onChange={handleChange} placeholder="Tu nombre" className="w-full bg-muted border border-border rounded-lg px-4 py-3 text-sm text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-primary transition-all" />
                 </div>
                 <div className="flex flex-col gap-2">
-                  <label className="text-xs font-medium text-foreground/60 uppercase tracking-wider">Email *</label>
+                  <label className="text-xs font-medium text-foreground/75 uppercase tracking-wider">Email *</label>
                   <input type="email" name="email" value={form.email} onChange={handleChange} placeholder="tu@email.com" className="w-full bg-muted border border-border rounded-lg px-4 py-3 text-sm text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-primary transition-all" />
                 </div>
               </div>
               <div className="flex flex-col gap-2">
-                <label className="text-xs font-medium text-foreground/60 uppercase tracking-wider">Asunto</label>
+                <label className="text-xs font-medium text-foreground/75 uppercase tracking-wider">Asunto</label>
                 <input type="text" name="asunto" value={form.asunto} onChange={handleChange} placeholder="¿En qué puedo ayudarte?" className="w-full bg-muted border border-border rounded-lg px-4 py-3 text-sm text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-primary transition-all" />
               </div>
               <div className="flex flex-col gap-2">
-                <label className="text-xs font-medium text-foreground/60 uppercase tracking-wider">Mensaje *</label>
+                <label className="text-xs font-medium text-foreground/75 uppercase tracking-wider">Mensaje *</label>
                 <textarea name="mensaje" value={form.mensaje} onChange={handleChange} placeholder="Cuéntame sobre tu proyecto..." rows={5} className="w-full bg-muted border border-border rounded-lg px-4 py-3 text-sm text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-primary transition-all resize-none" />
               </div>
               <Button onClick={handleSubmit} disabled={loading} className="self-start bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg px-6 gap-2" size="lg">

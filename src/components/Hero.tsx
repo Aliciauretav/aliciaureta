@@ -46,7 +46,7 @@ export function Hero() {
                 en experiencias claras.
               </h1>
 
-              <p className="text-lg text-foreground/60 max-w-xl leading-relaxed">
+              <p className="text-lg text-foreground/75 max-w-xl leading-relaxed">
                 Diseño productos digitales y lidero equipos UX con foco en resultados:
                 procesos más simples, sistemas más consistentes y experiencias que la
                 gente realmente entiende.
@@ -144,7 +144,7 @@ export function Hero() {
                 >
                   30%
                 </p>
-                <p className="text-xs text-foreground/50 mt-1">
+                <p className="text-xs text-foreground/70 mt-1">
                   Reducción en<br />tiempo de diseño
                 </p>
               </div>
@@ -155,7 +155,7 @@ export function Hero() {
                 >
                   60→4
                 </p>
-                <p className="text-xs text-foreground/50 mt-1">
+                <p className="text-xs text-foreground/70 mt-1">
                   Inputs en<br />un proceso
                 </p>
               </div>
@@ -166,7 +166,7 @@ export function Hero() {
                 >
                   4+
                 </p>
-                <p className="text-xs text-foreground/50 mt-1">
+                <p className="text-xs text-foreground/70 mt-1">
                   Sectores:<br />público, privado, fintech
                 </p>
               </div>
@@ -202,7 +202,7 @@ export function Hero() {
                 >
                   4+
                 </p>
-                <p className="text-xs text-foreground/50 mt-1">años en UX</p>
+                <p className="text-xs text-foreground/70 mt-1">años en UX</p>
               </div>
 
               {/* Elemento decorativo */}
