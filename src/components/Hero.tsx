@@ -181,7 +181,7 @@ export function Hero() {
                 style={{ width: "100%", maxWidth: "360px", maxHeight: "500px", borderRadius: "24px", overflow: "hidden", border: "1px solid var(--border)", background: "var(--secondary)" }}
               >
                 <img
-                  src="https://aliciaureta.com/image/alicia-hero.png"
+                  src="/image/alicia-hero.webp"
                   alt="Alicia Ureta, UX Manager"
                   className="w-full h-full object-cover object-center"
                   onError={(e) => {
