@@ -38,7 +38,7 @@ export function Hero() {
               >
                 UX Manager que convierte problemas{" "}
                 <em
-                  className="text-primary"
+                  className="text-primary font-semibold"
                   style={{ fontStyle: "italic" }}
                 >
                   complejos
