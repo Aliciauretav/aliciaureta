@@ -29,7 +29,7 @@ const projects = [
       { num: "60→4", label: "Inputs en el\nproceso de contratación" },
       { num: "+300", label: "Personas con\nflujo optimizado" },
     ],
-    image: "/image/teamwork-cover.png",
+    image: "/image/teamwork-cover.webp",
     imageBg: "#E8F0F5",
     reverse: true,
   },
@@ -44,7 +44,7 @@ const projects = [
       { num: "65%", label: "Reducción en pasos\npara encontrar info" },
       { num: "88%", label: "Satisfacción en\npruebas de usabilidad" },
     ],
-    image: "/image/dirplan-cover.png",
+    image: "/image/dirplan-cover.webp",
     imageBg: "#EEF2F0",
     reverse: false,
   },
@@ -92,6 +92,7 @@ export function Projects() {
                   src={project.image}
                   alt={project.title}
                   className="w-full h-full object-cover object-center group-hover:scale-[1.02] transition-transform duration-500"
+                  loading="lazy"
                   onError={(e) => {
                     const target = e.target as HTMLImageElement;
                     target.style.display = "none";

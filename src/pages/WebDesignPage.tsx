@@ -87,9 +87,10 @@ export function WebDesignPage() {
               <div className="grid lg:grid-cols-2">
                 <div className="aspect-[4/3] lg:aspect-auto overflow-hidden bg-[#EEF2F0]">
                   <img
-                    src="/image/dirplan-cover.png"
+                    src="/image/dirplan-cover.webp"
                     alt="Rediseño DIRPLAN"
                     className="w-full h-full object-cover"
+                    loading="lazy"
                     onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
                   />
                 </div>
@@ -244,6 +245,7 @@ export function WebDesignPage() {
                         src={src}
                         alt={i === 0 ? "Sitio antes del rediseño" : "Sitio después del rediseño"}
                         className="w-full h-full object-contain"
+                        loading="lazy"
                         onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
                       />
                     </div>

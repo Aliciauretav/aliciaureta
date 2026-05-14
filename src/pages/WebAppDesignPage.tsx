@@ -84,9 +84,10 @@ export function WebAppDesignPage() {
               <div className="grid lg:grid-cols-2">
                 <div className="aspect-[4/3] lg:aspect-auto overflow-hidden bg-[#E8F0F5]">
                   <img
-                    src="/image/teamwork-cover.png"
+                    src="/image/teamwork-cover.webp"
                     alt="Digitalización RRHH Teamwork"
                     className="w-full h-full object-cover"
+                    loading="lazy"
                     onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
                   />
                 </div>
@@ -218,6 +219,7 @@ export function WebAppDesignPage() {
                           src={img.src}
                           alt={img.label}
                           className="w-full h-full object-cover"
+                          loading="lazy"
                           onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
                         />
                       </div>

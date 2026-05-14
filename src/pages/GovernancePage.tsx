@@ -107,6 +107,7 @@ export function GovernancePage() {
                     src="/image/afp-cover.svg"
                     alt="Gobernanza de diseño AFP Modelo"
                     className="w-full h-full object-cover"
+                    loading="lazy"
                     onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
                   />
                 </div>
