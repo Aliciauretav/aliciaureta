@@ -7,9 +7,11 @@ export function Contact() {
   const [form, setForm] = useState({ nombre: "", email: "", asunto: "", mensaje: "" });
   const [loading, setLoading] = useState(false);
   const [sent, setSent] = useState(false);
+  const [error, setError] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
+    if (error) setError(false);
   };
 
   const handleSubmit = async (e: React.MouseEvent) => {
@@ -19,6 +21,7 @@ export function Contact() {
       return;
     }
     setLoading(true);
+    setError(false);
     try {
       const res = await fetch("https://formspree.io/f/xvzdpwrl", {
         method: "POST",
@@ -27,11 +30,12 @@ export function Contact() {
       });
       if (res.ok) {
         setSent(true);
+        setForm({ nombre: "", email: "", asunto: "", mensaje: "" });
       } else {
-        toast.error("Hubo un error al enviar. Intenta de nuevo.");
+        setError(true);
       }
     } catch {
-      toast.error("Hubo un error al enviar. Intenta de nuevo.");
+      setError(true);
     } finally {
       setLoading(false);
     }
@@ -110,9 +114,26 @@ export function Contact() {
                 <label htmlFor="mensaje" className="text-xs font-medium text-foreground/75 uppercase tracking-wider">Mensaje *</label>
                 <textarea id="mensaje" name="mensaje" value={form.mensaje} onChange={handleChange} placeholder="Cuéntame sobre tu proyecto..." rows={5} className="w-full bg-muted border border-border rounded-lg px-4 py-3 text-sm text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-primary transition-all resize-none" />
               </div>
+              {error && (
+                <p className="text-sm text-red-600 flex items-center gap-2">
+                  ✗ Error al enviar. Por favor intenta de nuevo.
+                </p>
+              )}
               <Button onClick={handleSubmit} disabled={loading} className="self-start bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg px-6 gap-2" size="lg">
-                {loading ? "Enviando..." : "Enviar mensaje"}
-                <Send className="w-4 h-4" />
+                {loading ? (
+                  <>
+                    <svg className="animate-spin w-4 h-4" viewBox="0 0 24 24" fill="none">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" />
+                    </svg>
+                    Enviando...
+                  </>
+                ) : (
+                  <>
+                    Enviar mensaje
+                    <Send className="w-4 h-4" />
+                  </>
+                )}
               </Button>
             </div>
           )}
