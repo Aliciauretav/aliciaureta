@@ -94,21 +94,21 @@ export function Contact() {
             <div className="flex flex-col gap-4">
               <div className="grid sm:grid-cols-2 gap-4">
                 <div className="flex flex-col gap-2">
-                  <label className="text-xs font-medium text-foreground/75 uppercase tracking-wider">Nombre *</label>
-                  <input type="text" name="nombre" value={form.nombre} onChange={handleChange} placeholder="Tu nombre" className="w-full bg-muted border border-border rounded-lg px-4 py-3 text-sm text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-primary transition-all" />
+                  <label htmlFor="nombre" className="text-xs font-medium text-foreground/75 uppercase tracking-wider">Nombre *</label>
+                  <input id="nombre" type="text" name="nombre" value={form.nombre} onChange={handleChange} placeholder="Tu nombre" className="w-full bg-muted border border-border rounded-lg px-4 py-3 text-sm text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-primary transition-all" />
                 </div>
                 <div className="flex flex-col gap-2">
-                  <label className="text-xs font-medium text-foreground/75 uppercase tracking-wider">Email *</label>
-                  <input type="email" name="email" value={form.email} onChange={handleChange} placeholder="tu@email.com" className="w-full bg-muted border border-border rounded-lg px-4 py-3 text-sm text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-primary transition-all" />
+                  <label htmlFor="email" className="text-xs font-medium text-foreground/75 uppercase tracking-wider">Email *</label>
+                  <input id="email" type="email" name="email" value={form.email} onChange={handleChange} placeholder="tu@email.com" className="w-full bg-muted border border-border rounded-lg px-4 py-3 text-sm text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-primary transition-all" />
                 </div>
               </div>
               <div className="flex flex-col gap-2">
-                <label className="text-xs font-medium text-foreground/75 uppercase tracking-wider">Asunto</label>
-                <input type="text" name="asunto" value={form.asunto} onChange={handleChange} placeholder="¿En qué puedo ayudarte?" className="w-full bg-muted border border-border rounded-lg px-4 py-3 text-sm text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-primary transition-all" />
+                <label htmlFor="asunto" className="text-xs font-medium text-foreground/75 uppercase tracking-wider">Asunto</label>
+                <input id="asunto" type="text" name="asunto" value={form.asunto} onChange={handleChange} placeholder="¿En qué puedo ayudarte?" className="w-full bg-muted border border-border rounded-lg px-4 py-3 text-sm text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-primary transition-all" />
               </div>
               <div className="flex flex-col gap-2">
-                <label className="text-xs font-medium text-foreground/75 uppercase tracking-wider">Mensaje *</label>
-                <textarea name="mensaje" value={form.mensaje} onChange={handleChange} placeholder="Cuéntame sobre tu proyecto..." rows={5} className="w-full bg-muted border border-border rounded-lg px-4 py-3 text-sm text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-primary transition-all resize-none" />
+                <label htmlFor="mensaje" className="text-xs font-medium text-foreground/75 uppercase tracking-wider">Mensaje *</label>
+                <textarea id="mensaje" name="mensaje" value={form.mensaje} onChange={handleChange} placeholder="Cuéntame sobre tu proyecto..." rows={5} className="w-full bg-muted border border-border rounded-lg px-4 py-3 text-sm text-foreground placeholder:text-foreground/30 focus:outline-none focus:border-primary transition-all resize-none" />
               </div>
               <Button onClick={handleSubmit} disabled={loading} className="self-start bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg px-6 gap-2" size="lg">
                 {loading ? "Enviando..." : "Enviar mensaje"}
