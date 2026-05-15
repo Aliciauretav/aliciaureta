@@ -26,10 +26,8 @@ const processSkills = [
   { title: "Accesibilidad", desc: "WCAG, diseño inclusivo, mobile first" },
 ];
 
-const tools = [
-  "Figma", "Maze", "Optimal Workshop", "Jira",
-  "Illustrator", "Photoshop", "HTML / CSS", "Visual Studio Code",
-];
+const toolsPrimary = ["Figma", "IA"];
+const toolsSecondary = ["Jira", "HTML / CSS", "Visual Studio Code"];
 
 export function Skills() {
   return (
@@ -91,21 +89,22 @@ export function Skills() {
             {/* Nivel 2 — Proceso */}
             <div>
               <div className="flex items-center gap-3 mb-5">
-                <p className="text-xs font-medium tracking-widest uppercase text-foreground/50">
+                <p className="text-xs font-medium tracking-widest uppercase text-primary">
                   Habilidades de proceso
                 </p>
                 <span className="flex-1 h-px bg-border" />
               </div>
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: "0.75rem" }}>
+              <div className="grid sm:grid-cols-2 gap-3">
                 {processSkills.map((s) => (
                   <div
                     key={s.title}
-                    className="rounded-xl p-4 bg-card border border-border"
+                    className="rounded-xl p-4 border border-primary/20"
+                    style={{ background: "var(--background-3)" }}
                   >
-                    <p className="text-sm font-medium text-foreground mb-1">
+                    <p className="text-sm font-medium text-primary mb-1">
                       {s.title}
                     </p>
-                    <p className="text-xs text-foreground/50 leading-relaxed">
+                    <p className="text-xs text-foreground/60 leading-relaxed">
                       {s.desc}
                     </p>
                   </div>
@@ -122,10 +121,20 @@ export function Skills() {
                 <span className="flex-1 h-px bg-border" />
               </div>
               <div className="flex flex-wrap gap-2">
-                {tools.map((tool) => (
+                {toolsPrimary.map((tool) => (
                   <span
                     key={tool}
-                    className="text-sm px-4 py-2 rounded-full bg-background border border-border text-foreground/60"
+                    className="text-sm px-4 py-2 rounded-full font-medium"
+                    style={{ background: "#6B4F8C", color: "#ffffff" }}
+                  >
+                    {tool}
+                  </span>
+                ))}
+                {toolsSecondary.map((tool) => (
+                  <span
+                    key={tool}
+                    className="text-sm px-4 py-2 rounded-full bg-background border border-border"
+                    style={{ color: "#666666" }}
                   >
                     {tool}
                   </span>

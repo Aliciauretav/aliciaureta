@@ -117,7 +117,7 @@ export function Projects() {
                   {project.title}
                 </h3>
 
-                <p className="text-sm text-foreground/60 leading-relaxed mb-6">
+                <p className="text-sm leading-relaxed mb-6" style={{ color: "#666666" }}>
                   {project.description}
                 </p>
 
@@ -138,12 +138,12 @@ export function Projects() {
                   {project.metrics.map((m) => (
                     <div key={m.num}>
                       <p
-                        className="text-2xl text-foreground"
-                        style={{ fontFamily: "var(--font-serif)" }}
+                        className="font-bold leading-none"
+                        style={{ fontFamily: "var(--font-serif)", fontSize: "48px", color: "var(--foreground)" }}
                       >
                         {m.num}
                       </p>
-                      <p className="text-xs text-foreground/50 mt-1 whitespace-pre-line leading-relaxed">
+                      <p className="text-sm mt-1 whitespace-pre-line leading-relaxed" style={{ color: "#666666" }}>
                         {m.label}
                       </p>
                     </div>

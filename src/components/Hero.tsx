@@ -20,7 +20,8 @@ export function Hero() {
             <div className="flex items-center gap-3">
               <span className="w-6 h-px bg-primary" />
               <p
-                className="text-xs font-medium tracking-widest uppercase text-primary"
+                className="text-xs font-medium tracking-widest uppercase"
+                style={{ color: "#5D4A66" }}
               >
                 UX Lead · UX Manager · Product Designer · Santiago, Chile
               </p>
@@ -89,7 +90,7 @@ export function Hero() {
             </div>
 
             {/* Social Links */}
-            <div className="flex items-center gap-3 pt-2">
+            <div className="flex items-center gap-3" style={{ marginTop: "24px" }}>
               <a
                 href="https://linkedin.com/in/aliciauretavergara"
                 target="_blank"

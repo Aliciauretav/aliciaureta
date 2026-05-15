@@ -23,7 +23,7 @@ export function MetricsBar() {
         {metrics.map((m, i) => (
           <div key={i}>
             <p
-              className="text-4xl lg:text-5xl mb-3 leading-none"
+              className="text-4xl lg:text-5xl mb-3 leading-none font-bold"
               style={{
                 fontFamily: "var(--font-serif)",
                 color: "var(--background)",

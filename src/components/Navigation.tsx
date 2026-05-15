@@ -1,12 +1,23 @@
 import { Menu, X, ChevronDown } from "lucide-react";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Button } from "./ui/button";
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [isProjectsOpen, setIsProjectsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+
+  const isActive = (path: string) => location.pathname === path;
+  const isProjectsActive = location.pathname.startsWith("/proyectos");
+
+  const activeLinkStyle = {
+    color: "#6B4F8C",
+    fontWeight: "700",
+    borderBottom: "2px solid #6B4F8C",
+    paddingBottom: "2px",
+  };
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -45,9 +56,9 @@ export function Navigation() {
             <Link
               to="/sobre-mi"
               className="text-sm transition-colors"
-              style={{ color: "var(--foreground)" }}
-              onMouseEnter={e => (e.currentTarget.style.color = "var(--primary)")}
-              onMouseLeave={e => (e.currentTarget.style.color = "var(--foreground)")}
+              style={isActive("/sobre-mi") ? activeLinkStyle : { color: "var(--foreground)" }}
+              onMouseEnter={e => { if (!isActive("/sobre-mi")) e.currentTarget.style.color = "var(--primary)"; }}
+              onMouseLeave={e => { if (!isActive("/sobre-mi")) e.currentTarget.style.color = "var(--foreground)"; }}
             >
               Sobre mí
             </Link>
@@ -66,7 +77,10 @@ export function Navigation() {
                 if (btn) btn.style.color = "var(--foreground)";
               }}
             >
-              <button className="text-sm text-foreground/70 hover:text-foreground transition-colors flex items-center gap-1">
+              <button
+                className="text-sm transition-colors flex items-center gap-1"
+                style={isProjectsActive ? { color: "#6B4F8C", fontWeight: "700", borderBottom: "2px solid #6B4F8C", paddingBottom: "2px" } : { color: "var(--foreground)" }}
+              >
                 Proyectos
                 <ChevronDown
                   className={`w-3.5 h-3.5 transition-transform duration-200 ${
@@ -96,9 +110,9 @@ export function Navigation() {
             <Link
                to="/contacto"
                 className="text-sm transition-colors"
-                style={{ color: "var(--foreground)" }}
-                onMouseEnter={e => (e.currentTarget.style.color = "var(--primary)")}
-                onMouseLeave={e => (e.currentTarget.style.color = "var(--foreground)")}
+                style={isActive("/contacto") ? activeLinkStyle : { color: "var(--foreground)" }}
+                onMouseEnter={e => { if (!isActive("/contacto")) e.currentTarget.style.color = "var(--primary)"; }}
+                onMouseLeave={e => { if (!isActive("/contacto")) e.currentTarget.style.color = "var(--foreground)"; }}
             >
               Contacto
             </Link>
@@ -135,7 +149,8 @@ export function Navigation() {
             <div className="flex flex-col gap-5">
               <Link
                 to="/sobre-mi"
-                className="text-sm text-foreground/70 hover:text-primary transition-colors"
+                className="text-sm transition-colors"
+                style={isActive("/sobre-mi") ? { color: "#6B4F8C", fontWeight: "700" } : { color: "var(--foreground)" }}
                 onClick={() => setIsOpen(false)}
               >
                 Sobre mí
@@ -172,9 +187,8 @@ export function Navigation() {
               <Link
                 to="/contacto"
                 className="text-sm transition-colors"
-                style={{ color: "var(--foreground)" }}
-                onMouseEnter={e => (e.currentTarget.style.color = "var(--primary)")}
-                onMouseLeave={e => (e.currentTarget.style.color = "var(--foreground)")}
+                style={isActive("/contacto") ? { color: "#6B4F8C", fontWeight: "700" } : { color: "var(--foreground)" }}
+                onClick={() => setIsOpen(false)}
               >
                 Contacto
               </Link>
