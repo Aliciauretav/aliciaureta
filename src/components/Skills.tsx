@@ -70,7 +70,8 @@ export function Skills() {
                 {leadSkills.map((s) => (
                   <div
                     key={s.title}
-                    className="rounded-2xl p-5 border border-border bg-card shadow-sm"
+                    className="rounded-2xl border border-border bg-card shadow-sm"
+                    style={{ padding: "1.5rem" }}
                   >
                     <p className="text-sm font-medium text-foreground mb-1">
                       {s.title}
@@ -91,11 +92,12 @@ export function Skills() {
                 </p>
                 <span className="flex-1 h-px bg-border" />
               </div>
-              <div className="grid grid-cols-2 lg:grid-cols-6 gap-3">
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
                 {processSkills.map((s) => (
                   <div
                     key={s.title}
-                    className="rounded-2xl p-5 border border-border bg-card shadow-sm"
+                    className="rounded-2xl border border-border bg-card shadow-sm"
+                    style={{ padding: "1.5rem" }}
                   >
                     <p className="text-sm font-medium text-foreground mb-1">
                       {s.title}
