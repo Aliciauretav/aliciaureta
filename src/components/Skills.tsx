@@ -66,7 +66,7 @@ export function Skills() {
                 </p>
                 <span className="flex-1 h-px bg-border" />
               </div>
-              <div className="grid sm:grid-cols-2 gap-3">
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
                 {leadSkills.map((s) => (
                   <div
                     key={s.title}
@@ -91,7 +91,7 @@ export function Skills() {
                 </p>
                 <span className="flex-1 h-px bg-border" />
               </div>
-              <div className="grid sm:grid-cols-2 gap-3">
+              <div className="grid grid-cols-2 lg:grid-cols-6 gap-3">
                 {processSkills.map((s) => (
                   <div
                     key={s.title}
