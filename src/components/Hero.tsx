@@ -66,26 +66,32 @@ export function Hero() {
                 </Button>
               </Link>
               <Link to="/contacto">
-                 <Button
-                  size="lg"
-                  variant="outline"
-                  className="rounded-lg border-2"
-                  style={{ borderColor: "#6B4F8C", color: "#6B4F8C" }}
+                <button
+                  style={{
+                    height: "44px",
+                    padding: "0 24px",
+                    borderRadius: "8px",
+                    border: "2px solid #6B4F8C",
+                    color: "#6B4F8C",
+                    background: "transparent",
+                    fontSize: "15px",
+                    fontWeight: 500,
+                    cursor: "pointer",
+                    transition: "background 0.2s, color 0.2s",
+                  }}
                   onMouseEnter={e => {
-                    const btn = e.currentTarget as HTMLElement;
+                    const btn = e.currentTarget;
                     btn.style.background = "#6B4F8C";
-                    btn.style.borderColor = "#6B4F8C";
                     btn.style.color = "#fff";
                   }}
                   onMouseLeave={e => {
-                    const btn = e.currentTarget as HTMLElement;
-                    btn.style.background = "";
-                    btn.style.borderColor = "#6B4F8C";
+                    const btn = e.currentTarget;
+                    btn.style.background = "transparent";
                     btn.style.color = "#6B4F8C";
                   }}
                 >
                   Contáctame
-                </Button>
+                </button>
               </Link>
             </div>
 

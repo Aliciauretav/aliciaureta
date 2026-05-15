@@ -3,6 +3,21 @@ import { Link } from "react-router-dom";
 
 const projects = [
   {
+    id: "audix",
+    href: "/proyectos/audix",
+    category: "Herramienta propia · IA · UX Management",
+    title: "Audix: De auditorías manuales a tracking de calidad UX con IA",
+    description: "Diseñé y construí una herramienta que reduce una auditoría heurística de 3 días a 2 horas, estandariza el output y convierte evaluaciones puntuales en un sistema de tracking por componente.",
+    tags: ["Prompt Engineering", "Product Design", "Claude API", "React"],
+    metrics: [
+      { num: "3d→2h", label: "Tiempo de\nauditoría" },
+      { num: "3", label: "Modos: Screenshot\nComparativa · URL" },
+    ],
+    image: "/image/audix-preview.webp",
+    imageBg: "var(--background-3)",
+    reverse: false,
+  },
+  {
     id: "governance",
     href: "/proyectos/governance",
     category: "UX Management · Design System",
@@ -16,14 +31,14 @@ const projects = [
     ],
     image: "/image/afp-cover.svg",
     imageBg: "var(--background-3)",
-    reverse: false,
+    reverse: true,
   },
   {
     id: "web-app-design",
     href: "/proyectos/web-app-design",
     category: "Product Design · UX Research",
-    title: "De un proceso roto a una plataforma que la gente realmente usa", 
-      description: "Detecté que el problema no era de interfaz sino de arquitectura. Amplié el scope, coordiné dos equipos tecnológicos y diseñé un sistema unificado — de 60 inputs a 4, con impacto medible en más de 300 personas.",
+    title: "De un proceso roto a una plataforma que la gente realmente usa",
+    description: "Detecté que el problema no era de interfaz sino de arquitectura. Amplié el scope, coordiné dos equipos tecnológicos y diseñé un sistema unificado — de 60 inputs a 4, con impacto medible en más de 300 personas.",
     tags: ["UX Research", "Arquitectura de información", "Prototipado Hi-Fi", "Validación con usuarios"],
     metrics: [
       { num: "60→4", label: "Inputs en el\nproceso de contratación" },
@@ -31,7 +46,7 @@ const projects = [
     ],
     image: "/image/teamwork-cover.webp",
     imageBg: "#E8F0F5",
-    reverse: true,
+    reverse: false,
   },
   {
     id: "web-design",
@@ -46,21 +61,6 @@ const projects = [
     ],
     image: "/image/dirplan-cover.webp",
     imageBg: "#EEF2F0",
-    reverse: false,
-  },
-  {
-    id: "audix",
-    href: "/proyectos/audix",
-    category: "Herramienta propia · IA · UX Management",
-    title: "Audix: De auditorías manuales a tracking de calidad UX con IA",
-    description: "Diseñé y construí una herramienta que reduce una auditoría heurística de 3 días a 2 horas, estandariza el output y convierte evaluaciones puntuales en un sistema de tracking por componente.",
-    tags: ["Prompt Engineering", "Product Design", "Claude API", "React"],
-    metrics: [
-      { num: "3d→2h", label: "Tiempo de\nauditoría" },
-      { num: "3", label: "Modos: Screenshot\nComparativa · URL" },
-    ],
-    image: "/image/audix-preview.webp",
-    imageBg: "var(--background-3)",
     reverse: true,
   },
 ];
