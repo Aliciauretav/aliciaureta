@@ -5,6 +5,7 @@ import { GovernancePage } from "./pages/GovernancePage";
 import { WebAppDesignPage } from "./pages/WebAppDesignPage";
 import { WebDesignPage } from "./pages/WebDesignPage";
 import { AppDesignPage } from "./pages/AppDesignPage";
+import { AudixPage } from "./pages/AudixPage";
 import { ContactPage } from "./pages/ContactPage";
 import { Toaster } from "./components/ui/sonner";
 
@@ -18,6 +19,7 @@ export default function App() {
         <Route path="/proyectos/web-app-design" element={<WebAppDesignPage />} />
         <Route path="/proyectos/web-design" element={<WebDesignPage />} />
         <Route path="/proyectos/app-design" element={<AppDesignPage />} />
+        <Route path="/proyectos/audix" element={<AudixPage />} />
         <Route path="/contacto" element={<ContactPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

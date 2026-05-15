@@ -48,6 +48,21 @@ const projects = [
     imageBg: "#EEF2F0",
     reverse: false,
   },
+  {
+    id: "audix",
+    href: "/proyectos/audix",
+    category: "Herramienta propia · IA · UX Management",
+    title: "Audix: De auditorías manuales a tracking de calidad UX con IA",
+    description: "Diseñé y construí una herramienta que reduce una auditoría heurística de 3 días a 2 horas, estandariza el output y convierte evaluaciones puntuales en un sistema de tracking por componente.",
+    tags: ["Prompt Engineering", "Product Design", "Claude API", "React"],
+    metrics: [
+      { num: "3d→2h", label: "Tiempo de\nauditoría" },
+      { num: "3", label: "Modos: Screenshot\nComparativa · URL" },
+    ],
+    image: "/image/audix-preview.webp",
+    imageBg: "var(--background-3)",
+    reverse: true,
+  },
 ];
 
 export function Projects() {

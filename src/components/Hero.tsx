@@ -70,18 +70,18 @@ export function Hero() {
                   size="lg"
                   variant="outline"
                   className="rounded-lg border-2"
-                  style={{ borderColor: "var(--border)" }}
+                  style={{ borderColor: "#6B4F8C", color: "#6B4F8C" }}
                   onMouseEnter={e => {
                     const btn = e.currentTarget as HTMLElement;
-                    btn.style.background = "var(--primary)";
-                    btn.style.borderColor = "var(--primary)";
+                    btn.style.background = "#6B4F8C";
+                    btn.style.borderColor = "#6B4F8C";
                     btn.style.color = "#fff";
                   }}
                   onMouseLeave={e => {
                     const btn = e.currentTarget as HTMLElement;
                     btn.style.background = "";
-                    btn.style.borderColor = "var(--border)";
-                    btn.style.color = "";
+                    btn.style.borderColor = "#6B4F8C";
+                    btn.style.color = "#6B4F8C";
                   }}
                 >
                   Contáctame
