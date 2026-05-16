@@ -1,9 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
 import { Navigation } from "../components/Navigation";
 import { Footer } from "../components/Footer";
 import { ArrowUpRight, ArrowLeft, ArrowRight, TrendingUp, Users, Target, Palette, Lightbulb, Pencil, Globe, FileDigit, SquareAsterisk, Rows4, SignpostBig, Waypoints } from "lucide-react";
 import { Button } from "../components/ui/button";
-import { type CarouselApi, Carousel, CarouselContent, CarouselItem } from "../components/ui/carousel";
 import { Link } from "react-router-dom";
 import { motion } from "motion/react";
 
@@ -62,7 +61,9 @@ const projectsList = [
 
 export function GovernancePage() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
-  const [carouselApi, setCarouselApi] = useState<CarouselApi>();
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const scrollPrev = () => scrollRef.current?.scrollBy({ left: -280, behavior: "smooth" });
+  const scrollNext = () => scrollRef.current?.scrollBy({ left: 280, behavior: "smooth" });
 
   return (
     <div className="min-h-screen">
@@ -252,16 +253,18 @@ export function GovernancePage() {
               {/* Proyectos */}
               <div className="px-8 lg:px-12 py-12 border-t border-border">
                 <p className="text-xs font-medium tracking-widest uppercase text-primary mb-8">Proyectos en los que participé</p>
-                <Carousel opts={{ align: "start", loop: true }} className="w-full" setApi={setCarouselApi}>
-                  <CarouselContent className="-ml-4">
+                <div>
+                  <div
+                    ref={scrollRef}
+                    style={{ display: "flex", gap: "1rem", overflowX: "auto", scrollSnapType: "x mandatory", scrollBehavior: "smooth", WebkitOverflowScrolling: "touch", scrollbarWidth: "none", paddingBottom: "4px" }}
+                  >
                     {projectsList.map((item, i) => {
                       const Icon = item.icon;
                       return (
                         <div
                           key={i}
-                          role="group"
-                          aria-roledescription="slide"
-                          className="min-w-0 shrink-0 grow-0 pl-4 basis-[78%] sm:basis-1/2 lg:basis-1/3"
+                          style={{ flexShrink: 0, scrollSnapAlign: "start", width: "78%", maxWidth: "320px" }}
+                          className="sm:w-64 lg:w-auto lg:flex-1"
                         >
                           <div className="flex flex-col gap-4 p-6 rounded-xl border border-border hover:border-primary/30 hover:shadow-sm transition-all bg-card h-full">
                             <div className="w-12 h-12 rounded-lg flex items-center justify-center border border-border" style={{ background: "var(--background-3)" }}>
@@ -278,24 +281,24 @@ export function GovernancePage() {
                         </div>
                       );
                     })}
-                  </CarouselContent>
-                  <div style={{ display: "flex", justifyContent: "flex-end", gap: "8px", marginTop: "2rem", paddingTop: "1.25rem", borderTop: "1px solid var(--border)" }}>
+                  </div>
+                  <div style={{ display: "flex", justifyContent: "flex-end", gap: "8px", marginTop: "1.5rem", paddingTop: "1.25rem", borderTop: "1px solid var(--border)" }}>
                     <button
-                      onClick={() => carouselApi?.scrollPrev()}
+                      onClick={scrollPrev}
                       aria-label="Anterior"
                       style={{ width: "36px", height: "36px", borderRadius: "50%", border: "1px solid var(--border)", background: "var(--background)", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "var(--foreground)", flexShrink: 0 }}
                     >
                       <ArrowLeft className="w-4 h-4" />
                     </button>
                     <button
-                      onClick={() => carouselApi?.scrollNext()}
+                      onClick={scrollNext}
                       aria-label="Siguiente"
                       style={{ width: "36px", height: "36px", borderRadius: "50%", border: "1px solid var(--border)", background: "var(--background)", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "var(--foreground)", flexShrink: 0 }}
                     >
                       <ArrowRight className="w-4 h-4" />
                     </button>
                   </div>
-                </Carousel>
+                </div>
               </div>
 
               {/* Lo que aprendí */}
