@@ -71,8 +71,8 @@
   --foreground:        #F2F2F0;
   --foreground-muted:  #C0BEBB;
   --foreground-subtle: #8A8784;
-  --primary:           #B094D0;
-  --primary-foreground: #ffffff;
+  --primary:           #C4A8E0;
+  --primary-foreground: #1a1a1a;
   --primary-light:     #2a2030;
   --card:              #1e1e1e;
   --card-foreground:   #F2F2F0;
@@ -82,8 +82,8 @@
   --secondary-foreground: #F2F2F0;
   --muted:             #1a1a1a;
   --muted-foreground:  #A8A6A0;
-  --accent:            #B094D0;
-  --accent-foreground: #ffffff;
+  --accent:            #C4A8E0;
+  --accent-foreground: #1a1a1a;
   --destructive:       #E05C5C;
   --destructive-foreground: #ffffff;
   --border:            rgba(255, 255, 255, 0.18);

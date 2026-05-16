@@ -150,7 +150,20 @@ export function Navigation() {
               <button
                 onClick={toggleTheme}
                 aria-label="Cambiar modo de color"
-                className="w-9 h-9 flex items-center justify-center rounded-full border border-border text-foreground/60 hover:text-primary hover:border-primary/40 transition-all duration-200"
+                style={{
+                  width: "36px",
+                  height: "36px",
+                  borderRadius: "50%",
+                  border: "1px solid var(--border)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  flexShrink: 0,
+                  color: "var(--foreground-muted)",
+                  background: "transparent",
+                  cursor: "pointer",
+                  transition: "border-color .2s, color .2s",
+                }}
               >
                 {resolvedTheme === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
               </button>
@@ -187,7 +200,20 @@ export function Navigation() {
               <button
                 onClick={toggleTheme}
                 aria-label="Cambiar modo de color"
-                className="w-10 h-10 flex items-center justify-center rounded-full border border-border text-foreground/60 hover:text-primary transition-all duration-200"
+                style={{
+                  width: "40px",
+                  height: "40px",
+                  borderRadius: "50%",
+                  border: "1px solid var(--border)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  flexShrink: 0,
+                  color: "var(--foreground-muted)",
+                  background: "transparent",
+                  cursor: "pointer",
+                  transition: "border-color .2s, color .2s",
+                }}
               >
                 {resolvedTheme === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
               </button>
