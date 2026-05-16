@@ -3,6 +3,7 @@ import { Navigation } from "../components/Navigation";
 import { Footer } from "../components/Footer";
 import { ArrowUpRight, ArrowLeft, TrendingUp, Users, Target, Palette, Lightbulb, Pencil, Globe, FileDigit, SquareAsterisk, Rows4, SignpostBig, Waypoints } from "lucide-react";
 import { Button } from "../components/ui/button";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "../components/ui/carousel";
 import { Link } from "react-router-dom";
 import { motion } from "motion/react";
 
@@ -30,8 +31,8 @@ const workFronts = [
   {
     title: "Design System y Tokens",
     icon: Palette,
-    bg: "var(--background-3)",
-    lightBg: false,
+    bg: "#E8E2F5",
+    lightBg: true,
     items: ["Base de variables UI", "Reducir deuda visual", "Agilizar front-end"],
   },
   {
@@ -250,30 +251,34 @@ export function GovernancePage() {
               {/* Proyectos */}
               <div className="px-8 lg:px-12 py-12 border-t border-border">
                 <p className="text-xs font-medium tracking-widest uppercase text-primary mb-8">Proyectos en los que participé</p>
-                <div
-                  className="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4 md:grid md:grid-cols-3 md:overflow-visible [-webkit-overflow-scrolling:touch] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-                >
-                  {projectsList.map((item, i) => {
-                    const Icon = item.icon;
-                    const isLightBg = item.bg.startsWith("#");
-                    return (
-                      <div className="snap-start shrink-0 w-[85vw] md:w-auto" key={i}>
-                        <div className="flex flex-col gap-4 p-6 rounded-xl border border-border hover:border-primary/30 hover:shadow-sm transition-all bg-card h-full">
-                          <div className="w-12 h-12 rounded-lg flex items-center justify-center border border-border" style={{ background: item.bg }}>
-                            <Icon className="w-5 h-5" style={{ color: isLightBg ? "#6B4F8C" : "var(--primary)" }} strokeWidth={1.5} />
+                <Carousel opts={{ align: "start", loop: true }} className="w-full">
+                  <CarouselContent className="-ml-4">
+                    {projectsList.map((item, i) => {
+                      const Icon = item.icon;
+                      const isLightBg = item.bg.startsWith("#");
+                      return (
+                        <CarouselItem key={i} className="pl-4 basis-[85%] sm:basis-1/2 lg:basis-1/3">
+                          <div className="flex flex-col gap-4 p-6 rounded-xl border border-border hover:border-primary/30 hover:shadow-sm transition-all bg-card h-full">
+                            <div className="w-12 h-12 rounded-lg flex items-center justify-center border border-border" style={{ background: item.bg }}>
+                              <Icon className="w-5 h-5" style={{ color: isLightBg ? "#6B4F8C" : "var(--primary)" }} strokeWidth={1.5} />
+                            </div>
+                            <div>
+                              <p className="text-sm font-medium text-foreground mb-1" style={{ fontFamily: "var(--font-serif)" }}>
+                                {item.title}
+                              </p>
+                              <p className="text-xs text-foreground/50 mb-3">{item.desc}</p>
+                              <p className="text-xs text-foreground/60 leading-relaxed">{item.details}</p>
+                            </div>
                           </div>
-                          <div>
-                            <p className="text-sm font-medium text-foreground mb-1" style={{ fontFamily: "var(--font-serif)" }}>
-                              {item.title}
-                            </p>
-                            <p className="text-xs text-foreground/50 mb-3">{item.desc}</p>
-                            <p className="text-xs text-foreground/60 leading-relaxed">{item.details}</p>
-                          </div>
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
+                        </CarouselItem>
+                      );
+                    })}
+                  </CarouselContent>
+                  <div className="flex items-center justify-end gap-2 mt-4">
+                    <CarouselPrevious className="static translate-y-0" />
+                    <CarouselNext className="static translate-y-0" />
+                  </div>
+                </Carousel>
               </div>
 
               {/* Lo que aprendí */}
