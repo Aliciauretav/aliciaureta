@@ -11,7 +11,7 @@ export function Footer() {
         </Link>
 
         <p className="text-xs text-foreground/40">
-          © 2025 · Diseñado con <span style={{ color: "#D22424" }}>♥</span> y mucho café
+         Santiago, Chile © 2025 · Diseñado con <span style={{ color: "#D22424" }}>♥</span> y mucho café
         </p>
 
         <nav className="flex items-center gap-6">
