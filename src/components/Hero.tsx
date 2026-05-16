@@ -214,7 +214,7 @@ export function Hero() {
 
               {/* Elemento decorativo */}
               <div
-                className="absolute -top-4 -right-4 w-16 h-16 rounded-full opacity-20"
+                className="absolute -top-4 -right-4 w-16 h-16 rounded-full opacity-30"
                 style={{ background: "var(--primary)" }}
               />
             </div>

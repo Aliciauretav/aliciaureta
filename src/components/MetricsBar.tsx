@@ -36,7 +36,7 @@ export function MetricsBar() {
             </p>
             <p
               className="text-sm leading-relaxed"
-              style={{ color: "rgba(250,250,248,0.5)" }}
+              style={{ color: "var(--background)", opacity: 0.6 }}
             >
               {m.desc}
             </p>

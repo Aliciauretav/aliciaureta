@@ -101,7 +101,7 @@ export function Projects() {
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover object-center group-hover:scale-[1.02] transition-transform duration-500"
+                  className="w-full h-full object-contain group-hover:scale-[1.02] transition-transform duration-500"
                   loading="lazy"
                   decoding="async"
                   onError={(e) => {
