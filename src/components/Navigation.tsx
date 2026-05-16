@@ -1,13 +1,18 @@
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, Sun, Moon } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { useTheme } from "next-themes";
 import { Button } from "./ui/button";
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [isProjectsOpen, setIsProjectsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const location = useLocation();
+  const { resolvedTheme, setTheme } = useTheme();
+
+  useEffect(() => { setMounted(true); }, []);
 
   const isActive = (path: string) => location.pathname === path;
   const isProjectsActive = location.pathname.startsWith("/proyectos");
@@ -117,6 +122,16 @@ export function Navigation() {
               Contacto
             </Link>
 
+            {mounted && (
+              <button
+                onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
+                aria-label="Cambiar modo de color"
+                className="w-9 h-9 flex items-center justify-center rounded-lg border border-border text-foreground/60 hover:text-primary hover:border-primary/40 transition-colors"
+              >
+                {resolvedTheme === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+              </button>
+            )}
+
             <Button
               variant="default"
               size="sm"
@@ -192,6 +207,17 @@ export function Navigation() {
               >
                 Contacto
               </Link>
+
+              {mounted && (
+                <button
+                  onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
+                  aria-label="Cambiar modo de color"
+                  className="flex items-center gap-2 text-sm text-foreground/70 hover:text-primary transition-colors"
+                >
+                  {resolvedTheme === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+                  {resolvedTheme === "dark" ? "Modo claro" : "Modo oscuro"}
+                </button>
+              )}
 
               <Button
                 variant="default"

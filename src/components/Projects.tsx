@@ -10,28 +10,25 @@ const projects = [
     description: "Diseñé y construí una herramienta que reduce una auditoría heurística de 3 días a 2 horas, estandariza el output y convierte evaluaciones puntuales en un sistema de tracking por componente.",
     tags: ["Prompt Engineering", "Product Design", "Claude API", "React"],
     metrics: [
-      { num: "3d→2h", label: "Tiempo de\nauditoría" },
-      { num: "3", label: "Modos: Screenshot\nComparativa · URL" },
+      { num: "3d→2h", label: "Tiempo de auditoría" },
+      { num: "3 modos", label: "Screenshot · Comparativa · URL" },
     ],
-    image: "/image/audix-preview.webp",
+    image: "/audix/audix_portada.webp",
     imageBg: "var(--background-3)",
-    reverse: false,
   },
   {
     id: "governance",
     href: "/proyectos/governance",
     category: "UX Management · Design System",
     title: "Construir el sistema que hace posible el buen diseño a escala",
-    description:
-      "Implementé la infraestructura de diseño de AFP Modelo: desde el sistema de gobernanza hasta los componentes que redujeron el tiempo de diseño en un 30% y mejoraron la experiencia percibida por los usuarios.",
+    description: "Implementé la infraestructura de diseño de AFP Modelo: desde el sistema de gobernanza hasta los componentes que redujeron el tiempo de diseño en un 30% y mejoraron la experiencia percibida por los usuarios.",
     tags: ["Design System", "Gobernanza UX", "Design Tokens", "Atomic Design"],
     metrics: [
-      { num: "30%", label: "Reducción en\ntiempo de diseño" },
-      { num: "+5", label: "Sitios bajo\ngobernanza unificada" },
+      { num: "30%", label: "Reducción en tiempo de diseño" },
+      { num: "+5", label: "Sitios bajo gobernanza unificada" },
     ],
-    image: "/image/afp-cover.svg",
+    image: "/afp-portada.webp",
     imageBg: "var(--background-3)",
-    reverse: true,
   },
   {
     id: "web-app-design",
@@ -41,12 +38,11 @@ const projects = [
     description: "Detecté que el problema no era de interfaz sino de arquitectura. Amplié el scope, coordiné dos equipos tecnológicos y diseñé un sistema unificado — de 60 inputs a 4, con impacto medible en más de 300 personas.",
     tags: ["UX Research", "Arquitectura de información", "Prototipado Hi-Fi", "Validación con usuarios"],
     metrics: [
-      { num: "60→4", label: "Inputs en el\nproceso de contratación" },
-      { num: "+300", label: "Personas con\nflujo optimizado" },
+      { num: "60→4", label: "Inputs en el proceso de contratación" },
+      { num: "+300", label: "Personas con flujo optimizado" },
     ],
     image: "/image/teamwork-cover.webp",
     imageBg: "#E8F0F5",
-    reverse: false,
   },
   {
     id: "web-design",
@@ -56,12 +52,11 @@ const projects = [
     description: "Rediseñé el sitio oficial de DIRPLAN para su migración a WordPress, trabajando dentro del Sistema de Diseño Gubernamental y reduciendo en un 65% los pasos para acceder a información clave.",
     tags: ["Consultoría externa", "Mobile First", "Sistema Gubernamental", "Accesibilidad"],
     metrics: [
-      { num: "65%", label: "Reducción en pasos\npara encontrar info" },
-      { num: "88%", label: "Satisfacción en\npruebas de usabilidad" },
+      { num: "65%", label: "Reducción en pasos para encontrar info" },
+      { num: "88%", label: "Satisfacción en pruebas de usabilidad" },
     ],
     image: "/image/dirplan-cover.webp",
     imageBg: "#EEF2F0",
-    reverse: true,
   },
 ];
 
@@ -90,24 +85,25 @@ export function Projects() {
           </p>
         </div>
 
-        {/* Proyectos */}
-        <div className="flex flex-col gap-6">
+        {/* Grilla 2x2 */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {projects.map((project) => (
             <Link
               key={project.id}
               to={project.href}
-              className="group grid lg:grid-cols-2 bg-muted rounded-2xl overflow-hidden border border-border hover:-translate-y-1 hover:shadow-xl transition-all duration-300"
+              className="group flex flex-col bg-muted rounded-2xl overflow-hidden border border-border hover:-translate-y-1 hover:shadow-xl transition-all duration-300"
             >
-              {/* Imagen */}
+              {/* Imagen — parte superior */}
               <div
-                className={`aspect-[4/3] overflow-hidden ${project.reverse ? "lg:order-2" : ""}`}
-                style={{ background: project.imageBg }}
+                className="overflow-hidden"
+                style={{ background: project.imageBg, aspectRatio: "16/9" }}
               >
                 <img
                   src={project.image}
                   alt={project.title}
                   className="w-full h-full object-cover object-center group-hover:scale-[1.02] transition-transform duration-500"
                   loading="lazy"
+                  decoding="async"
                   onError={(e) => {
                     const target = e.target as HTMLImageElement;
                     target.style.display = "none";
@@ -115,29 +111,25 @@ export function Projects() {
                 />
               </div>
 
-              {/* Info */}
-              <div
-                className={`p-8 lg:p-12 flex flex-col justify-center ${
-                  project.reverse ? "lg:order-1" : ""
-                }`}
-              >
-                <p className="text-xs font-medium tracking-widest uppercase text-primary mb-4">
+              {/* Info — parte inferior */}
+              <div className="p-6 flex flex-col flex-1">
+                <p className="text-xs font-medium tracking-widest uppercase text-primary mb-3">
                   {project.category}
                 </p>
 
                 <h3
-                  className="text-2xl lg:text-3xl text-foreground mb-4 leading-tight"
+                  className="text-xl lg:text-2xl text-foreground mb-3 leading-tight"
                   style={{ fontFamily: "var(--font-serif)", letterSpacing: "-0.01em" }}
                 >
                   {project.title}
                 </h3>
 
-                <p className="text-sm leading-relaxed mb-6" style={{ color: "#666666" }}>
+                <p className="text-sm leading-relaxed mb-4 text-foreground/60">
                   {project.description}
                 </p>
 
                 {/* Tags */}
-                <div className="flex flex-wrap gap-2 mb-8">
+                <div className="flex flex-wrap gap-2 mb-5">
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
@@ -149,16 +141,16 @@ export function Projects() {
                 </div>
 
                 {/* Métricas */}
-                <div className="flex gap-8 pt-6 border-t border-border mb-6">
+                <div className="flex gap-6 pt-4 border-t border-border mb-4 mt-auto">
                   {project.metrics.map((m) => (
                     <div key={m.num}>
                       <p
-                        className="font-bold leading-none"
-                        style={{ fontFamily: "var(--font-serif)", fontSize: "48px", color: "var(--foreground)" }}
+                        className="text-2xl font-bold leading-none text-foreground"
+                        style={{ fontFamily: "var(--font-serif)" }}
                       >
                         {m.num}
                       </p>
-                      <p className="text-sm mt-1 whitespace-pre-line leading-relaxed" style={{ color: "#666666" }}>
+                      <p className="text-xs mt-1 leading-relaxed text-foreground/55">
                         {m.label}
                       </p>
                     </div>
@@ -166,18 +158,7 @@ export function Projects() {
                 </div>
 
                 {/* CTA */}
-                <span
-                  className="inline-flex items-center gap-2 text-sm font-medium transition-all"
-                  style={{ color: "var(--primary)" }}
-                  onMouseEnter={e => {
-                    (e.currentTarget as HTMLElement).style.color = "var(--foreground)";
-                    (e.currentTarget as HTMLElement).style.gap = "12px";
-                  }}
-                  onMouseLeave={e => {
-                    (e.currentTarget as HTMLElement).style.color = "var(--primary)";
-                    (e.currentTarget as HTMLElement).style.gap = "8px";
-                  }}
-                >
+                <span className="inline-flex items-center gap-2 text-sm font-medium text-primary group-hover:gap-3 transition-all">
                   Ver caso completo
                   <ArrowRight className="w-4 h-4" />
                 </span>
