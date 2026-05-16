@@ -11,7 +11,8 @@ export function Footer() {
         </Link>
 
         <p className="text-xs text-foreground/40 text-center max-w-sm leading-relaxed">
-          Sitio diseñado y construido mediante orquestación de herramientas de IA y desarrollo propio, priorizando claridad, performance y escalabilidad. Con <span style={{ color: "#D22424" }}>♥</span> y mucho café · Santiago, Chile © 2026
+          Sitio diseñado y construido mediante orquestación de herramientas de IA y desarrollo propio, priorizando claridad, performance y escalabilidad.<br />
+          Con <span style={{ color: "#D22424" }}>♥</span> y mucho café · Santiago, Chile © 2026
         </p>
 
         <nav className="flex items-center gap-6">
