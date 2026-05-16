@@ -1,8 +1,15 @@
 import { ArrowRight, Mail, Linkedin } from "lucide-react";
 import { Button } from "./ui/button";
 import { Link } from "react-router-dom";
+import { useTheme } from "next-themes";
+import { useState, useEffect } from "react";
 
 export function Hero() {
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => { setMounted(true); }, []);
+  const isDark = mounted && resolvedTheme === "dark";
+
   const scrollToProjects = (e: React.MouseEvent) => {
     e.preventDefault();
     document.getElementById("projects")?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -21,7 +28,7 @@ export function Hero() {
               <span className="w-6 h-px bg-primary" />
               <p
                 className="text-xs font-medium tracking-widest uppercase"
-                style={{ color: "#5D4A66" }}
+                style={{ color: isDark ? "rgba(255,255,255,0.7)" : "#5D4A66" }}
               >
                 UX Lead · UX Manager · Product Designer · Santiago, Chile
               </p>
@@ -39,8 +46,7 @@ export function Hero() {
               >
                 UX Manager que convierte problemas{" "}
                 <em
-                  className="font-semibold text-[#6B4F8C] dark:text-[#C4A8E0]"
-                  style={{ fontStyle: "italic" }}
+                  style={{ fontStyle: "italic", color: isDark ? "#C4A8E0" : "#6B4F8C" }}
                 >
                   complejos
                 </em>{" "}

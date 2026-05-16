@@ -32,7 +32,7 @@ export function Navigation() {
     { name: "Audix — Tracking de calidad UX", href: "/proyectos/audix" },
   ];
 
-  const navItemClass = "text-sm transition-all duration-200 ease-in-out relative py-1";
+  const navItemClass = "text-sm transition-all duration-200 ease-in-out relative py-1 px-3";
 
   const getLinkStyle = (active: boolean) => active
     ? {
@@ -150,22 +150,34 @@ export function Navigation() {
               <button
                 onClick={toggleTheme}
                 aria-label="Cambiar modo de color"
-                className="w-9 h-9 flex items-center justify-center rounded-lg border border-border text-foreground/60 hover:text-primary hover:border-primary/40 transition-all duration-200"
+                className="w-9 h-9 flex items-center justify-center rounded-full border border-border text-foreground/60 hover:text-primary hover:border-primary/40 transition-all duration-200"
               >
                 {resolvedTheme === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
               </button>
             )}
 
-            <Button
-              variant="default"
-              size="sm"
-              className="bg-primary hover:bg-primary/80 text-primary-foreground rounded-lg px-4 transition-all duration-200"
-              asChild
+            <a
+              href="/CV_Alicia_Ureta_UX_Manager_2026.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                height: "36px",
+                padding: "0 16px",
+                borderRadius: "8px",
+                background: "var(--primary)",
+                color: "var(--primary-foreground)",
+                fontSize: "14px",
+                fontWeight: 500,
+                display: "inline-flex",
+                alignItems: "center",
+                textDecoration: "none",
+                transition: "background 0.2s, color 0.2s",
+              }}
+              onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "color-mix(in srgb, var(--primary) 80%, transparent)"; }}
+              onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "var(--primary)"; }}
             >
-              <a href="/CV_Alicia_Ureta_UX_Manager_2026.pdf" target="_blank" rel="noopener noreferrer">
-                Descargar CV
-              </a>
-            </Button>
+              Descargar CV
+            </a>
           </div>
 
           {/* Mobile: dark mode toggle + hamburger */}
@@ -174,7 +186,7 @@ export function Navigation() {
               <button
                 onClick={toggleTheme}
                 aria-label="Cambiar modo de color"
-                className="w-10 h-10 flex items-center justify-center rounded-lg border border-border text-foreground/60 hover:text-primary transition-all duration-200"
+                className="w-10 h-10 flex items-center justify-center rounded-full border border-border text-foreground/60 hover:text-primary transition-all duration-200"
               >
                 {resolvedTheme === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
               </button>
@@ -248,16 +260,27 @@ export function Navigation() {
               </Link>
 
               <div className="pt-2 border-t border-border mt-2">
-                <Button
-                  variant="default"
-                  size="sm"
-                  className="bg-primary hover:bg-primary/80 text-primary-foreground w-full rounded-lg transition-all duration-200 mt-3"
-                  asChild
+                <a
+                  href="/CV_Alicia_Ureta_UX_Manager_2026.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    height: "36px",
+                    borderRadius: "8px",
+                    background: "var(--primary)",
+                    color: "var(--primary-foreground)",
+                    fontSize: "14px",
+                    fontWeight: 500,
+                    textDecoration: "none",
+                    marginTop: "12px",
+                    transition: "background 0.2s",
+                  }}
                 >
-                  <a href="/CV_Alicia_Ureta_UX_Manager_2026.pdf" target="_blank" rel="noopener noreferrer">
-                    Descargar CV
-                  </a>
-                </Button>
+                  Descargar CV
+                </a>
               </div>
             </div>
           </div>

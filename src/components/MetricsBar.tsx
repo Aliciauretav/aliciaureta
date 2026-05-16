@@ -31,7 +31,7 @@ export function MetricsBar() {
             >
               {m.value}
               {m.suffix && (
-                <span style={{ color: "var(--primary)" }}>{m.suffix}</span>
+                <span className="text-[#6B4F8C] dark:text-[#C4A8E0]">{m.suffix}</span>
               )}
             </p>
             <p

@@ -88,19 +88,19 @@ export function Contact() {
             </p>
             <div className="flex flex-col gap-4 mb-10">
               <a href="mailto:aliciauretav@gmail.com" className="flex items-center gap-3 text-sm text-foreground/75 hover:text-primary transition-colors group">
-                <span className="w-9 h-9 rounded-lg border border-border flex items-center justify-center group-hover:border-primary group-hover:bg-secondary transition-colors">
+                <span className="w-9 h-9 rounded-full border border-border flex items-center justify-center group-hover:border-primary group-hover:bg-secondary transition-colors">
                   <Mail className="w-4 h-4" />
                 </span>
                 aliciauretav@gmail.com
               </a>
               <a href="https://linkedin.com/in/aliciauretavergara" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-foreground/75 hover:text-primary transition-colors group">
-                <span className="w-9 h-9 rounded-lg border border-border flex items-center justify-center group-hover:border-primary group-hover:bg-secondary transition-colors">
+                <span className="w-9 h-9 rounded-full border border-border flex items-center justify-center group-hover:border-primary group-hover:bg-secondary transition-colors">
                   <Linkedin className="w-4 h-4" />
                 </span>
                 /in/aliciauretavergara
               </a>
               <span className="flex items-center gap-3 text-sm text-foreground/75">
-                <span className="w-9 h-9 rounded-lg border border-border flex items-center justify-center">
+                <span className="w-9 h-9 rounded-full border border-border flex items-center justify-center">
                   <MapPin className="w-4 h-4" />
                 </span>
                 Santiago, Chile

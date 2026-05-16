@@ -69,8 +69,8 @@
   --background-2:      #1a1a1a;
   --background-3:      #222222;
   --foreground:        #F2F2F0;
-  --foreground-muted:  #A8A6A0;
-  --foreground-subtle: #6B6966;
+  --foreground-muted:  #C0BEBB;
+  --foreground-subtle: #8A8784;
   --primary:           #B094D0;
   --primary-foreground: #ffffff;
   --primary-light:     #2a2030;
@@ -86,8 +86,8 @@
   --accent-foreground: #ffffff;
   --destructive:       #E05C5C;
   --destructive-foreground: #ffffff;
-  --border:            rgba(255, 255, 255, 0.08);
-  --input:             rgba(255, 255, 255, 0.08);
+  --border:            rgba(255, 255, 255, 0.18);
+  --input:             rgba(255, 255, 255, 0.18);
   --ring:              #8B6FAE;
   --chart-1: #8B6FAE;
   --chart-2: #2a2a2a;

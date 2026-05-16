@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Logo } from "./Logo";
 
 export function Footer() {
   return (
@@ -6,15 +7,11 @@ export function Footer() {
       <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
 
         <Link to="/" className="flex items-center">
-          <img
-            src="https://aliciaureta.com/image/LOGO.png"
-            alt="Alicia Ureta"
-            className="h-8 w-auto object-contain"
-          />
+          <Logo />
         </Link>
 
         <p className="text-xs text-foreground/40">
-          © 2025 · Diseñado con ♥ y mucho café
+          © 2025 · Diseñado con <span style={{ color: "#D22424" }}>♥</span> y mucho café
         </p>
 
         <nav className="flex items-center gap-6">
