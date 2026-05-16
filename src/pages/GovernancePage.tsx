@@ -256,7 +256,7 @@ export function GovernancePage() {
                     {projectsList.map((item, i) => {
                       const Icon = item.icon;
                       return (
-                        <CarouselItem key={i} className="pl-4 basis-[85%] sm:basis-1/2 lg:basis-1/3">
+                        <CarouselItem key={i} className="pl-4 basis-[78%] sm:basis-1/2 lg:basis-1/3">
                           <div className="flex flex-col gap-4 p-6 rounded-xl border border-border hover:border-primary/30 hover:shadow-sm transition-all bg-card h-full">
                             <div className="w-12 h-12 rounded-lg flex items-center justify-center border border-border" style={{ background: "var(--background-3)" }}>
                               <Icon className="w-5 h-5" style={{ color: "var(--primary)" }} strokeWidth={1.5} />
@@ -273,9 +273,9 @@ export function GovernancePage() {
                       );
                     })}
                   </CarouselContent>
-                  <div className="flex items-center justify-end gap-2 mt-6">
-                    <CarouselPrevious className="static translate-y-0" />
-                    <CarouselNext className="static translate-y-0" />
+                  <div className="flex items-center justify-end gap-3 mt-8 pt-6 border-t border-border">
+                    <CarouselPrevious className="static translate-y-0 top-auto left-auto right-auto" />
+                    <CarouselNext className="static translate-y-0 top-auto left-auto right-auto" />
                   </div>
                 </Carousel>
               </div>

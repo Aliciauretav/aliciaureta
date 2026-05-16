@@ -129,7 +129,7 @@ export function Projects() {
                 </p>
 
                 {/* Tags */}
-                <div className="flex flex-wrap gap-2 mb-5">
+                <div className="flex flex-wrap gap-2 mb-8">
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
