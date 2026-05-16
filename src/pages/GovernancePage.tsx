@@ -1,9 +1,9 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Navigation } from "../components/Navigation";
 import { Footer } from "../components/Footer";
-import { ArrowUpRight, ArrowLeft, TrendingUp, Users, Target, Palette, Lightbulb, Pencil, Globe, FileDigit, SquareAsterisk, Rows4, SignpostBig, Waypoints } from "lucide-react";
+import { ArrowUpRight, ArrowLeft, ArrowRight, TrendingUp, Users, Target, Palette, Lightbulb, Pencil, Globe, FileDigit, SquareAsterisk, Rows4, SignpostBig, Waypoints } from "lucide-react";
 import { Button } from "../components/ui/button";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "../components/ui/carousel";
+import { type CarouselApi, Carousel, CarouselContent, CarouselItem } from "../components/ui/carousel";
 import { Link } from "react-router-dom";
 import { motion } from "motion/react";
 
@@ -62,6 +62,7 @@ const projectsList = [
 
 export function GovernancePage() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
+  const [carouselApi, setCarouselApi] = useState<CarouselApi>();
 
   return (
     <div className="min-h-screen">
@@ -251,7 +252,7 @@ export function GovernancePage() {
               {/* Proyectos */}
               <div className="px-8 lg:px-12 py-12 border-t border-border">
                 <p className="text-xs font-medium tracking-widest uppercase text-primary mb-8">Proyectos en los que participé</p>
-                <Carousel opts={{ align: "start", loop: true }} className="w-full">
+                <Carousel opts={{ align: "start", loop: true }} className="w-full" setApi={setCarouselApi}>
                   <CarouselContent className="-ml-4">
                     {projectsList.map((item, i) => {
                       const Icon = item.icon;
@@ -273,9 +274,21 @@ export function GovernancePage() {
                       );
                     })}
                   </CarouselContent>
-                  <div className="flex items-center justify-end gap-3 mt-8 pt-6 border-t border-border">
-                    <CarouselPrevious className="static translate-y-0 top-auto left-auto right-auto" />
-                    <CarouselNext className="static translate-y-0 top-auto left-auto right-auto" />
+                  <div style={{ display: "flex", justifyContent: "flex-end", gap: "8px", marginTop: "2rem", paddingTop: "1.25rem", borderTop: "1px solid var(--border)" }}>
+                    <button
+                      onClick={() => carouselApi?.scrollPrev()}
+                      aria-label="Anterior"
+                      style={{ width: "36px", height: "36px", borderRadius: "50%", border: "1px solid var(--border)", background: "var(--background)", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "var(--foreground)", flexShrink: 0 }}
+                    >
+                      <ArrowLeft className="w-4 h-4" />
+                    </button>
+                    <button
+                      onClick={() => carouselApi?.scrollNext()}
+                      aria-label="Siguiente"
+                      style={{ width: "36px", height: "36px", borderRadius: "50%", border: "1px solid var(--border)", background: "var(--background)", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "var(--foreground)", flexShrink: 0 }}
+                    >
+                      <ArrowRight className="w-4 h-4" />
+                    </button>
                   </div>
                 </Carousel>
               </div>
