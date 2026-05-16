@@ -4,58 +4,59 @@ import { Footer } from "../components/Footer";
 import { ArrowUpRight, ArrowLeft, TrendingUp, Users, Target, Palette, Lightbulb, Pencil, Globe, FileDigit, SquareAsterisk, Rows4, SignpostBig, Waypoints } from "lucide-react";
 import { Button } from "../components/ui/button";
 import { Link } from "react-router-dom";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "../components/ui/carousel";
 import { motion } from "motion/react";
 
 const metrics = [
-  { icon: TrendingUp, value: "30%", label: "Reducción en tiempo de diseño con Atomic Design y Design Tokens" },
-  { icon: Users, value: "+5 sitios", label: "Productos digitales bajo gobernanza de diseño unificada" },
-  { icon: Target, value: "Objetivo corporativo", label: "Priorización y ejecución de iniciativas alineadas a indicadores de experiencia corporativos, con coordinación transversal y validación en producción" },
+  { icon: TrendingUp, value: "30%",              label: "Reducción en tiempo de diseño con Atomic Design y Design Tokens" },
+  { icon: Target,     value: "5+ plataformas",   label: "Ecosistema digital bajo gobernanza de diseño unificada" },
+  { icon: Users,      value: "5 diseñadores",    label: "Equipo UX/UI liderado tácticamente en un ecosistema digital multi-plataforma" },
+  { icon: Lightbulb,  value: "Objetivo corporativo", label: "Mayor alineación entre equipos de diseño, negocio y desarrollo, con base escalable para futuras iniciativas" },
 ];
 
-const workDone = {
-  sistema: [
-    "Auditoría del estado real del sistema antes de definir qué conservar",
-    "Estructura Atomic Design para escalar sin duplicar componentes",
-    "Design Tokens como capa de decisión entre diseño y desarrollo",
-    "Criterios de accesibilidad integrados al sistema, no aplicados después",
+const challenges = {
+  consistencia: [
+    "Cada plataforma tenía necesidades, usuarios y restricciones distintas",
+    "Requería equilibrar flexibilidad, consistencia y escalabilidad",
+    "Claridad transversal entre productos con perfiles de usuario muy diferentes",
   ],
-  gestion: [
-    "Proceso de revisión que redujo iteraciones tardías con desarrollo",
-    "Priorización con stakeholders basada en métricas de experiencia corporativas",
-    "Sesiones colaborativas para alinear criterios entre productos y equipos",
-    "Seguimiento hasta producción para garantizar coherencia en implementación",
+  gobernanza: [
+    "Establecer criterios compartidos de experiencia entre plataformas",
+    "Evitar divergencias visuales, patrones contradictorios y deuda UX acumulativa",
+    "Complejidad regulatoria: cumplimiento normativo, accesibilidad y alfabetización digital diversa",
   ],
 };
 
 const workFronts = [
   {
-    title: "Design System y token",
+    title: "Design System y Tokens",
     icon: Palette,
     bg: "var(--background-3)",
+    lightBg: false,
     items: ["Base de variables UI", "Reducir deuda visual", "Agilizar front-end"],
   },
   {
     title: "Gobernanza de diseño",
     icon: Lightbulb,
     bg: "#EDE8F5",
-    items: ["Definición de alcance en diseño", "Mejora en integración"],
+    lightBg: true,
+    items: ["Definición de alcance en diseño", "Estándares de interacción", "Mejora en integración con desarrollo"],
   },
   {
-    title: "UX Writing",
+    title: "UX Writing y Tono",
     icon: Pencil,
     bg: "#F5EAF0",
-    items: ["Definición Tono y estilo de la web", "Control documentación normativa y vencimientos", "Revisiones cruzadas entre áreas"],
+    lightBg: true,
+    items: ["Definición de tono y estilo", "Consistencia comunicacional transversal", "Revisiones cruzadas entre áreas"],
   },
 ];
 
 const projectsList = [
-  { title: "Sitio Web Público", desc: "Rediseño Home sitio web público", icon: Globe, bg: "var(--background-3)", details: "Lideré el rediseño completo de la página principal del sitio web público de AFP Modelo, asegurando coherencia visual y definiendo nuevos lineamientos de diseño para optimizar la experiencia de usuario y la arquitectura de información." },
-  { title: "Proyecto 311", desc: "Digitalización trámites para afiliados", icon: FileDigit, bg: "#EDE8F5", details: "Lideré la digitalización de trámites para afiliados, asegurando el cumplimiento normativo y guiando la simplificación de formularios e información. Esta optimización mejoró significativamente la claridad y la satisfacción de los usuarios." },
-  { title: "PIN Datos de contacto", desc: "Tercer factor de validación en actualización de datos de contacto", icon: SquareAsterisk, bg: "#F5EAF0", details: "Diseñé el flujo de autenticación con PIN para implementar el cumplimiento normativo en la actualización de datos de contacto de los afiliados, garantizando coherencia entre todos los canales de atención." },
-  { title: "Servicios en línea", desc: "Centralización servicios para afiliados", icon: Rows4, bg: "#EAF3F0", details: "Lideré el rediseño de la sección de Servicios en Línea, unificando todas las herramientas disponibles para afiliados con una experiencia coherente, intuitiva y orientada al usuario." },
-  { title: "Simplicidad", desc: "Nuevo tono y voz en comunicaciones", icon: SignpostBig, bg: "#F0EAF5", details: "Lideré la definición de un tono y voz más claros y cercanos en las comunicaciones hacia los usuarios, creando guías de estilo y supervisando la coherencia entre equipos." },
-  { title: "Menú sitio público", desc: "Rediseño de Arquitectura de información", icon: Waypoints, bg: "#EAF0F5", details: "Lideré el rediseño de la arquitectura de información y navegación del sitio, reduciendo significativamente el tiempo necesario para encontrar información clave." },
+  { title: "Sitio Web Público",      desc: "Rediseño Home sitio web público",                               icon: Globe,          bg: "var(--background-3)", details: "Lideré el rediseño del home del sitio público, asegurando coherencia visual y definiendo lineamientos de diseño para optimizar la experiencia de usuario y la arquitectura de información." },
+  { title: "Proyecto 311",           desc: "Digitalización trámites para afiliados",                        icon: FileDigit,      bg: "#EDE8F5",             details: "Lideré la digitalización de trámites para afiliados, asegurando el cumplimiento normativo y guiando la simplificación de formularios e información." },
+  { title: "PIN Datos de contacto",  desc: "Tercer factor de validación en actualización de datos",         icon: SquareAsterisk, bg: "#F5EAF0",             details: "Diseñé el flujo de autenticación con PIN para implementar el cumplimiento normativo en la actualización de datos de contacto, garantizando coherencia entre todos los canales de atención." },
+  { title: "Servicios en línea",     desc: "Centralización servicios para afiliados",                       icon: Rows4,          bg: "#EAF3F0",             details: "Lideré el rediseño de la sección de Servicios en Línea, unificando todas las herramientas disponibles para afiliados con una experiencia coherente, intuitiva y orientada al usuario." },
+  { title: "Simplicidad",            desc: "Nuevo tono y voz en comunicaciones",                            icon: SignpostBig,    bg: "#F0EAF5",             details: "Lideré la definición de un tono y voz más claros y cercanos en las comunicaciones hacia los usuarios, creando guías de estilo y supervisando la coherencia entre equipos." },
+  { title: "Menú sitio público",     desc: "Rediseño de Arquitectura de información",                       icon: Waypoints,      bg: "#EAF0F5",             details: "Lideré el rediseño de la arquitectura de información y navegación del sitio, reduciendo significativamente el tiempo necesario para encontrar información clave." },
 ];
 
 export function GovernancePage() {
@@ -113,20 +114,20 @@ export function GovernancePage() {
                 </div>
                 <div className="p-8 lg:p-12 flex flex-col justify-center">
                   <p className="text-xs font-medium tracking-widest uppercase text-primary mb-4">
-                    Design System · Gobernanza · UX Management
+                    DESIGN SYSTEM · GOBERNANZA · UX MANAGEMENT
                   </p>
                   <h1
                     className="text-3xl lg:text-4xl text-foreground mb-5 leading-tight"
                     style={{ fontFamily: "var(--font-serif)", letterSpacing: "-0.02em" }}
                   >
-                    Construir el sistema que hace posible el buen diseño a escala
+                    Liderazgo UX transversal para un ecosistema digital multi-plataforma
                   </h1>
                   <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm mb-6 w-fit" style={{ background: "var(--background-3)", color: "var(--primary)" }}>
                     <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-                    UX/UI Manager
+                    UX Manager
                   </span>
                   <p className="text-foreground/60 leading-relaxed mb-6">
-                    Implementé la infraestructura de diseño de AFP Modelo: desde el sistema de gobernanza hasta los componentes que redujeron el tiempo de diseño en un 30% y mejoraron la experiencia percibida por los usuarios.
+                    Coordinación táctica de un equipo de 5 diseñadores UX/UI y definición de estándares de experiencia para productos digitales utilizados por afiliados, beneficiarios y empleadores en un entorno altamente regulado.
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {["Design System", "Gobernanza UX", "Design Tokens", "Atomic Design", "UX Writing", "Stakeholder Management"].map((tag) => (
@@ -146,10 +147,18 @@ export function GovernancePage() {
                 </p>
               </div>
 
-              {/* Métricas */}
+              {/* Contexto */}
               <div className="px-8 lg:px-12 py-12 border-t border-border">
+                <p className="text-xs font-medium tracking-widest uppercase text-primary mb-4">Contexto</p>
+                <p className="text-lg text-foreground/70 leading-relaxed max-w-3xl">
+                  AFP Modelo cuenta con un ecosistema digital compuesto por sitio público, portal privado de afiliados, portal de beneficiarios, portal de empleadores y aplicación móvil. La organización enfrentaba desafíos de consistencia transversal, alineación entre experiencias, escalabilidad UX, gobernanza de diseño y mantenimiento de estándares comunes entre plataformas y equipos.
+                </p>
+              </div>
+
+              {/* Métricas */}
+              <div className="px-8 lg:px-12 py-12 border-t border-border bg-muted/40">
                 <p className="text-xs font-medium tracking-widest uppercase text-primary mb-8">Métricas de impacto</p>
-                <div className="grid md:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                   {metrics.map((m, i) => {
                     const Icon = m.icon;
                     return (
@@ -173,17 +182,17 @@ export function GovernancePage() {
                 </div>
               </div>
 
-              {/* Trabajo realizado */}
-              <div className="px-8 lg:px-12 py-12 border-t border-border bg-muted/40">
-                <p className="text-xs font-medium tracking-widest uppercase text-primary mb-8">Decisiones clave</p>
+              {/* Principales desafíos */}
+              <div className="px-8 lg:px-12 py-12 border-t border-border">
+                <p className="text-xs font-medium tracking-widest uppercase text-primary mb-8">Principales desafíos</p>
                 <div className="grid md:grid-cols-2 gap-8">
                   <div>
                     <p className="text-sm font-medium text-foreground mb-4 flex items-center gap-2">
                       <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-                      Sistema de diseño
+                      Consistencia multi-producto
                     </p>
                     <ul className="space-y-3">
-                      {workDone.sistema.map((item, i) => (
+                      {challenges.consistencia.map((item, i) => (
                         <li key={i} className="flex items-start gap-3 text-sm text-foreground/60">
                           <span className="w-1.5 h-1.5 rounded-full bg-foreground/30 mt-2 shrink-0" />
                           {item}
@@ -194,10 +203,10 @@ export function GovernancePage() {
                   <div>
                     <p className="text-sm font-medium text-foreground mb-4 flex items-center gap-2">
                       <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-                      Gobernanza y gestión
+                      Gobernanza UX
                     </p>
                     <ul className="space-y-3">
-                      {workDone.gestion.map((item, i) => (
+                      {challenges.gobernanza.map((item, i) => (
                         <li key={i} className="flex items-start gap-3 text-sm text-foreground/60">
                           <span className="w-1.5 h-1.5 rounded-full bg-foreground/30 mt-2 shrink-0" />
                           {item}
@@ -209,7 +218,7 @@ export function GovernancePage() {
               </div>
 
               {/* Frentes de trabajo */}
-              <div className="px-8 lg:px-12 py-12 border-t border-border">
+              <div className="px-8 lg:px-12 py-12 border-t border-border bg-muted/40">
                 <p className="text-xs font-medium tracking-widest uppercase text-primary mb-8">Mis frentes de trabajo</p>
                 <div className="grid md:grid-cols-3 gap-6">
                   {workFronts.map((front, i) => {
@@ -217,14 +226,17 @@ export function GovernancePage() {
                     return (
                       <div key={i} className="rounded-2xl p-6 border border-border text-center" style={{ background: front.bg }}>
                         <div className="w-14 h-14 rounded-full bg-white/60 flex items-center justify-center mx-auto mb-4 border border-border">
-                          <Icon className="w-6 h-6 text-primary" strokeWidth={1.5} />
+                          <Icon className="w-6 h-6 opacity-60" style={{ color: "#6B4F8C" }} strokeWidth={1.5} />
                         </div>
-                        <p className="text-sm font-medium text-foreground mb-3" style={{ fontFamily: "var(--font-serif)" }}>
+                        <p
+                          className="text-sm font-medium mb-3"
+                          style={{ fontFamily: "var(--font-serif)", color: front.lightBg ? "#1a1a1a" : "var(--foreground)" }}
+                        >
                           {front.title}
                         </p>
                         <ul className="space-y-1">
                           {front.items.map((item, j) => (
-                            <li key={j} className="text-xs text-foreground/55 leading-relaxed">{item}</li>
+                            <li key={j} className="text-xs leading-relaxed" style={{ color: front.lightBg ? "rgba(26,26,26,0.6)" : "var(--foreground-muted)" }}>{item}</li>
                           ))}
                         </ul>
                       </div>
@@ -233,38 +245,37 @@ export function GovernancePage() {
                 </div>
               </div>
 
-              {/* Proyectos carousel */}
-              <div className="px-8 lg:px-12 py-12 border-t border-border bg-muted/40">
+              {/* Proyectos */}
+              <div className="px-8 lg:px-12 py-12 border-t border-border">
                 <p className="text-xs font-medium tracking-widest uppercase text-primary mb-8">Proyectos en los que participé</p>
-                <Carousel opts={{ align: "start", loop: true }} className="w-full">
-                  <CarouselContent className="-ml-4">
-                    {projectsList.map((item, i) => {
-                      const Icon = item.icon;
-                      return (
-                        <CarouselItem key={i} className="pl-4 md:basis-1/2 lg:basis-1/3">
-                          <div className="flex flex-col gap-4 p-6 rounded-xl border border-border hover:border-primary/30 hover:shadow-sm transition-all bg-card h-full">
-                            <div className="w-12 h-12 rounded-lg flex items-center justify-center border border-border" style={{ background: item.bg }}>
-                              <Icon className="w-5 h-5 text-primary" strokeWidth={1.5} />
-                            </div>
-                            <div>
-                              <p className="text-sm font-medium text-foreground mb-1" style={{ fontFamily: "var(--font-serif)" }}>
-                                {item.title}
-                              </p>
-                              <p className="text-xs text-foreground/50 mb-3">{item.desc}</p>
-                              <p className="text-xs text-foreground/60 leading-relaxed">{item.details}</p>
-                            </div>
+                <div
+                  className="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4 md:grid md:grid-cols-3 md:overflow-visible [-webkit-overflow-scrolling:touch] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+                >
+                  {projectsList.map((item, i) => {
+                    const Icon = item.icon;
+                    const isLightBg = item.bg.startsWith("#");
+                    return (
+                      <div className="snap-start shrink-0 w-[85vw] md:w-auto" key={i}>
+                        <div className="flex flex-col gap-4 p-6 rounded-xl border border-border hover:border-primary/30 hover:shadow-sm transition-all bg-card h-full">
+                          <div className="w-12 h-12 rounded-lg flex items-center justify-center border border-border" style={{ background: item.bg }}>
+                            <Icon className="w-5 h-5" style={{ color: isLightBg ? "#6B4F8C" : "var(--primary)" }} strokeWidth={1.5} />
                           </div>
-                        </CarouselItem>
-                      );
-                    })}
-                  </CarouselContent>
-                  <CarouselPrevious className="hidden md:flex" />
-                  <CarouselNext className="hidden md:flex" />
-                </Carousel>
+                          <div>
+                            <p className="text-sm font-medium text-foreground mb-1" style={{ fontFamily: "var(--font-serif)" }}>
+                              {item.title}
+                            </p>
+                            <p className="text-xs text-foreground/50 mb-3">{item.desc}</p>
+                            <p className="text-xs text-foreground/60 leading-relaxed">{item.details}</p>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
 
               {/* Lo que aprendí */}
-              <div className="px-8 lg:px-12 py-12 border-t border-border">
+              <div className="px-8 lg:px-12 py-12 border-t border-border bg-muted/40">
                 <p className="text-xs font-medium tracking-widest uppercase text-primary mb-4">Lo que aprendí</p>
                 <p className="text-lg text-foreground/60 leading-relaxed max-w-3xl" style={{ fontFamily: "var(--font-serif)", fontStyle: "italic" }}>
                   "Trabajar en una organización con métricas de experiencia definidas me enseñó que el diseño más valioso no siempre es el más visible — a veces es el sistema silencioso que permite que todo lo demás funcione. Construir gobernanza es, en el fondo, diseñar para los diseñadores."
@@ -272,7 +283,7 @@ export function GovernancePage() {
               </div>
 
               {/* CTA */}
-              <div className="px-8 lg:px-12 py-12 border-t border-border bg-muted/40">
+              <div className="px-8 lg:px-12 py-12 border-t border-border">
                 <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
                   <div>
                     <p className="text-lg font-medium text-foreground mb-1" style={{ fontFamily: "var(--font-serif)" }}>
