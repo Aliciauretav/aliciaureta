@@ -223,20 +223,22 @@ export function GovernancePage() {
                 <div className="grid md:grid-cols-3 gap-6">
                   {workFronts.map((front, i) => {
                     const Icon = front.icon;
+                    const cardColor = front.lightBg ? "#1a1a1a" : "var(--foreground)";
                     return (
-                      <div key={i} className="rounded-2xl p-6 border border-border text-center" style={{ background: front.bg }}>
+                      <div
+                        key={i}
+                        className="rounded-2xl p-6 border border-border text-center"
+                        style={{ background: front.bg, color: cardColor }}
+                      >
                         <div className="w-14 h-14 rounded-full bg-white/60 flex items-center justify-center mx-auto mb-4 border border-border">
                           <Icon className="w-6 h-6 opacity-60" style={{ color: "#6B4F8C" }} strokeWidth={1.5} />
                         </div>
-                        <p
-                          className="text-sm font-medium mb-3"
-                          style={{ fontFamily: "var(--font-serif)", color: front.lightBg ? "#1a1a1a" : "var(--foreground)" }}
-                        >
+                        <p className="text-sm font-medium mb-3" style={{ fontFamily: "var(--font-serif)" }}>
                           {front.title}
                         </p>
                         <ul className="space-y-1">
                           {front.items.map((item, j) => (
-                            <li key={j} className="text-xs leading-relaxed" style={{ color: front.lightBg ? "rgba(26,26,26,0.6)" : "var(--foreground-muted)" }}>{item}</li>
+                            <li key={j} className="text-xs leading-relaxed" style={{ opacity: 0.65 }}>{item}</li>
                           ))}
                         </ul>
                       </div>
