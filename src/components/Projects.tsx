@@ -91,8 +91,23 @@ export function Projects() {
             <Link
               key={project.id}
               to={project.href}
-              className="group flex flex-col bg-muted rounded-2xl overflow-hidden border border-border hover:-translate-y-1 hover:shadow-xl transition-all duration-300"
+              className="group flex flex-col bg-muted rounded-2xl overflow-hidden hover:-translate-y-1 hover:shadow-xl transition-all duration-300 relative"
+              style={{
+                border: project.id === "governance" ? "2px solid var(--primary)" : "1px solid var(--border)",
+              }}
             >
+              {project.id === "governance" && (
+                <span
+                  style={{
+                    position: "absolute", top: "12px", right: "12px", zIndex: 10,
+                    background: "var(--primary)", color: "var(--primary-foreground)",
+                    fontSize: "10px", fontWeight: 600, letterSpacing: "0.08em",
+                    textTransform: "uppercase", padding: "3px 10px", borderRadius: "999px",
+                  }}
+                >
+                  Destacado
+                </span>
+              )}
               {/* Imagen — parte superior */}
               <div
                 className="overflow-hidden"

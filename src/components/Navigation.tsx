@@ -26,10 +26,10 @@ export function Navigation() {
   const isProjectsActive = location.pathname.startsWith("/proyectos");
 
   const projectItems = [
+    { name: "Audix — Tracking de calidad UX", href: "/proyectos/audix" },
     { name: "AFP Modelo — Gobernanza de diseño", href: "/proyectos/governance" },
     { name: "Teamwork — Digitalización RRHH", href: "/proyectos/web-app-design" },
     { name: "DIRPLAN — Rediseño institucional", href: "/proyectos/web-design" },
-    { name: "Audix — Tracking de calidad UX", href: "/proyectos/audix" },
   ];
 
   const navItemClass = "text-sm transition-all duration-200 ease-in-out relative py-1 px-3";
@@ -267,7 +267,7 @@ export function Navigation() {
                       <Link
                         key={item.name}
                         to={item.href}
-                        className="text-sm text-foreground/60 hover:text-primary transition-colors py-2.5"
+                        className="text-sm text-foreground/60 hover:text-primary transition-colors py-3.5"
                         onClick={() => { setIsOpen(false); setIsProjectsOpen(false); }}
                       >
                         {item.name}
