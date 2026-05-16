@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useTheme } from "next-themes";
 import { Button } from "./ui/button";
+import { Logo } from "./Logo";
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,84 +15,107 @@ export function Navigation() {
 
   useEffect(() => { setMounted(true); }, []);
 
-  const isActive = (path: string) => location.pathname === path;
-  const isProjectsActive = location.pathname.startsWith("/proyectos");
-
-  const activeLinkStyle = {
-    color: "#6B4F8C",
-    fontWeight: "700",
-    borderBottom: "2px solid #6B4F8C",
-    paddingBottom: "2px",
-  };
-
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const isHome = location.pathname === "/";
+  const isActive = (path: string) => location.pathname === path;
+  const isProjectsActive = location.pathname.startsWith("/proyectos");
 
   const projectItems = [
     { name: "AFP Modelo — Gobernanza de diseño", href: "/proyectos/governance" },
     { name: "Teamwork — Digitalización RRHH", href: "/proyectos/web-app-design" },
     { name: "DIRPLAN — Rediseño institucional", href: "/proyectos/web-design" },
+    { name: "Audix — Tracking de calidad UX", href: "/proyectos/audix" },
   ];
+
+  const navItemClass = "text-sm transition-all duration-200 ease-in-out relative py-1";
+
+  const getLinkStyle = (active: boolean) => active
+    ? {
+        color: "var(--primary)",
+        fontWeight: "600",
+        textDecoration: "underline",
+        textDecorationColor: "var(--primary)",
+        textUnderlineOffset: "5px",
+        textDecorationThickness: "2px",
+      }
+    : { color: "var(--foreground)" };
+
+  const hoverHandlers = (active: boolean) => ({
+    onMouseEnter: (e: React.MouseEvent<HTMLElement>) => {
+      if (active) return;
+      const el = e.currentTarget;
+      el.style.color = "var(--primary)";
+      el.style.textDecoration = "underline";
+      el.style.textDecorationColor = `color-mix(in srgb, var(--primary) 50%, transparent)`;
+      el.style.textUnderlineOffset = "5px";
+      el.style.textDecorationThickness = "2px";
+    },
+    onMouseLeave: (e: React.MouseEvent<HTMLElement>) => {
+      if (active) return;
+      const el = e.currentTarget;
+      el.style.color = "var(--foreground)";
+      el.style.textDecoration = "none";
+    },
+  });
+
+  const toggleTheme = () => setTheme(resolvedTheme === "dark" ? "light" : "dark");
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-background/95 backdrop-blur-md border-b border-border shadow-sm"
-          : "bg-transparent"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300
+        bg-background border-b border-border
+        ${scrolled
+          ? "shadow-sm"
+          : "md:bg-transparent md:border-transparent"
+        }`}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
 
-          {/* Logo */}
-          <Link to="/" className="flex items-center">
-            <img
-              src="/image/LOGO.png"
-              alt="Alicia Ureta"
-              className="h-12 w-auto object-contain"
-            />
+          {/* Logo SVG */}
+          <Link to="/" className="flex items-center shrink-0">
+            <Logo />
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-7">
+
+            <Link
+              to="/"
+              className={navItemClass}
+              style={getLinkStyle(isHome)}
+              {...hoverHandlers(isHome)}
+            >
+              Inicio
+            </Link>
+
             <Link
               to="/sobre-mi"
-              className="text-sm transition-colors"
-              style={isActive("/sobre-mi") ? activeLinkStyle : { color: "var(--foreground)" }}
-              onMouseEnter={e => { if (!isActive("/sobre-mi")) e.currentTarget.style.color = "var(--primary)"; }}
-              onMouseLeave={e => { if (!isActive("/sobre-mi")) e.currentTarget.style.color = "var(--foreground)"; }}
+              className={navItemClass}
+              style={getLinkStyle(isActive("/sobre-mi"))}
+              {...hoverHandlers(isActive("/sobre-mi"))}
             >
               Sobre mí
             </Link>
 
             {/* Projects Dropdown */}
-           <div
+            <div
               className="relative"
-              onMouseEnter={(e) => {
-                setIsProjectsOpen(true);
-                const btn = e.currentTarget.querySelector('button');
-                if (btn) btn.style.color = "var(--primary)";
-              }}
-              onMouseLeave={(e) => {
-                setIsProjectsOpen(false);
-                const btn = e.currentTarget.querySelector('button');
-                if (btn) btn.style.color = "var(--foreground)";
-              }}
+              onMouseEnter={() => setIsProjectsOpen(true)}
+              onMouseLeave={() => setIsProjectsOpen(false)}
             >
               <button
-                className="text-sm transition-colors flex items-center gap-1"
-                style={isProjectsActive ? { color: "#6B4F8C", fontWeight: "700", borderBottom: "2px solid #6B4F8C", paddingBottom: "2px" } : { color: "var(--foreground)" }}
+                className={`${navItemClass} flex items-center gap-1`}
+                style={getLinkStyle(isProjectsActive)}
+                {...hoverHandlers(isProjectsActive)}
               >
                 Proyectos
-                <ChevronDown
-                  className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                    isProjectsOpen ? "rotate-180" : ""
-                  }`}
-                />
+                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${isProjectsOpen ? "rotate-180" : ""}`} />
               </button>
 
               {isProjectsOpen && (
@@ -113,20 +137,20 @@ export function Navigation() {
             </div>
 
             <Link
-               to="/contacto"
-                className="text-sm transition-colors"
-                style={isActive("/contacto") ? activeLinkStyle : { color: "var(--foreground)" }}
-                onMouseEnter={e => { if (!isActive("/contacto")) e.currentTarget.style.color = "var(--primary)"; }}
-                onMouseLeave={e => { if (!isActive("/contacto")) e.currentTarget.style.color = "var(--foreground)"; }}
+              to="/contacto"
+              className={navItemClass}
+              style={getLinkStyle(isActive("/contacto"))}
+              {...hoverHandlers(isActive("/contacto"))}
             >
               Contacto
             </Link>
 
+            {/* Dark mode toggle */}
             {mounted && (
               <button
-                onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
+                onClick={toggleTheme}
                 aria-label="Cambiar modo de color"
-                className="w-9 h-9 flex items-center justify-center rounded-lg border border-border text-foreground/60 hover:text-primary hover:border-primary/40 transition-colors"
+                className="w-9 h-9 flex items-center justify-center rounded-lg border border-border text-foreground/60 hover:text-primary hover:border-primary/40 transition-all duration-200"
               >
                 {resolvedTheme === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
               </button>
@@ -135,37 +159,54 @@ export function Navigation() {
             <Button
               variant="default"
               size="sm"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg px-4"
+              className="bg-primary hover:bg-primary/80 text-primary-foreground rounded-lg px-4 transition-all duration-200"
               asChild
             >
-              <a
-                href="/CV_Alicia_Ureta_UX_Manager_2026.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a href="/CV_Alicia_Ureta_UX_Manager_2026.pdf" target="_blank" rel="noopener noreferrer">
                 Descargar CV
               </a>
             </Button>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden p-2 text-foreground"
-            onClick={() => setIsOpen(!isOpen)}
-            aria-label="Toggle menu"
-          >
-            {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </button>
+          {/* Mobile: dark mode toggle + hamburger */}
+          <div className="md:hidden flex items-center gap-2">
+            {mounted && (
+              <button
+                onClick={toggleTheme}
+                aria-label="Cambiar modo de color"
+                className="w-10 h-10 flex items-center justify-center rounded-lg border border-border text-foreground/60 hover:text-primary transition-all duration-200"
+              >
+                {resolvedTheme === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+              </button>
+            )}
+            <button
+              className="w-10 h-10 flex items-center justify-center text-foreground"
+              onClick={() => setIsOpen(!isOpen)}
+              aria-label="Toggle menu"
+            >
+              {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden py-6 border-t border-border">
-            <div className="flex flex-col gap-5">
+          <div className="md:hidden py-4 border-t border-border">
+            <div className="flex flex-col">
+
+              <Link
+                to="/"
+                className="flex items-center text-sm py-3 transition-all duration-200"
+                style={isHome ? { color: "var(--primary)", fontWeight: "600" } : { color: "var(--foreground)" }}
+                onClick={() => setIsOpen(false)}
+              >
+                Inicio
+              </Link>
+
               <Link
                 to="/sobre-mi"
-                className="text-sm transition-colors"
-                style={isActive("/sobre-mi") ? { color: "#6B4F8C", fontWeight: "700" } : { color: "var(--foreground)" }}
+                className="flex items-center text-sm py-3 transition-all duration-200"
+                style={isActive("/sobre-mi") ? { color: "var(--primary)", fontWeight: "600" } : { color: "var(--foreground)" }}
                 onClick={() => setIsOpen(false)}
               >
                 Sobre mí
@@ -173,23 +214,21 @@ export function Navigation() {
 
               <div>
                 <button
-                  className="text-sm transition-colors flex items-center gap-1"
+                  className="flex items-center gap-1 text-sm py-3 w-full transition-all duration-200"
                   style={{ color: "var(--foreground)" }}
-                  onMouseEnter={e => (e.currentTarget.style.color = "var(--primary)")}
-                  onMouseLeave={e => (e.currentTarget.style.color = "var(--foreground)")}
                   onClick={() => setIsProjectsOpen(!isProjectsOpen)}
                 >
                   Proyectos
-                    <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${isProjectsOpen ? "rotate-180" : ""}`} />
+                  <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${isProjectsOpen ? "rotate-180" : ""}`} />
                 </button>
 
                 {isProjectsOpen && (
-                  <div className="ml-4 mt-3 flex flex-col gap-3">
+                  <div className="ml-4 flex flex-col">
                     {projectItems.map((item) => (
                       <Link
                         key={item.name}
                         to={item.href}
-                        className="text-sm text-foreground/60 hover:text-primary transition-colors"
+                        className="text-sm text-foreground/60 hover:text-primary transition-colors py-2.5"
                         onClick={() => { setIsOpen(false); setIsProjectsOpen(false); }}
                       >
                         {item.name}
@@ -201,38 +240,25 @@ export function Navigation() {
 
               <Link
                 to="/contacto"
-                className="text-sm transition-colors"
-                style={isActive("/contacto") ? { color: "#6B4F8C", fontWeight: "700" } : { color: "var(--foreground)" }}
+                className="flex items-center text-sm py-3 transition-all duration-200"
+                style={isActive("/contacto") ? { color: "var(--primary)", fontWeight: "600" } : { color: "var(--foreground)" }}
                 onClick={() => setIsOpen(false)}
               >
                 Contacto
               </Link>
 
-              {mounted && (
-                <button
-                  onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
-                  aria-label="Cambiar modo de color"
-                  className="flex items-center gap-2 text-sm text-foreground/70 hover:text-primary transition-colors"
+              <div className="pt-2 border-t border-border mt-2">
+                <Button
+                  variant="default"
+                  size="sm"
+                  className="bg-primary hover:bg-primary/80 text-primary-foreground w-full rounded-lg transition-all duration-200 mt-3"
+                  asChild
                 >
-                  {resolvedTheme === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
-                  {resolvedTheme === "dark" ? "Modo claro" : "Modo oscuro"}
-                </button>
-              )}
-
-              <Button
-                variant="default"
-                size="sm"
-                className="bg-primary hover:bg-primary/90 text-primary-foreground w-full rounded-lg"
-                asChild
-              >
-                <a
-                  href="/CV_Alicia_Ureta_UX_Manager_2026.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Descargar CV
-                </a>
-              </Button>
+                  <a href="/CV_Alicia_Ureta_UX_Manager_2026.pdf" target="_blank" rel="noopener noreferrer">
+                    Descargar CV
+                  </a>
+                </Button>
+              </div>
             </div>
           </div>
         )}

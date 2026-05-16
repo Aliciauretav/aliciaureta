@@ -39,7 +39,7 @@ export function Hero() {
               >
                 UX Manager que convierte problemas{" "}
                 <em
-                  className="text-primary font-semibold"
+                  className="font-semibold text-[#6B4F8C] dark:text-[#C4A8E0]"
                   style={{ fontStyle: "italic" }}
                 >
                   complejos
@@ -71,23 +71,23 @@ export function Hero() {
                     height: "44px",
                     padding: "0 24px",
                     borderRadius: "8px",
-                    border: "2px solid #6B4F8C",
-                    color: "#6B4F8C",
+                    border: "2px solid var(--primary)",
+                    color: "var(--primary)",
                     background: "transparent",
                     fontSize: "15px",
                     fontWeight: 500,
                     cursor: "pointer",
-                    transition: "background 0.2s, color 0.2s",
+                    transition: "background 0.2s, color 0.2s, border-color 0.2s",
                   }}
                   onMouseEnter={e => {
                     const btn = e.currentTarget;
-                    btn.style.background = "#6B4F8C";
-                    btn.style.color = "#fff";
+                    btn.style.background = "var(--primary)";
+                    btn.style.color = "var(--primary-foreground)";
                   }}
                   onMouseLeave={e => {
                     const btn = e.currentTarget;
                     btn.style.background = "transparent";
-                    btn.style.color = "#6B4F8C";
+                    btn.style.color = "var(--primary)";
                   }}
                 >
                   Contáctame
