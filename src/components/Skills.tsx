@@ -131,8 +131,7 @@ export function Skills() {
                 {toolsSecondary.map((tool) => (
                   <span
                     key={tool}
-                    className="text-sm px-4 py-2 rounded-full bg-background border border-border"
-                    style={{ color: "#666666" }}
+                    className="text-sm px-4 py-2 rounded-full bg-background border border-border text-foreground/60"
                   >
                     {tool}
                   </span>

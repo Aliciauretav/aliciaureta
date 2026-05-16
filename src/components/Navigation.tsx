@@ -172,6 +172,7 @@ export function Navigation() {
                 alignItems: "center",
                 textDecoration: "none",
                 transition: "background 0.2s, color 0.2s",
+                marginLeft: "12px",
               }}
               onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "color-mix(in srgb, var(--primary) 80%, transparent)"; }}
               onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "var(--primary)"; }}

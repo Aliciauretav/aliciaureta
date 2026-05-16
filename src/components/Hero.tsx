@@ -111,13 +111,14 @@ export function Hero() {
                     width: "36px",
                     height: "36px",
                     borderRadius: "50%",
-                    border: "1px solid var(--border)",
+                    border: `1px solid ${isDark ? "rgba(255,255,255,0.3)" : "var(--border)"}`,
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
                     flexShrink: 0,
-                    color: "var(--foreground-muted)",
-                    transition: "border-color .2s, color .2s"
+                    color: isDark ? "rgba(255,255,255,0.85)" : "var(--foreground-muted)",
+                    background: isDark ? "rgba(255,255,255,0.08)" : "transparent",
+                    transition: "border-color .2s, color .2s, background .2s"
                   }}
                 aria-label="LinkedIn"
               >
@@ -130,13 +131,14 @@ export function Hero() {
                     width: "36px",
                     height: "36px",
                     borderRadius: "50%",
-                    border: "1px solid var(--border)",
+                    border: `1px solid ${isDark ? "rgba(255,255,255,0.3)" : "var(--border)"}`,
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
                     flexShrink: 0,
-                    color: "var(--foreground-muted)",
-                    transition: "border-color .2s, color .2s"
+                    color: isDark ? "rgba(255,255,255,0.85)" : "var(--foreground-muted)",
+                    background: isDark ? "rgba(255,255,255,0.08)" : "transparent",
+                    transition: "border-color .2s, color .2s, background .2s"
                   }}
                 aria-label="WhatsApp"
               >

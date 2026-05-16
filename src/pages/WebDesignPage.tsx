@@ -20,11 +20,11 @@ const constraints = [
 ];
 
 const process = [
-  { title: "Descubrir", desc: "Auditoría heurística y análisis del sitio existente" },
-{ title: "Definir", desc: "User personas, mapa de empatía y diagnóstico de navegación" },
-{ title: "Idear", desc: "User flows y nueva arquitectura de información" },
-{ title: "Diseñar", desc: "Wireframes y prototipos Hi-Fi dentro del Sistema Gubernamental" },
-{ title: "Validar", desc: "Feedback con stakeholders, iteración y handoff" },
+  { icon: Search,   title: "Descubrir", items: ["Auditoría heurística y análisis del sitio existente"] },
+  { icon: BookOpen, title: "Definir",   items: ["User personas, mapa de empatía y diagnóstico de navegación"] },
+  { icon: Layers,   title: "Idear",     items: ["User flows y nueva arquitectura de información"] },
+  { icon: Pencil,   title: "Diseñar",   items: ["Wireframes y prototipos Hi-Fi dentro del Sistema Gubernamental"] },
+  { icon: TestTube, title: "Validar",   items: ["Feedback con stakeholders, iteración y handoff"] },
 ];
 
 const beforeAfter = {
