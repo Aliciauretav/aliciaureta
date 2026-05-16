@@ -56,11 +56,11 @@ export function Skills() {
           </div>
 
           {/* Habilidades */}
-          <div className="lg:col-span-2 flex flex-col" style={{ gap: "3rem" }}>
+          <div className="lg:col-span-2 flex flex-col" style={{ gap: "4rem" }}>
 
             {/* Nivel 1 — Liderazgo */}
-            <div>
-              <div className="flex items-center gap-3 mb-5">
+            <div className="pb-4 md:pb-0">
+              <div className="flex items-center gap-3 mb-8">
                 <p className="text-xs font-medium tracking-widest uppercase text-primary">
                   Liderazgo y estrategia
                 </p>
@@ -85,8 +85,8 @@ export function Skills() {
             </div>
 
             {/* Nivel 2 — Proceso */}
-            <div>
-              <div className="flex items-center gap-3 mb-5">
+            <div className="pb-4 md:pb-0">
+              <div className="flex items-center gap-3 mb-8">
                 <p className="text-xs font-medium tracking-widest uppercase text-primary">
                   Habilidades de proceso
                 </p>
@@ -111,8 +111,8 @@ export function Skills() {
             </div>
 
             {/* Nivel 3 — Herramientas */}
-            <div style={{ paddingBottom: "2rem" }}>
-              <div className="flex items-center gap-3 mb-5">
+            <div style={{ paddingBottom: "3rem" }}>
+              <div className="flex items-center gap-3 mb-8">
                 <p className="text-xs font-medium tracking-widest uppercase text-foreground/40">
                   Herramientas
                 </p>

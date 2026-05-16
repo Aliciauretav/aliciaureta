@@ -62,7 +62,7 @@ const projects = [
 
 export function Projects() {
   return (
-    <section id="projects" className="px-6 lg:px-8" style={{ paddingTop: "1rem", paddingBottom: "6rem" }}>
+    <section id="projects" className="px-6 lg:px-8" style={{ paddingTop: "6rem", paddingBottom: "6rem" }}>
       <div className="max-w-7xl mx-auto">
 
         {/* Header */}

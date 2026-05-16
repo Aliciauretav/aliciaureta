@@ -52,12 +52,12 @@ const workFronts = [
 ];
 
 const projectsList = [
-  { title: "Sitio Web Público",      desc: "Rediseño Home sitio web público",                               icon: Globe,          bg: "var(--background-3)", details: "Lideré el rediseño del home del sitio público, asegurando coherencia visual y definiendo lineamientos de diseño para optimizar la experiencia de usuario y la arquitectura de información." },
-  { title: "Proyecto 311",           desc: "Digitalización trámites para afiliados",                        icon: FileDigit,      bg: "#EDE8F5",             details: "Lideré la digitalización de trámites para afiliados, asegurando el cumplimiento normativo y guiando la simplificación de formularios e información." },
-  { title: "PIN Datos de contacto",  desc: "Tercer factor de validación en actualización de datos",         icon: SquareAsterisk, bg: "#F5EAF0",             details: "Diseñé el flujo de autenticación con PIN para implementar el cumplimiento normativo en la actualización de datos de contacto, garantizando coherencia entre todos los canales de atención." },
-  { title: "Servicios en línea",     desc: "Centralización servicios para afiliados",                       icon: Rows4,          bg: "#EAF3F0",             details: "Lideré el rediseño de la sección de Servicios en Línea, unificando todas las herramientas disponibles para afiliados con una experiencia coherente, intuitiva y orientada al usuario." },
-  { title: "Simplicidad",            desc: "Nuevo tono y voz en comunicaciones",                            icon: SignpostBig,    bg: "#F0EAF5",             details: "Lideré la definición de un tono y voz más claros y cercanos en las comunicaciones hacia los usuarios, creando guías de estilo y supervisando la coherencia entre equipos." },
-  { title: "Menú sitio público",     desc: "Rediseño de Arquitectura de información",                       icon: Waypoints,      bg: "#EAF0F5",             details: "Lideré el rediseño de la arquitectura de información y navegación del sitio, reduciendo significativamente el tiempo necesario para encontrar información clave." },
+  { title: "Sitio Web Público",      desc: "Rediseño Home sitio web público",                               icon: Globe,          details: "Lideré el rediseño del home del sitio público, asegurando coherencia visual y definiendo lineamientos de diseño para optimizar la experiencia de usuario y la arquitectura de información." },
+  { title: "Proyecto 311",           desc: "Digitalización trámites para afiliados",                        icon: FileDigit,      details: "Lideré la digitalización de trámites para afiliados, asegurando el cumplimiento normativo y guiando la simplificación de formularios e información." },
+  { title: "PIN Datos de contacto",  desc: "Tercer factor de validación en actualización de datos",         icon: SquareAsterisk, details: "Diseñé el flujo de autenticación con PIN para implementar el cumplimiento normativo en la actualización de datos de contacto, garantizando coherencia entre todos los canales de atención." },
+  { title: "Servicios en línea",     desc: "Centralización servicios para afiliados",                       icon: Rows4,          details: "Lideré el rediseño de la sección de Servicios en Línea, unificando todas las herramientas disponibles para afiliados con una experiencia coherente, intuitiva y orientada al usuario." },
+  { title: "Simplicidad",            desc: "Nuevo tono y voz en comunicaciones",                            icon: SignpostBig,    details: "Lideré la definición de un tono y voz más claros y cercanos en las comunicaciones hacia los usuarios, creando guías de estilo y supervisando la coherencia entre equipos." },
+  { title: "Menú sitio público",     desc: "Rediseño de Arquitectura de información",                       icon: Waypoints,      details: "Lideré el rediseño de la arquitectura de información y navegación del sitio, reduciendo significativamente el tiempo necesario para encontrar información clave." },
 ];
 
 export function GovernancePage() {
@@ -255,12 +255,11 @@ export function GovernancePage() {
                   <CarouselContent className="-ml-4">
                     {projectsList.map((item, i) => {
                       const Icon = item.icon;
-                      const isLightBg = item.bg.startsWith("#");
                       return (
                         <CarouselItem key={i} className="pl-4 basis-[85%] sm:basis-1/2 lg:basis-1/3">
                           <div className="flex flex-col gap-4 p-6 rounded-xl border border-border hover:border-primary/30 hover:shadow-sm transition-all bg-card h-full">
-                            <div className="w-12 h-12 rounded-lg flex items-center justify-center border border-border" style={{ background: item.bg }}>
-                              <Icon className="w-5 h-5" style={{ color: isLightBg ? "#6B4F8C" : "var(--primary)" }} strokeWidth={1.5} />
+                            <div className="w-12 h-12 rounded-lg flex items-center justify-center border border-border" style={{ background: "var(--background-3)" }}>
+                              <Icon className="w-5 h-5" style={{ color: "var(--primary)" }} strokeWidth={1.5} />
                             </div>
                             <div>
                               <p className="text-sm font-medium text-foreground mb-1" style={{ fontFamily: "var(--font-serif)" }}>
@@ -274,7 +273,7 @@ export function GovernancePage() {
                       );
                     })}
                   </CarouselContent>
-                  <div className="flex items-center justify-end gap-2 mt-4">
+                  <div className="flex items-center justify-end gap-2 mt-6">
                     <CarouselPrevious className="static translate-y-0" />
                     <CarouselNext className="static translate-y-0" />
                   </div>
