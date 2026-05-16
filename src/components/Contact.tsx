@@ -99,12 +99,6 @@ export function Contact() {
                 </span>
                 /in/aliciauretavergara
               </a>
-              <span className="flex items-center gap-3 text-sm text-foreground/75">
-                <span style={{ width: "36px", height: "36px", borderRadius: "50%", border: "1px solid var(--border)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                  <MapPin className="w-4 h-4" />
-                </span>
-                Santiago, Chile
-              </span>
             </div>
             <blockquote className="pl-5 border-l-2 border-primary" style={{ borderRadius: 0 }}>
               <p className="text-base text-foreground/75 leading-relaxed mb-2" style={{ fontFamily: "var(--font-serif)", fontStyle: "italic" }}>
