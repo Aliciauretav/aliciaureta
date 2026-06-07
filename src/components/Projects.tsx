@@ -19,13 +19,13 @@ const projects = [
   {
     id: "governance",
     href: "/proyectos/governance",
-    category: "UX Management · Design System",
-    title: "Construir el sistema que hace posible el buen diseño a escala",
-    description: "Implementé la infraestructura de diseño de AFP Modelo: desde el sistema de gobernanza hasta los componentes que redujeron el tiempo de diseño en un 30% y mejoraron la experiencia percibida por los usuarios.",
-    tags: ["Design System", "Gobernanza UX", "Design Tokens", "Atomic Design"],
+    category: "DESIGN LEADERSHIP · GOBERNANZA · TRANSFORMACIÓN ORGANIZACIONAL",
+    title: "Construir UX desde cero en una organización que aún no sabía que lo necesitaba",
+    description: "El cargo no existía. En dos años construí la gobernanza, los procesos y el criterio que le dieron al diseño un lugar real en la organización.",
+    tags: ["Liderazgo UX", "Gobernanza de diseño", "Diseño de procesos", "Gestión de stakeholders", "Sistemas de diseño", "Design Tokens", "UX Writing", "Desarrollo de equipo"],
     metrics: [
       { num: "30%", label: "Reducción en tiempo de diseño" },
-      { num: "+5", label: "Sitios bajo gobernanza unificada" },
+      { num: "5 plataformas", label: "Bajo gobernanza unificada" },
     ],
     image: "/afp-portada.webp",
     imageBg: "var(--background-3)",

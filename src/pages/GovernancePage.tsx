@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { Navigation } from "../components/Navigation";
 import { Footer } from "../components/Footer";
+import { ArrowLeft } from "lucide-react";
 
 // ─── DATOS ────────────────────────────────────────────────────────────────────
 
@@ -269,6 +270,17 @@ export function GovernancePage() {
       <Navigation />
 
       <div style={S.container}>
+
+        {/* ── VOLVER ── */}
+        <button
+          onClick={() => window.history.back()}
+          style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "14px", color: "var(--foreground-muted)", background: "none", border: "none", cursor: "pointer", marginBottom: "2rem", padding: "0" }}
+          onMouseEnter={e => { e.currentTarget.style.color = "var(--primary)"; }}
+          onMouseLeave={e => { e.currentTarget.style.color = "var(--foreground-muted)"; }}
+        >
+          <ArrowLeft className="w-4 h-4" />
+          <span>Volver</span>
+        </button>
 
         {/* ── HEADER ── */}
         <span style={S.eyebrow}>Design Leadership · Gobernanza · Transformación organizacional</span>
