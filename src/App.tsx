@@ -6,6 +6,7 @@ import { WebAppDesignPage } from "./pages/WebAppDesignPage";
 import { WebDesignPage } from "./pages/WebDesignPage";
 import { AppDesignPage } from "./pages/AppDesignPage";
 import { AudixPage } from "./pages/AudixPage";
+import { AFPModeloPage } from "./pages/AFPModeloPage";
 import { ContactPage } from "./pages/ContactPage";
 import { Toaster } from "./components/ui/sonner";
 import { ErrorBoundary } from "./components/ErrorBoundary";
@@ -21,6 +22,7 @@ export default function App() {
         <Route path="/proyectos/web-design" element={<ErrorBoundary><WebDesignPage /></ErrorBoundary>} />
         <Route path="/proyectos/app-design" element={<ErrorBoundary><AppDesignPage /></ErrorBoundary>} />
         <Route path="/proyectos/audix" element={<ErrorBoundary><AudixPage /></ErrorBoundary>} />
+        <Route path="/proyectos/afp-modelo" element={<ErrorBoundary><AFPModeloPage /></ErrorBoundary>} />
         <Route path="/contacto" element={<ContactPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
