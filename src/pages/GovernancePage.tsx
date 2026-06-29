@@ -89,17 +89,17 @@ function FlowStep({ step, isLast }: { step: StepData; isLast: boolean }) {
   return (
     <div className="flex flex-col">
       <div
-        className="rounded-lg p-3 flex flex-col gap-2 text-xs"
+        className="rounded-xl p-4 flex flex-col gap-2 text-xs"
         style={{
-          border: isOrigin ? "1px dashed rgba(107,79,140,0.4)" : "1px solid var(--border)",
+          border: isOrigin ? "1px dashed rgba(107,79,140,0.4)" : "none",
           background: isOrigin ? "rgba(107,79,140,0.06)" : "var(--background-3)",
-          minHeight: "72px",
+          minHeight: "76px",
         }}
       >
         <span className="font-semibold uppercase tracking-wider text-[10px]" style={{ color: dot }}>{step.actor}</span>
         <span className="leading-relaxed text-foreground/60">{step.action}</span>
       </div>
-      {!isLast && <div className="w-px h-3 bg-border mx-auto" />}
+      {!isLast && <div className="h-3" />}
     </div>
   );
 }
@@ -236,8 +236,8 @@ export function GovernancePage() {
 
                 <div className="grid md:grid-cols-2 gap-6">
                   {/* Antes */}
-                  <div className="rounded-2xl border border-border overflow-hidden">
-                    <div className="px-5 py-3 flex items-center justify-between" style={{ background: "rgba(163,45,45,0.07)", borderBottom: "1px solid var(--border)" }}>
+                  <div className="rounded-2xl overflow-hidden">
+                    <div className="px-5 py-3 flex items-center justify-between" style={{ background: "rgba(163,45,45,0.07)" }}>
                       <span className="text-xs font-bold uppercase tracking-wider" style={{ color: "#A32D2D" }}>Antes</span>
                       <span className="text-xs text-foreground/40">⏱ ~3 meses por proceso</span>
                     </div>
@@ -253,8 +253,8 @@ export function GovernancePage() {
                   </div>
 
                   {/* Después */}
-                  <div className="rounded-2xl border border-border overflow-hidden">
-                    <div className="px-5 py-3 flex items-center justify-between" style={{ background: "rgba(107,79,140,0.07)", borderBottom: "1px solid var(--border)" }}>
+                  <div className="rounded-2xl overflow-hidden">
+                    <div className="px-5 py-3 flex items-center justify-between" style={{ background: "rgba(107,79,140,0.07)" }}>
                       <span className="text-xs font-bold uppercase tracking-wider text-primary">Después</span>
                       <span className="text-xs text-foreground/40">⏱ ~15 días por proceso</span>
                     </div>
@@ -278,8 +278,8 @@ export function GovernancePage() {
                 <p className="text-sm text-foreground/50 mb-8 max-w-lg">Cada plataforma tiene sus propios usuarios y alcances técnicos. La gobernanza garantiza coherencia sin aplanar esas diferencias.</p>
 
                 {/* Lineamientos compartidos */}
-                <div className="rounded-2xl border border-border p-5 mb-4 bg-card">
-                  <p className="text-[9px] font-bold uppercase tracking-widest text-primary mb-3">Lineamientos compartidos — Gobernanza UX Manager</p>
+                <div className="mb-6">
+                  <p className="text-[10px] font-bold uppercase tracking-widest text-primary mb-3">Lineamientos compartidos — Gobernanza UX Manager</p>
                   <div className="flex flex-wrap gap-2">
                     {sharedLayers.map((l) => (
                       <span key={l} className="text-xs px-3 py-1.5 rounded-full border text-primary border-primary/30" style={{ background: "rgba(107,79,140,0.08)" }}>
@@ -290,25 +290,25 @@ export function GovernancePage() {
                 </div>
 
                 {/* Plataformas */}
-                <div className="grid grid-cols-2 sm:grid-cols-5 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {platforms.map((p) => (
                     <div
                       key={p.id}
-                      className="rounded-xl border p-4 flex flex-col items-center gap-2 text-center"
+                      className="rounded-xl p-6 flex flex-col items-center justify-center gap-2 text-center"
                       style={{
-                        opacity: p.pending ? 0.5 : 1,
-                        borderStyle: p.pending ? "dashed" : "solid",
+                        opacity: p.pending ? 0.6 : 1,
                         background: "var(--background-3)",
-                        borderColor: "var(--border)",
+                        minHeight: "92px",
                       }}
                     >
-                      {p.pending && (
-                        <span className="text-[9px] font-semibold uppercase tracking-wider text-foreground/40 border border-border rounded px-1.5 py-0.5">Pendiente</span>
+                      <span className="text-sm font-bold uppercase tracking-wide text-foreground/75 leading-tight">{p.name}</span>
+                      {p.pending ? (
+                        <span className="text-[10px] font-semibold uppercase tracking-wider" style={{ color: "var(--foreground-muted)" }}>
+                          Pendiente · <span className="text-foreground/40">UI Kit propio</span>
+                        </span>
+                      ) : (
+                        <span className="text-[10px] font-semibold uppercase tracking-wider text-primary">UI Kit propio</span>
                       )}
-                      <span className="text-[9px] font-semibold uppercase tracking-wider rounded px-1.5 py-0.5" style={{ background: p.pending ? "transparent" : "rgba(107,79,140,0.1)", color: p.pending ? "var(--foreground-muted)" : "var(--primary)", border: "1px solid", borderColor: p.pending ? "var(--border)" : "rgba(107,79,140,0.3)" }}>
-                        UI Kit propio
-                      </span>
-                      <span className="text-xs font-medium text-foreground/70 leading-tight">{p.name}</span>
                     </div>
                   ))}
                 </div>
@@ -321,7 +321,7 @@ export function GovernancePage() {
                 <h2 className="text-xl text-foreground mb-2" style={{ fontFamily: "var(--font-serif)" }}>Proceso de diseño estandarizado</h2>
                 <p className="text-sm text-foreground/50 mb-8 max-w-lg">Cada etapa tiene un mínimo exigible antes de avanzar. Las iteraciones tienen un camino definido — no se resuelven ad hoc.</p>
 
-                <div className="space-y-3">
+                <div className="space-y-4">
                   {workSteps.map((step, i) => (
                     <motion.div
                       key={step.id}
@@ -329,14 +329,14 @@ export function GovernancePage() {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: i * 0.05 }}
-                      className="rounded-xl border border-border p-5 bg-card hover:border-primary/20 transition-colors"
+                      className="rounded-xl border border-border p-6 bg-card hover:border-primary/20 transition-colors"
                     >
                       <div className="flex items-start justify-between gap-4 mb-2">
                         <div className="flex items-center gap-3">
                           <span className="w-6 h-6 rounded-full border border-border text-[11px] font-semibold text-primary flex items-center justify-center shrink-0" style={{ background: "var(--background-3)" }}>{i + 1}</span>
                           <span className="text-sm font-semibold text-foreground">{step.phase}</span>
                         </div>
-                        <span className="text-[10px] font-semibold uppercase tracking-wider text-primary bg-primary/8 border border-primary/20 rounded px-2 py-0.5 shrink-0 whitespace-nowrap">{step.actor}</span>
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-primary shrink-0 whitespace-nowrap">{step.actor}</span>
                       </div>
                       <p className="text-sm text-foreground/60 leading-relaxed ml-9 mb-2">{step.description}</p>
                       <p className="text-[11px] text-foreground/35 ml-9">
