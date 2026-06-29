@@ -89,17 +89,17 @@ function FlowStep({ step, isLast }: { step: StepData; isLast: boolean }) {
   return (
     <div className="flex flex-col">
       <div
-        className="rounded-xl p-4 flex flex-col gap-2 text-xs"
+        className="rounded-xl px-5 py-4 flex flex-col gap-2 text-xs"
         style={{
           border: isOrigin ? "1px dashed rgba(107,79,140,0.4)" : "none",
           background: isOrigin ? "rgba(107,79,140,0.06)" : "var(--background-3)",
-          minHeight: "76px",
+          minHeight: "92px",
         }}
       >
         <span className="font-semibold uppercase tracking-wider text-[10px]" style={{ color: dot }}>{step.actor}</span>
         <span className="leading-relaxed text-foreground/60">{step.action}</span>
       </div>
-      {!isLast && <div className="h-3" />}
+      {!isLast && <div className="h-4" />}
     </div>
   );
 }
@@ -237,15 +237,15 @@ export function GovernancePage() {
                 <div className="grid md:grid-cols-2 gap-6">
                   {/* Antes */}
                   <div className="rounded-2xl overflow-hidden">
-                    <div className="px-5 py-3 flex items-center justify-between" style={{ background: "rgba(163,45,45,0.07)" }}>
+                    <div className="px-6 py-4 flex items-center justify-between" style={{ background: "rgba(163,45,45,0.07)" }}>
                       <span className="text-xs font-bold uppercase tracking-wider" style={{ color: "#A32D2D" }}>Antes</span>
                       <span className="text-xs text-foreground/40">⏱ ~3 meses por proceso</span>
                     </div>
-                    <div className="p-5 flex flex-col gap-0 bg-card">
+                    <div className="p-6 flex flex-col gap-0 bg-card">
                       {steps_before.map((step, i) => (
                         <FlowStep key={step.id} step={step} isLast={i === steps_before.length - 1} />
                       ))}
-                      <div className="mt-3 rounded-lg p-3 text-xs" style={{ background: "rgba(163,45,45,0.05)", border: "1px dashed rgba(163,45,45,0.2)" }}>
+                      <div className="mt-4 rounded-xl px-5 py-4 text-xs" style={{ background: "rgba(163,45,45,0.05)", border: "1px dashed rgba(163,45,45,0.2)" }}>
                         <span className="font-semibold uppercase tracking-wider block mb-1" style={{ color: "rgba(163,45,45,0.6)", fontSize: "9px" }}>Post lanzamiento</span>
                         <span className="text-foreground/40">Las mejoras quedaban sujetas a control de cambios — sin revisión proactiva de experiencia</span>
                       </div>
@@ -254,15 +254,15 @@ export function GovernancePage() {
 
                   {/* Después */}
                   <div className="rounded-2xl overflow-hidden">
-                    <div className="px-5 py-3 flex items-center justify-between" style={{ background: "rgba(107,79,140,0.07)" }}>
+                    <div className="px-6 py-4 flex items-center justify-between" style={{ background: "rgba(107,79,140,0.07)" }}>
                       <span className="text-xs font-bold uppercase tracking-wider text-primary">Después</span>
                       <span className="text-xs text-foreground/40">⏱ ~15 días por proceso</span>
                     </div>
-                    <div className="p-5 flex flex-col gap-0 bg-card">
+                    <div className="p-6 flex flex-col gap-0 bg-card">
                       {steps_after.map((step, i) => (
                         <FlowStep key={step.id} step={step} isLast={i === steps_after.length - 1} />
                       ))}
-                      <div className="mt-3 rounded-lg p-3 text-xs" style={{ background: "rgba(107,79,140,0.06)", border: "1px dashed rgba(107,79,140,0.3)" }}>
+                      <div className="mt-4 rounded-xl px-5 py-4 text-xs" style={{ background: "rgba(107,79,140,0.06)", border: "1px dashed rgba(107,79,140,0.3)" }}>
                         <span className="font-semibold uppercase tracking-wider block mb-1 text-primary" style={{ fontSize: "9px" }}>Mejora continua</span>
                         <span className="text-foreground/50">1 semana post-lanzamiento: revisión de interacción, hallazgos y mejoras en base a patrones de comportamiento</span>
                       </div>
