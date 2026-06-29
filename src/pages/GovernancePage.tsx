@@ -83,23 +83,23 @@ const stepDotColor: Record<string, string> = {
   review: "#9B7EC8", change: "#B45050", dev: "#888", approval: "#50A078",
 };
 
-function FlowStep({ step, isLast, accentColor }: { step: StepData; isLast: boolean; accentColor?: string }) {
+function FlowStep({ step, isLast }: { step: StepData; isLast: boolean }) {
+  const dot = stepDotColor[step.type] ?? "#888";
   const isOrigin = step.isOrigin;
-  const actorColor = accentColor ?? "#6B4F8C";
   return (
     <div className="flex flex-col">
       <div
-        className="rounded-lg p-4 flex flex-col gap-2 text-xs"
+        className="rounded-lg p-3 flex flex-col gap-2 text-xs"
         style={{
-          border: isOrigin ? "1px dashed rgba(107,79,140,0.4)" : "none",
+          border: isOrigin ? "1px dashed rgba(107,79,140,0.4)" : "1px solid var(--border)",
           background: isOrigin ? "rgba(107,79,140,0.06)" : "var(--background-3)",
           minHeight: "72px",
         }}
       >
-        <span className="font-semibold uppercase tracking-wider text-[10px]" style={{ color: actorColor }}>{step.actor}</span>
+        <span className="font-semibold uppercase tracking-wider text-[10px]" style={{ color: dot }}>{step.actor}</span>
         <span className="leading-relaxed text-foreground/60">{step.action}</span>
       </div>
-      {!isLast && <div className="h-3" />}
+      {!isLast && <div className="w-px h-3 bg-border mx-auto" />}
     </div>
   );
 }
@@ -130,8 +130,8 @@ export function GovernancePage() {
             <div className="bg-card border border-border rounded-3xl overflow-hidden">
 
               {/* ── HERO ── */}
-              <div className="grid lg:grid-cols-2 lg:min-h-0">
-                <div className="aspect-video lg:aspect-auto overflow-hidden" style={{ background: "var(--background-3)", maxHeight: "400px" }}>
+              <div className="grid lg:grid-cols-2">
+                <div className="aspect-[4/3] lg:aspect-auto overflow-hidden" style={{ background: "var(--background-3)" }}>
                   <img
                     src="/afp-portada.webp"
                     alt="AFP Modelo — Gobernanza UX"
@@ -140,11 +140,11 @@ export function GovernancePage() {
                     onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
                   />
                 </div>
-                <div className="p-8 lg:p-10 flex flex-col justify-center">
+                <div className="p-8 lg:p-12 flex flex-col justify-center">
                   <p className="text-xs font-medium tracking-widest uppercase text-primary mb-4">
                     Design Leadership · Gobernanza · Transformación organizacional
                   </p>
-                  <h1 className="text-2xl lg:text-[2.5rem] text-foreground mb-5 leading-tight" style={{ fontFamily: "var(--font-serif)", letterSpacing: "-0.02em" }}>
+                  <h1 className="text-3xl lg:text-4xl text-foreground mb-5 leading-tight" style={{ fontFamily: "var(--font-serif)", letterSpacing: "-0.02em" }}>
                     Construir UX desde cero en una organización que aún no sabía que lo necesitaba
                   </h1>
                   <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm mb-6 w-fit" style={{ background: "var(--background-3)", color: "var(--primary)" }}>
@@ -163,6 +163,7 @@ export function GovernancePage() {
 
               {/* ── PUNTO DE PARTIDA ── */}
               <div className="px-8 lg:px-12 py-12 border-t border-border bg-muted/40">
+                <p className="text-xs font-medium tracking-widest uppercase text-primary mb-4">El punto de partida</p>
                 <p className="text-lg text-foreground/70 leading-relaxed max-w-3xl mb-4">
                   El cargo no existía antes de que yo llegara. El área de diseño era un servicio de maquetación: tres personas que ejecutaban instrucciones, sin criterio propio, sin autoridad sobre las decisiones y sin nadie responsable de la coherencia entre productos.
                 </p>
@@ -173,7 +174,7 @@ export function GovernancePage() {
 
               {/* ── LO QUE CONSTRUÍ ── */}
               <div className="px-8 lg:px-12 py-12 border-t border-border">
-                <p className="text-sm font-semibold tracking-widest uppercase text-primary mb-4">Lo que construí</p>
+                <p className="text-xs font-medium tracking-widest uppercase text-primary mb-4">Lo que construí</p>
                 <p className="text-lg text-foreground/70 leading-relaxed max-w-3xl mb-4">
                   Mi trabajo fue instalar la infraestructura que le dio al diseño un lugar real en la organización. No en un proyecto aislado — de manera transversal, en paralelo a la operación diaria.
                 </p>
@@ -235,14 +236,14 @@ export function GovernancePage() {
 
                 <div className="grid md:grid-cols-2 gap-6">
                   {/* Antes */}
-                  <div className="rounded-2xl overflow-hidden">
-                    <div className="px-5 py-3 flex items-center justify-between" style={{ background: "rgba(163,45,45,0.07)" }}>
+                  <div className="rounded-2xl border border-border overflow-hidden">
+                    <div className="px-5 py-3 flex items-center justify-between" style={{ background: "rgba(163,45,45,0.07)", borderBottom: "1px solid var(--border)" }}>
                       <span className="text-xs font-bold uppercase tracking-wider" style={{ color: "#A32D2D" }}>Antes</span>
                       <span className="text-xs text-foreground/40">⏱ ~3 meses por proceso</span>
                     </div>
                     <div className="p-5 flex flex-col gap-0 bg-card">
                       {steps_before.map((step, i) => (
-                        <FlowStep key={step.id} step={step} isLast={i === steps_before.length - 1} accentColor="#6B4F8C" />
+                        <FlowStep key={step.id} step={step} isLast={i === steps_before.length - 1} />
                       ))}
                       <div className="mt-3 rounded-lg p-3 text-xs" style={{ background: "rgba(163,45,45,0.05)", border: "1px dashed rgba(163,45,45,0.2)" }}>
                         <span className="font-semibold uppercase tracking-wider block mb-1" style={{ color: "rgba(163,45,45,0.6)", fontSize: "9px" }}>Post lanzamiento</span>
@@ -252,14 +253,14 @@ export function GovernancePage() {
                   </div>
 
                   {/* Después */}
-                  <div className="rounded-2xl overflow-hidden">
-                    <div className="px-5 py-3 flex items-center justify-between" style={{ background: "rgba(107,79,140,0.07)" }}>
+                  <div className="rounded-2xl border border-border overflow-hidden">
+                    <div className="px-5 py-3 flex items-center justify-between" style={{ background: "rgba(107,79,140,0.07)", borderBottom: "1px solid var(--border)" }}>
                       <span className="text-xs font-bold uppercase tracking-wider text-primary">Después</span>
                       <span className="text-xs text-foreground/40">⏱ ~15 días por proceso</span>
                     </div>
                     <div className="p-5 flex flex-col gap-0 bg-card">
                       {steps_after.map((step, i) => (
-                        <FlowStep key={step.id} step={step} isLast={i === steps_after.length - 1} accentColor="#6B4F8C" />
+                        <FlowStep key={step.id} step={step} isLast={i === steps_after.length - 1} />
                       ))}
                       <div className="mt-3 rounded-lg p-3 text-xs" style={{ background: "rgba(107,79,140,0.06)", border: "1px dashed rgba(107,79,140,0.3)" }}>
                         <span className="font-semibold uppercase tracking-wider block mb-1 text-primary" style={{ fontSize: "9px" }}>Mejora continua</span>
@@ -277,7 +278,7 @@ export function GovernancePage() {
                 <p className="text-sm text-foreground/50 mb-8 max-w-lg">Cada plataforma tiene sus propios usuarios y alcances técnicos. La gobernanza garantiza coherencia sin aplanar esas diferencias.</p>
 
                 {/* Lineamientos compartidos */}
-                <div className="rounded-2xl p-5 mb-4" style={{ background: "var(--background-3)" }}>
+                <div className="rounded-2xl border border-border p-5 mb-4 bg-card">
                   <p className="text-[9px] font-bold uppercase tracking-widest text-primary mb-3">Lineamientos compartidos — Gobernanza UX Manager</p>
                   <div className="flex flex-wrap gap-2">
                     {sharedLayers.map((l) => (
@@ -289,29 +290,22 @@ export function GovernancePage() {
                 </div>
 
                 {/* Plataformas */}
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-3">
-                  {platforms.filter((p) => !p.pending).map((p) => (
-                    <div
-                      key={p.id}
-                      className="rounded-xl border border-solid p-4 flex flex-col items-center gap-2 text-center"
-                      style={{ background: "var(--background-3)", borderColor: "var(--border)" }}
-                    >
-                      <span className="text-[9px] font-semibold uppercase tracking-wider rounded px-1.5 py-0.5" style={{ background: "rgba(107,79,140,0.1)", color: "var(--primary)" }}>
-                        UI Kit propio
-                      </span>
-                      <span className="text-xs font-medium text-foreground/70 leading-tight">{p.name}</span>
-                    </div>
-                  ))}
-                </div>
-                <div className="flex justify-center">
-                  {platforms.filter((p) => p.pending).map((p) => (
+                <div className="grid grid-cols-2 sm:grid-cols-5 gap-3">
+                  {platforms.map((p) => (
                     <div
                       key={p.id}
                       className="rounded-xl border p-4 flex flex-col items-center gap-2 text-center"
-                      style={{ opacity: 0.5, borderStyle: "dashed", background: "var(--background-3)", borderColor: "var(--border)", width: "calc(25% - 4px)", minWidth: "120px" }}
+                      style={{
+                        opacity: p.pending ? 0.5 : 1,
+                        borderStyle: p.pending ? "dashed" : "solid",
+                        background: "var(--background-3)",
+                        borderColor: "var(--border)",
+                      }}
                     >
-                      <span className="text-[9px] font-semibold uppercase tracking-wider text-foreground/40 border border-border rounded px-1.5 py-0.5">Pendiente</span>
-                      <span className="text-[9px] font-semibold uppercase tracking-wider rounded px-1.5 py-0.5" style={{ background: "transparent", color: "var(--foreground-muted)" }}>
+                      {p.pending && (
+                        <span className="text-[9px] font-semibold uppercase tracking-wider text-foreground/40 border border-border rounded px-1.5 py-0.5">Pendiente</span>
+                      )}
+                      <span className="text-[9px] font-semibold uppercase tracking-wider rounded px-1.5 py-0.5" style={{ background: p.pending ? "transparent" : "rgba(107,79,140,0.1)", color: p.pending ? "var(--foreground-muted)" : "var(--primary)", border: "1px solid", borderColor: p.pending ? "var(--border)" : "rgba(107,79,140,0.3)" }}>
                         UI Kit propio
                       </span>
                       <span className="text-xs font-medium text-foreground/70 leading-tight">{p.name}</span>
@@ -327,7 +321,7 @@ export function GovernancePage() {
                 <h2 className="text-xl text-foreground mb-2" style={{ fontFamily: "var(--font-serif)" }}>Proceso de diseño estandarizado</h2>
                 <p className="text-sm text-foreground/50 mb-8 max-w-lg">Cada etapa tiene un mínimo exigible antes de avanzar. Las iteraciones tienen un camino definido — no se resuelven ad hoc.</p>
 
-                <div className="space-y-4">
+                <div className="space-y-3">
                   {workSteps.map((step, i) => (
                     <motion.div
                       key={step.id}
@@ -335,14 +329,14 @@ export function GovernancePage() {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: i * 0.05 }}
-                      className="rounded-xl border border-border p-6 bg-card hover:border-primary/20 transition-colors"
+                      className="rounded-xl border border-border p-5 bg-card hover:border-primary/20 transition-colors"
                     >
                       <div className="flex items-start justify-between gap-4 mb-2">
                         <div className="flex items-center gap-3">
                           <span className="w-6 h-6 rounded-full border border-border text-[11px] font-semibold text-primary flex items-center justify-center shrink-0" style={{ background: "var(--background-3)" }}>{i + 1}</span>
                           <span className="text-sm font-semibold text-foreground">{step.phase}</span>
                         </div>
-                        <span className="text-[10px] font-semibold uppercase tracking-wider text-primary bg-primary/8 rounded px-2 py-0.5 shrink-0 whitespace-nowrap">{step.actor}</span>
+                        <span className="text-[10px] font-semibold uppercase tracking-wider text-primary bg-primary/8 border border-primary/20 rounded px-2 py-0.5 shrink-0 whitespace-nowrap">{step.actor}</span>
                       </div>
                       <p className="text-sm text-foreground/60 leading-relaxed ml-9 mb-2">{step.description}</p>
                       <p className="text-[11px] text-foreground/35 ml-9">
