@@ -78,32 +78,24 @@ interface StepData {
   isOrigin?: boolean;
 }
 
-const stepDotColor: Record<string, string> = {
-  origin: "#9B7EC8", input: "#6B4F8C", design: "#9B8060",
-  review: "#9B7EC8", change: "#B45050", dev: "#888", approval: "#50A078",
-};
-
 function FlowStep({ step, isLast }: { step: StepData; isLast: boolean }) {
-  const dot = stepDotColor[step.type] ?? "#888";
   const isOrigin = step.isOrigin;
   return (
     <div className="flex flex-col">
       <div
-        className="rounded-xl p-4 flex flex-col gap-2"
+        className="rounded-xl p-5 flex flex-col gap-2"
         style={{
-          border: isOrigin
-            ? "1px dashed rgba(107,79,140,0.35)"
-            : "1px solid rgba(var(--border-rgb, 150,150,150),0.25)",
+          border: isOrigin ? "1px dashed rgba(107,79,140,0.35)" : "none",
           background: isOrigin ? "rgba(107,79,140,0.05)" : "var(--background-3)",
           minHeight: "84px",
         }}
       >
-        <span className="font-bold uppercase tracking-wider text-[10px]" style={{ color: dot }}>
+        <span className="font-bold uppercase tracking-wider text-[10px]" style={{ color: "#6B4F8C" }}>
           {step.actor}
         </span>
         <span className="leading-relaxed text-foreground/60 text-[12px]">{step.action}</span>
       </div>
-      {!isLast && <div className="w-px h-3 bg-border/30 mx-auto" />}
+      {!isLast && <div className="h-3" />}
     </div>
   );
 }
@@ -249,9 +241,9 @@ export function GovernancePage() {
 
                 <div className="grid md:grid-cols-2 gap-6">
                   {/* Antes */}
-                  <div className="rounded-2xl overflow-hidden" style={{ border: "1px solid rgba(var(--border-rgb,150,150,150),0.2)" }}>
+                  <div className="rounded-2xl overflow-hidden">
                     <div className="px-6 py-4 flex items-center justify-between"
-                      style={{ background: "rgba(163,45,45,0.06)", borderBottom: "1px solid rgba(163,45,45,0.12)" }}>
+                      style={{ background: "rgba(163,45,45,0.06)" }}>
                       <span className="text-xs font-bold uppercase tracking-widest" style={{ color: "#A32D2D" }}>Antes</span>
                       <span className="text-xs text-foreground/40">⏱ ~3 meses por proceso</span>
                     </div>
@@ -268,9 +260,9 @@ export function GovernancePage() {
                   </div>
 
                   {/* Después */}
-                  <div className="rounded-2xl overflow-hidden" style={{ border: "1px solid rgba(var(--border-rgb,150,150,150),0.2)" }}>
+                  <div className="rounded-2xl overflow-hidden">
                     <div className="px-6 py-4 flex items-center justify-between"
-                      style={{ background: "rgba(107,79,140,0.06)", borderBottom: "1px solid rgba(107,79,140,0.15)" }}>
+                      style={{ background: "rgba(107,79,140,0.06)" }}>
                       <span className="text-xs font-bold uppercase tracking-widest text-primary">Después</span>
                       <span className="text-xs text-foreground/40">⏱ ~15 días por proceso</span>
                     </div>
@@ -299,7 +291,7 @@ export function GovernancePage() {
                 </p>
 
                 {/* Lineamientos compartidos */}
-                <div className="rounded-2xl p-6 mb-5" style={{ background: "var(--card)", border: "1px solid rgba(var(--border-rgb,150,150,150),0.2)" }}>
+                <div className="rounded-2xl p-6 mb-5" style={{ background: "var(--card)" }}>
                   <p className="text-[9px] font-bold uppercase tracking-widest text-primary mb-4">
                     Lineamientos compartidos — Gobernanza UX Manager
                   </p>
@@ -335,8 +327,6 @@ export function GovernancePage() {
                         style={{
                           background: p.pending ? "transparent" : "rgba(107,79,140,0.1)",
                           color: p.pending ? "var(--foreground-muted)" : "var(--primary)",
-                          border: "1px solid",
-                          borderColor: p.pending ? "rgba(var(--border-rgb,150,150,150),0.3)" : "rgba(107,79,140,0.25)",
                         }}
                       >
                         {p.pending ? "Pendiente" : "UI Kit propio"}
@@ -360,7 +350,7 @@ export function GovernancePage() {
                   Cada etapa tiene un mínimo exigible antes de avanzar. Las iteraciones tienen un camino definido — no se resuelven ad hoc.
                 </p>
 
-                <div className="space-y-3">
+                <div className="space-y-4">
                   {workSteps.map((step, i) => (
                     <motion.div
                       key={step.id}
@@ -386,7 +376,7 @@ export function GovernancePage() {
                         </div>
                         <span
                           className="text-[10px] font-bold uppercase tracking-wider rounded-md px-2.5 py-1 shrink-0 whitespace-nowrap"
-                          style={{ background: "rgba(107,79,140,0.08)", color: "var(--primary)", border: "1px solid rgba(107,79,140,0.18)" }}
+                          style={{ background: "rgba(107,79,140,0.08)", color: "var(--primary)" }}
                         >
                           {step.actor}
                         </span>
