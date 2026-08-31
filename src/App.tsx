@@ -7,6 +7,9 @@ import { WebDesignPage } from "./pages/WebDesignPage";
 import { AppDesignPage } from "./pages/AppDesignPage";
 import { AudixPage } from "./pages/AudixPage";
 import { AFPModeloPage } from "./pages/AFPModeloPage";
+import { RedVitalisPage } from "./pages/RedVitalisPage";
+import { CheckoutMarketplacePage } from "./pages/CheckoutMarketplacePage";
+import { WonderlustPage } from "./pages/WonderlustPage";
 import { ContactPage } from "./pages/ContactPage";
 import { Toaster } from "./components/ui/sonner";
 import { ErrorBoundary } from "./components/ErrorBoundary";
@@ -23,6 +26,9 @@ export default function App() {
         <Route path="/proyectos/app-design" element={<ErrorBoundary><AppDesignPage /></ErrorBoundary>} />
         <Route path="/proyectos/audix" element={<ErrorBoundary><AudixPage /></ErrorBoundary>} />
         <Route path="/proyectos/afp-modelo" element={<ErrorBoundary><AFPModeloPage /></ErrorBoundary>} />
+        <Route path="/proyectos/red-vitalis" element={<ErrorBoundary><RedVitalisPage /></ErrorBoundary>} />
+        <Route path="/proyectos/checkout-marketplace" element={<ErrorBoundary><CheckoutMarketplacePage /></ErrorBoundary>} />
+        <Route path="/proyectos/wonderlust" element={<ErrorBoundary><WonderlustPage /></ErrorBoundary>} />
         <Route path="/contacto" element={<ContactPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

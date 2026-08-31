@@ -26,8 +26,11 @@ export function Navigation() {
   const isProjectsActive = location.pathname.startsWith("/proyectos");
 
   const projectItems = [
-    { name: "Audix — Tracking de calidad UX", href: "/proyectos/audix" },
+    { name: "Red Vitalis — Portal de Transparencia de Datos", href: "/proyectos/red-vitalis" },
+    { name: "Checkout Marketplace — Rollout con datos", href: "/proyectos/checkout-marketplace" },
+    { name: "Wonderlust — Bitácora de viajes", href: "/proyectos/wonderlust" },
     { name: "AFP Modelo — Gobernanza de diseño", href: "/proyectos/governance" },
+    { name: "Audix — Tracking de calidad UX", href: "/proyectos/audix" },
     { name: "Teamwork — Digitalización RRHH", href: "/proyectos/web-app-design" },
     { name: "DIRPLAN — Rediseño institucional", href: "/proyectos/web-design" },
   ];

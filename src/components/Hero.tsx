@@ -44,19 +44,19 @@ export function Hero() {
                   lineHeight: 1.15,
                 }}
               >
-                UX Manager que convierte problemas{" "}
+                Diseñadora de producto que orquesta{" "}
                 <em
                   style={{ fontStyle: "italic", color: isDark ? "#C4A8E0" : "#6B4F8C" }}
                 >
-                  complejos
+                  IA
                 </em>{" "}
-                en experiencias claras.
+                para convertir problemas complejos en decisiones claras.
               </h1>
 
               <p className="text-lg text-foreground/75 max-w-xl leading-relaxed">
-                Diseño productos digitales y lidero equipos UX con foco en resultados:
-                procesos más simples, sistemas más consistentes y experiencias que la
-                gente realmente entiende.
+                Defino la estrategia de productos y experiencias digitales en entornos
+                regulados y de alta complejidad. Me apoyo en IA para acelerar cada etapa
+                del proceso, sin delegar el juicio estratégico.
               </p>
             </div>
 

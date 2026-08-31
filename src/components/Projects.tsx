@@ -3,17 +3,45 @@ import { Link } from "react-router-dom";
 
 const projects = [
   {
-    id: "audix",
-    href: "/proyectos/audix",
-    category: "Herramienta propia · IA · UX Management",
-    title: "Audix: De auditorías manuales a tracking de calidad UX con IA",
-    description: "Diseñé y construí una herramienta que reduce una auditoría heurística de 3 días a 2 horas, estandariza el output y convierte evaluaciones puntuales en un sistema de tracking por componente.",
-    tags: ["Prompt Engineering", "Product Design", "Claude API", "React"],
+    id: "red-vitalis",
+    href: "/proyectos/red-vitalis",
+    category: "Taller integrado · Business Case AI-Driven · Salud y privacidad de datos",
+    title: "Red Vitalis: de una hipótesis cruda a un caso de negocio con evidencia",
+    description: "El taller de cierre del diplomado entregó una hipótesis sin validar. Con mi equipo elegimos salud, investigamos con usuarios sintéticos, corrimos un piloto A/B y llegué a un 'Go condicionado' respaldado por evidencia.",
+    tags: ["Business Case AI-Driven", "Estrategia de producto", "Investigación con usuarios sintéticos", "Experimentación A/B", "Modelo de negocio", "Ley 21.719"],
     metrics: [
-      { num: "3d→2h", label: "Tiempo de auditoría" },
-      { num: "3 modos", label: "Screenshot · Comparativa · URL" },
+      { num: "83%→35%", label: "Comprensión de uso de datos, portal vs. control" },
+      { num: "+17 pts", label: "NPS a favor del grupo con portal" },
     ],
-    image: "/audix/audix_portada.webp",
+    image: "/image/red-vitalis-cover.webp",
+    imageBg: "var(--background-3)",
+  },
+  {
+    id: "checkout-marketplace",
+    href: "/proyectos/checkout-marketplace",
+    category: "Experimentación, IA y validación de producto · E-commerce",
+    title: "Checkout Marketplace: del prototipo a un rollout del 100% con datos",
+    description: "El Checkout Conversion Rate de un marketplace cayó de 48% a 36%. Propuse mostrar el costo de despacho desde el carrito y lo validé con un test A/B de tráfico real antes de escalar a rollout completo.",
+    tags: ["A/B Testing", "Prototipado", "Experimentación", "IA aplicada al diseño", "Growth"],
+    metrics: [
+      { num: "+8 pts", label: "Checkout Conversion Rate, variante B vs. A" },
+      { num: "3 semanas", label: "Test A/B con tráfico real, split 50/50" },
+    ],
+    image: "/image/checkout-cover.webp",
+    imageBg: "var(--background-3)",
+  },
+  {
+    id: "wonderlust",
+    href: "/proyectos/wonderlust",
+    category: "Principios de interacción y leyes de UX · Prototipado con IA",
+    title: "Wonderlust: una bitácora de viajes diseñada con principios, no con intuición",
+    description: "Diseñé y prototipé de punta a punta una app que centraliza destinos de viaje, aplicando deliberadamente principios de interacción, leyes de UX y sesgos cognitivos en cada decisión.",
+    tags: ["Prototipado con IA", "Leyes de UX", "Sesgos cognitivos", "Diseño de interacción", "Mobile"],
+    metrics: [
+      { num: "1", label: "Diseñadora, de punta a punta" },
+      { num: "3 capas", label: "Interacción · Leyes de UX · Sesgos cognitivos" },
+    ],
+    image: "/image/wonderlust-cover.webp",
     imageBg: "var(--background-3)",
   },
   {
@@ -29,34 +57,6 @@ const projects = [
     ],
     image: "/afp-portada.webp",
     imageBg: "var(--background-3)",
-  },
-  {
-    id: "web-app-design",
-    href: "/proyectos/web-app-design",
-    category: "Product Design · UX Research",
-    title: "De un proceso roto a una plataforma que la gente realmente usa",
-    description: "Detecté que el problema no era de interfaz sino de arquitectura. Amplié el scope, coordiné dos equipos tecnológicos y diseñé un sistema unificado — de 60 inputs a 4, con impacto medible en más de 300 personas.",
-    tags: ["UX Research", "Arquitectura de información", "Prototipado Hi-Fi", "Validación con usuarios"],
-    metrics: [
-      { num: "60→4", label: "Inputs en el proceso de contratación" },
-      { num: "+300", label: "Personas con flujo optimizado" },
-    ],
-    image: "/image/teamwork-cover.webp",
-    imageBg: "#E8F0F5",
-  },
-  {
-    id: "web-design",
-    href: "/proyectos/web-design",
-    category: "Consultoría UX · Sector Público",
-    title: "Rediseñar un sitio institucional del Estado con restricciones reales",
-    description: "Rediseñé el sitio oficial de DIRPLAN para su migración a WordPress, trabajando dentro del Sistema de Diseño Gubernamental y reduciendo en un 65% los pasos para acceder a información clave.",
-    tags: ["Consultoría externa", "Mobile First", "Sistema Gubernamental", "Accesibilidad"],
-    metrics: [
-      { num: "65%", label: "Reducción en pasos para encontrar info" },
-      { num: "88%", label: "Satisfacción en pruebas de usabilidad" },
-    ],
-    image: "/image/dirplan-cover.webp",
-    imageBg: "#EEF2F0",
   },
 ];
 
@@ -93,10 +93,10 @@ export function Projects() {
               to={project.href}
               className="group flex flex-col bg-muted rounded-2xl overflow-hidden hover:-translate-y-1 hover:shadow-xl transition-all duration-300 relative"
               style={{
-                border: project.id === "governance" ? "2px solid var(--primary)" : "1px solid var(--border)",
+                border: project.id === "red-vitalis" ? "2px solid var(--primary)" : "1px solid var(--border)",
               }}
             >
-              {project.id === "governance" && (
+              {project.id === "red-vitalis" && (
                 <span
                   style={{
                     position: "absolute", top: "12px", right: "12px", zIndex: 10,

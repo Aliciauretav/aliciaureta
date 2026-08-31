@@ -112,9 +112,11 @@ export function AboutPage() {
                 Diseñando experiencias que importan — y los sistemas que las hacen posibles.
               </h1>
               <p className="text-lg text-foreground/60 leading-relaxed max-w-2xl">
-                Soy Alicia Ureta, UX Manager y Product Designer. Me especializo en
-                crear productos digitales que simplifican lo complejo — para las
-                personas que los usan y para los equipos que los construyen.
+                Soy Alicia Ureta, diseñadora de producto especializada en estrategia y
+                experiencia digital. Uso IA en cada etapa de creación de un producto
+                digital para acelerar y optimizar el trabajo, manteniendo siempre el
+                criterio de negocio. Lidero con foco en decisiones de producto, en
+                entornos complejos y regulados.
               </p>
             </motion.div>
           </div>
