@@ -10,7 +10,7 @@ const projects = [
     description: "El taller de cierre del diplomado entregó una hipótesis sin validar. Con mi equipo elegimos salud, investigamos con usuarios sintéticos, corrimos un piloto A/B y llegué a un 'Go condicionado' respaldado por evidencia.",
     tags: ["Business Case AI-Driven", "Estrategia de producto", "Investigación con usuarios sintéticos", "Experimentación A/B", "Modelo de negocio", "Ley 21.719"],
     metrics: [
-      { num: "83%→35%", label: "Comprensión de uso de datos, portal vs. control · Piloto con usuarios sintéticos" },
+      { num: "+48 pp", label: "Comprensión de uso de datos: 83% con portal vs. 35% sin él · Piloto con usuarios sintéticos" },
       { num: "+17 pts", label: "NPS a favor del grupo con portal · Piloto con usuarios sintéticos" },
     ],
     image: "/image/red-vitalis-cover.webp",
@@ -38,8 +38,8 @@ const projects = [
     description: "Diseñé y prototipé de punta a punta una app que centraliza destinos de viaje, aplicando deliberadamente principios de interacción, leyes de UX y sesgos cognitivos en cada decisión.",
     tags: ["Prototipado con IA", "Leyes de UX", "Sesgos cognitivos", "Diseño de interacción", "Mobile"],
     metrics: [
-      { num: "1", label: "Diseñadora, de punta a punta" },
-      { num: "3 capas", label: "Interacción · Leyes de UX · Sesgos cognitivos" },
+      { num: "2 campos", label: "Obligatorios para guardar un destino" },
+      { num: "3 ítems", label: "En la navegación principal" },
     ],
     image: "/image/wonderlust-cover.webp",
     imageBg: "var(--background-3)",
@@ -52,7 +52,7 @@ const projects = [
     description: "El cargo no existía. En dos años construí la gobernanza, los procesos y el criterio que le dieron al diseño un lugar real en la organización.",
     tags: ["Liderazgo UX", "Gobernanza de diseño", "Diseño de procesos", "Gestión de stakeholders", "Sistemas de diseño", "Design Tokens", "UX Writing", "Desarrollo de equipo"],
     metrics: [
-      { num: "30%", label: "Reducción en tiempo de diseño" },
+      { num: "−30%", label: "Tiempo de diseño en el Proyecto 311" },
       { num: "5 plataformas", label: "Bajo gobernanza unificada" },
     ],
     image: "/afp-portada.webp",

@@ -157,10 +157,10 @@ export function Hero() {
                   className="text-2xl text-foreground"
                   style={{ fontFamily: "var(--font-serif)" }}
                 >
-                  3 meses → 15 días
+                  −80%
                 </p>
                 <p className="text-xs text-foreground/70 mt-1">
-                  En procesos de<br />diseño estándar
+                  AFP Modelo · tiempo de un<br />proceso de diseño estándar
                 </p>
               </div>
               <div>
@@ -168,10 +168,10 @@ export function Hero() {
                   className="text-2xl text-foreground"
                   style={{ fontFamily: "var(--font-serif)" }}
                 >
-                  60→4
+                  −93%
                 </p>
                 <p className="text-xs text-foreground/70 mt-1">
-                  Campos en contratación<br />de +300 personas
+                  Teamwork · campos en contratación<br />de +300 personas
                 </p>
               </div>
               <div>
@@ -179,10 +179,10 @@ export function Hero() {
                   className="text-2xl text-foreground"
                   style={{ fontFamily: "var(--font-serif)" }}
                 >
-                  4+
+                  −65%
                 </p>
                 <p className="text-xs text-foreground/70 mt-1">
-                  Sectores:<br />público, privado, fintech
+                  DIRPLAN · pasos para llegar<br />a información clave
                 </p>
               </div>
             </div>
@@ -215,9 +215,9 @@ export function Hero() {
                   className="text-2xl text-primary leading-none"
                   style={{ fontFamily: "var(--font-serif)" }}
                 >
-                  4+
+                  10+
                 </p>
-                <p className="text-xs text-foreground/70 mt-1">años en UX</p>
+                <p className="text-xs text-foreground/70 mt-1">años de experiencia</p>
               </div>
 
               {/* Elemento decorativo */}

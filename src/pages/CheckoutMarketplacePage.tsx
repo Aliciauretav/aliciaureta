@@ -9,7 +9,7 @@ import { motion } from "motion/react";
 const tags = ["A/B Testing", "Prototipado", "Experimentación", "IA aplicada al diseño", "Growth"];
 
 const metrics = [
-  { icon: TrendingUp, value: "+8 puntos", label: "Incremento absoluto en Checkout Conversion Rate (variante B vs. A)" },
+  { icon: TrendingUp, value: "+8 pts", label: "Incremento absoluto en Checkout Conversion Rate (variante B vs. A)" },
   { icon: Clock, value: "3 semanas", label: "Test A/B con datos simulados del ejercicio, split 50/50, sobre usuarios que agregaron al menos un producto" },
   { icon: Gauge, value: "AOV estable", label: "Ticket promedio monitoreado como métrica de guardia — la mejora no vino a costa del valor del pedido" },
 ];

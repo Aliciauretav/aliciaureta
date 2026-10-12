@@ -1,18 +1,18 @@
 const metrics = [
   {
-    value: "30%",
+    value: "−30%",
     suffix: "",
-    desc: "Menos tiempo de diseño con componentización, en un proyecto con plazo no negociable",
+    desc: "AFP Modelo · tiempo de diseño con componentización, en un proyecto con plazo no negociable",
   },
   {
-    value: "60",
-    suffix: "→4",
-    desc: "Inputs eliminados en proceso de contratación para más de 300 personas",
+    value: "+3 pts",
+    suffix: "",
+    desc: "Teamwork · mejora en la escala de percepción de experiencia (sobre 7)",
   },
   {
-    value: "65%",
+    value: "88%",
     suffix: "",
-    desc: "Menos pasos tras reestructurar la arquitectura de información de un sitio del Estado",
+    desc: "DIRPLAN · satisfacción de usuarios en pruebas de usabilidad del sitio rediseñado",
   },
 ];
 

@@ -181,7 +181,8 @@ export function AboutPage() {
 
                 <p className="text-foreground/60 leading-relaxed">
                   Llegué al diseño UX después de más de 10 años en organizaciones
-                  complejas — y esa trayectoria cambió cómo diseño. Entiendo los
+                  complejas y, desde entonces, llevo más de 4 años diseñando
+                  productos digitales — y esa trayectoria cambió cómo diseño. Entiendo los
                   procesos internos, las restricciones reales y las personas que
                   están detrás de cada flujo. No solo diseño interfaces: diseño
                   con contexto.

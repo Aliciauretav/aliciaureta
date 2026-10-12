@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { motion } from "motion/react";
 
 const metrics = [
-  { icon: Clock, value: "3d → 2h", label: "Reducción del tiempo de auditoría heurística" },
+  { icon: Clock, value: "−92%", label: "Tiempo de auditoría heurística (de 3 jornadas laborales a 2 horas)" },
   { icon: Layers, value: "3 modos", label: "Screenshot individual · Comparativa entre versiones · URL automática" },
   { icon: BarChart3, value: "Score", label: "De hallazgos cualitativos a evidencia estructurada para stakeholders" },
 ];

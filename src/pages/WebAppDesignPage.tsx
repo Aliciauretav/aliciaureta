@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { motion } from "motion/react";
 
 const metrics = [
-  { icon: TrendingUp, value: "60→4", label: "Inputs eliminados en el proceso de contratación" },
+  { icon: TrendingUp, value: "−93%", label: "Inputs en el proceso de contratación (de 60 a 4)" },
   { icon: Users, value: "+300", label: "Personas con flujo de contratación optimizado" },
   { icon: BarChart3, value: "+3 pts", label: "Mejora en escala de percepción de experiencia (sobre 7)" },
 ];

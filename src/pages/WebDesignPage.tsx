@@ -7,8 +7,8 @@ import { Link } from "react-router-dom";
 import { motion } from "motion/react";
 
 const metrics = [
-  { icon: TrendingUp, value: "65%", label: "Reducción en pasos para encontrar información clave" },
-  { icon: BarChart3, value: "7→3", label: "Niveles de flujo documental simplificados" },
+  { icon: TrendingUp, value: "−65%", label: "Pasos para encontrar información clave" },
+  { icon: BarChart3, value: "−57%", label: "Niveles de flujo documental (de 7 a 3)" },
   { icon: Users, value: "88%", label: "Satisfacción de usuarios en pruebas de usabilidad" },
 ];
 

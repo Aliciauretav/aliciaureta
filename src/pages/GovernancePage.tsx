@@ -9,8 +9,8 @@ import { motion } from "motion/react";
 // ─── DATOS ────────────────────────────────────────────────────────────────────
 
 const metrics = [
-  { icon: TrendingUp, value: "3 meses → 15 días", label: "En procesos estándar, gracias a componentización y flujos estandarizados" },
-  { icon: TrendingUp, value: "30%",               label: "Reducción en tiempos de diseño aplicando componentización (Atomic Design y design tokens) en el Proyecto 311, bajo plazo no negociable" },
+  { icon: TrendingUp, value: "−80%", label: "Tiempo de un proceso de diseño estándar, de ~3 meses a ~15 días, gracias a componentización y flujos estandarizados" },
+  { icon: TrendingUp, value: "−30%",              label: "Reducción en tiempos de diseño aplicando componentización (Atomic Design y design tokens) en el Proyecto 311, bajo plazo no negociable" },
   { icon: Layers,     value: "5 plataformas",     label: "Bajo gobernanza unificada" },
 ];
 
