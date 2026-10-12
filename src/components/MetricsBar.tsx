@@ -2,7 +2,7 @@ const metrics = [
   {
     value: "30%",
     suffix: "",
-    desc: "Reducción en tiempo de diseño mediante Atomic Design y Design Tokens",
+    desc: "Menos tiempo de diseño con componentización, en un proyecto con plazo no negociable",
   },
   {
     value: "60",
@@ -12,7 +12,7 @@ const metrics = [
   {
     value: "65%",
     suffix: "",
-    desc: "Menos pasos para acceder a información en sitio institucional del Estado",
+    desc: "Menos pasos tras reestructurar la arquitectura de información de un sitio del Estado",
   },
 ];
 

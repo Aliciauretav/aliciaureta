@@ -9,8 +9,8 @@ import { motion } from "motion/react";
 const tags = ["Business Case AI-Driven", "Estrategia de producto", "Investigación con usuarios sintéticos", "Experimentación A/B", "Modelo de negocio", "Ley 21.719"];
 
 const metrics = [
-  { icon: Users, value: "83% → 35%", label: "Comprensión correcta de \"quién trata mis datos y para qué\", grupo con acceso al portal vs. grupo control (+48 puntos porcentuales)" },
-  { icon: TrendingUp, value: "+25 → +8", label: "NPS declarado, grupo con portal vs. grupo control (+17 puntos a favor del portal)" },
+  { icon: Users, value: "83% → 35%", label: "Comprensión correcta de \"quién trata mis datos y para qué\", grupo con acceso al portal vs. grupo control (+48 puntos porcentuales) · Piloto con usuarios sintéticos" },
+  { icon: TrendingUp, value: "+25 → +8", label: "NPS declarado, grupo con portal vs. grupo control (+17 puntos a favor del portal) · Piloto con usuarios sintéticos" },
   { icon: ShieldCheck, value: "$29,4M CLP", label: "Costo estimado de la Etapa 0 (auditoría RAT + DPA) frente a un riesgo regulatorio de hasta 20.000 UTM en sanciones" },
 ];
 

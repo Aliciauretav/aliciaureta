@@ -30,7 +30,7 @@ export function Hero() {
                 className="text-xs font-medium tracking-widest uppercase"
                 style={{ color: isDark ? "rgba(255,255,255,0.7)" : "#5D4A66" }}
               >
-                UX Lead · UX Manager · Product Designer · Santiago, Chile
+                Senior Product Designer · Design Lead · Santiago, Chile
               </p>
             </div>
 
@@ -104,7 +104,7 @@ export function Hero() {
             {/* Social Links */}
             <div className="flex items-center gap-3" style={{ marginTop: "24px" }}>
               <a
-                href="https://linkedin.com/in/aliciauretavergara"
+                href="https://www.linkedin.com/in/aliciauretavergara"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
@@ -157,10 +157,10 @@ export function Hero() {
                   className="text-2xl text-foreground"
                   style={{ fontFamily: "var(--font-serif)" }}
                 >
-                  30%
+                  3 meses → 15 días
                 </p>
                 <p className="text-xs text-foreground/70 mt-1">
-                  Reducción en<br />tiempo de diseño
+                  En procesos de<br />diseño estándar
                 </p>
               </div>
               <div>
@@ -171,7 +171,7 @@ export function Hero() {
                   60→4
                 </p>
                 <p className="text-xs text-foreground/70 mt-1">
-                  Inputs en<br />un proceso
+                  Campos en contratación<br />de +300 personas
                 </p>
               </div>
               <div>
@@ -197,7 +197,7 @@ export function Hero() {
               >
                 <img
                   src="/image/alicia-hero.webp"
-                  alt="Alicia Ureta, UX Manager"
+                  alt="Alicia Ureta, Senior Product Designer · Design Lead"
                   className="w-full h-full object-cover object-center"
                   onError={(e) => {
                     const target = e.target as HTMLImageElement;

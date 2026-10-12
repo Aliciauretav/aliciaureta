@@ -27,7 +27,7 @@ export function Navigation() {
 
   const projectItems = [
     { name: "Red Vitalis — Portal de Transparencia de Datos", href: "/proyectos/red-vitalis" },
-    { name: "Checkout Marketplace — Rollout con datos", href: "/proyectos/checkout-marketplace" },
+    { name: "Checkout Marketplace", href: "/proyectos/checkout-marketplace" },
     { name: "Wonderlust — Bitácora de viajes", href: "/proyectos/wonderlust" },
     { name: "AFP Modelo — Gobernanza de diseño", href: "/proyectos/governance" },
     { name: "Audix — Tracking de calidad UX", href: "/proyectos/audix" },
@@ -173,7 +173,7 @@ export function Navigation() {
             )}
 
             <a
-              href="/CV_Alicia_Ureta_UX_Manager_2026.pdf"
+              href="/CV_Alicia_Ureta_Product_Designer_2026.pdf"
               target="_blank"
               rel="noopener noreferrer"
               style={{
@@ -291,7 +291,7 @@ export function Navigation() {
 
               <div className="pt-2 border-t border-border mt-2">
                 <a
-                  href="/CV_Alicia_Ureta_UX_Manager_2026.pdf"
+                  href="/CV_Alicia_Ureta_Product_Designer_2026.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{

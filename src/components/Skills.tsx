@@ -18,9 +18,9 @@ const leadSkills = [
 ];
 
 const processSkills = [
+  { title: "Arquitectura de información", desc: "Estructura de contenidos, flujos y navegación en productos complejos" },
   { title: "Investigación UX", desc: "Cualitativa, cuantitativa, entrevistas, testing" },
   { title: "Facilitación", desc: "Workshops, Design Sprints, co-creación" },
-  { title: "Arquitectura de información", desc: "Flujos, jerarquías, navegación" },
   { title: "UX Writing", desc: "Tono, estilo y comunicación en interfaz" },
   { title: "Métricas de experiencia", desc: "Interpretación y seguimiento de KPIs UX" },
   { title: "Accesibilidad", desc: "WCAG, diseño inclusivo, mobile first" },

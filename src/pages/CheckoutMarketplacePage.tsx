@@ -10,7 +10,7 @@ const tags = ["A/B Testing", "Prototipado", "Experimentación", "IA aplicada al 
 
 const metrics = [
   { icon: TrendingUp, value: "+8 puntos", label: "Incremento absoluto en Checkout Conversion Rate (variante B vs. A)" },
-  { icon: Clock, value: "3 semanas", label: "Test A/B con tráfico real, split 50/50, sobre usuarios que agregaron al menos un producto" },
+  { icon: Clock, value: "3 semanas", label: "Test A/B con datos simulados del ejercicio, split 50/50, sobre usuarios que agregaron al menos un producto" },
   { icon: Gauge, value: "AOV estable", label: "Ticket promedio monitoreado como métrica de guardia — la mejora no vino a costa del valor del pedido" },
 ];
 
@@ -75,7 +75,7 @@ export function CheckoutMarketplacePage() {
                     className="text-3xl lg:text-4xl text-foreground mb-5 leading-tight"
                     style={{ fontFamily: "var(--font-serif)", letterSpacing: "-0.02em" }}
                   >
-                    Checkout Marketplace: del prototipo a un rollout del 100% con datos
+                    Checkout Marketplace: validar una hipótesis de costo con un test A/B
                   </h1>
                   <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm mb-6 w-fit" style={{ background: "var(--background-3)", color: "var(--primary)" }}>
                     <span className="w-1.5 h-1.5 rounded-full bg-primary" />

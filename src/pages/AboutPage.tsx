@@ -5,28 +5,34 @@ import { motion } from "motion/react";
 
 const workTimeline = [
   {
-    title: "UX/UI Manager",
+    title: "Líder de Diseño",
     org: "AFP Modelo",
-    date: "2024 — actualidad",
-    desc: "Gobernanza de diseño, Design System, liderazgo de equipo",
+    date: "2026 — actualidad",
+    desc: "Dirección de diseño de producto, mejora continua y pruebas de IA en el proceso de diseño",
+  },
+  {
+    title: "UX Manager",
+    org: "AFP Modelo",
+    date: "2024 — 2026",
+    desc: "Gobernanza de diseño, arquitectura de información, Design System, liderazgo de equipo",
   },
   {
     title: "UX/UI Designer",
     org: "Teamwork Chile",
     date: "2023 — 2024",
-    desc: "Digitalización de procesos de RRHH",
+    desc: "Arquitectura de información y flujos de plataforma de reclutamiento y contratación",
   },
   {
     title: "UX/UI Designer — Consultora",
     org: "DIRPLAN — MOP",
     date: "2022",
-    desc: "Rediseño sitio institucional, migración a WordPress",
+    desc: "Arquitectura de información y rediseño del sitio institucional, migración a WordPress",
   },
   {
     title: "Analista GIS",
-    org: "VTR — Km Telecomunicaciones",
+    org: "KM Telecomunicaciones (outsourcing VTR)",
     date: "2011 — 2021",
-    desc: "Gestión de datos masivos, proyectos técnicos interáreas",
+    desc: "Dibujo cartográfico y carga de datos en plataforma GIS",
   },
 ];
 
@@ -34,7 +40,7 @@ const studyTimeline = [
    {
     title: "Diplomado en Estrategia y Experiencia de Productos en la Era de la IA",
     org: "FEN — Universidad de Chile",
-    date: "Mayo 2025 — en curso",
+    date: "2025 — 2026 · Aprobado, nota 6,5",
     desc: "Estrategia de producto, liderazgo UX e inteligencia artificial",
     highlight: true,
   },
@@ -61,6 +67,12 @@ const studyTimeline = [
     org: "PUC Chile",
     date: "2023",
     desc: "Service Design, Customer Journey, Co-creación",
+  },
+  {
+    title: "Diplomado en Diseño y Programación Web",
+    org: "Fundación Telefónica",
+    date: "2022",
+    desc: "",
   },
   {
     title: "Bootcamp UX/UI (402 hrs)",
@@ -303,7 +315,7 @@ export function AboutPage() {
                 padding: "1.25rem"
               }}
             >
-              <div style={{ display: "flex", justifyContent: "space-between", gap: "8px", marginBottom: "4px" }}>
+              <div style={{ display: "flex", flexWrap: "wrap", alignItems: "flex-start", justifyContent: "space-between", gap: "4px 8px", marginBottom: "4px" }}>
                 <p style={{ fontSize: "14px", fontWeight: 500, color: item.highlight ? "var(--primary)" : "var(--foreground)", fontFamily: "var(--font-serif)" }}>
                   {item.title}
                 </p>

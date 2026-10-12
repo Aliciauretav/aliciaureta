@@ -10,7 +10,7 @@ import { motion } from "motion/react";
 
 const metrics = [
   { icon: TrendingUp, value: "3 meses → 15 días", label: "En procesos estándar, gracias a componentización y flujos estandarizados" },
-  { icon: TrendingUp, value: "30%",               label: "Reducción en tiempos de diseño bajo restricción de plazo no negociable" },
+  { icon: TrendingUp, value: "30%",               label: "Reducción en tiempos de diseño aplicando componentización (Atomic Design y design tokens) en el Proyecto 311, bajo plazo no negociable" },
   { icon: Layers,     value: "5 plataformas",     label: "Bajo gobernanza unificada" },
 ];
 
@@ -61,12 +61,12 @@ const workSteps = [
 ];
 
 const projects = [
-  { title: "Rediseño sitio público", body: "El análisis de uso mostró que cerca del 80% de la interacción se concentraba en solo dos secciones. Propuse consolidar los tres homes en uno con contenido perfilado por tipo de usuario. Post-lanzamiento, los mapas de calor confirmaron alta interacción con las secciones priorizadas." },
-  { title: "Proyecto 311 — Digitalización de trámites", body: "Un proyecto de alta complejidad y largo alcance. Bajo una restricción de tiempo no negociable, diseñé un proceso adaptado que permitió entregar los flujos pendientes con un 30% de reducción en tiempos — sin perder criterio de diseño ni la coherencia con el sistema." },
+  { title: "Rediseño sitio público", body: "Reestructuré la arquitectura de información del sitio público. El análisis de uso mostró que cerca del 80% de la interacción se concentraba en solo dos secciones. Propuse consolidar los tres homes en uno con contenido perfilado por tipo de usuario. Post-lanzamiento, los mapas de calor confirmaron alta interacción con las secciones priorizadas." },
+  { title: "Proyecto 311 — Digitalización de trámites", body: "Un proyecto de alta complejidad y largo alcance. Bajo una restricción de tiempo no negociable, apliqué la componentización del sistema para entregar los flujos pendientes con un 30% de reducción en tiempos de diseño — sin perder criterio de diseño ni la coherencia con el sistema." },
   { title: "Simplicidad — Tono y voz", body: "A través de la gestión y coordinación con distintas áreas, lideré la construcción del manual de tono y voz base con el que hoy trabajan los equipos para comunicarse con los usuarios." },
 ];
 
-const skills = ["Liderazgo UX", "Gobernanza de diseño", "Diseño de procesos", "Gestión de stakeholders", "Sistemas de diseño", "Design Tokens", "UX Writing", "Desarrollo de equipo"];
+const skills = ["Liderazgo UX", "Arquitectura de información", "Gobernanza de diseño", "Diseño de procesos", "Gestión de stakeholders", "Sistemas de diseño", "Design Tokens", "UX Writing", "Desarrollo de equipo"];
 
 // ─── SUBCOMPONENTES ───────────────────────────────────────────────────────────
 
@@ -149,7 +149,7 @@ export function GovernancePage() {
                   </h1>
                   <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm mb-6 w-fit" style={{ background: "var(--background-3)", color: "var(--primary)" }}>
                     <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-                    UX Manager — Servicios financieros regulados · 2 años
+                    UX Manager → Líder de Diseño — Servicios financieros regulados · 2024 – presente
                   </span>
                   <div className="flex flex-wrap gap-2">
                     {skills.map((tag) => (
@@ -165,7 +165,7 @@ export function GovernancePage() {
               <div className="px-8 lg:px-12 py-12 border-t border-border bg-muted/40">
                 <p className="text-xs font-medium tracking-widest uppercase text-primary mb-4">El punto de partida</p>
                 <p className="text-lg text-foreground/70 leading-relaxed max-w-3xl mb-4">
-                  El cargo no existía antes de que yo llegara. El área de diseño era un servicio de maquetación: tres personas que ejecutaban instrucciones, sin criterio propio, sin autoridad sobre las decisiones y sin nadie responsable de la coherencia entre productos.
+                  El cargo no existía antes de que yo llegara. El área de diseño era un servicio de maquetación: tres personas que ejecutaban instrucciones, sin criterio propio, sin autoridad sobre las decisiones y sin nadie responsable de la coherencia entre productos. Con el tiempo, el equipo pasó de tres a cinco personas.
                 </p>
                 <p className="text-lg text-foreground/70 leading-relaxed max-w-3xl">
                   CX definía los textos. Los stakeholders pedían cambios por preferencia. Desarrollo editaba lo que no le convenía. Y el único control de calidad era verificar que el flujo existiera — no que funcionara bien para el usuario.

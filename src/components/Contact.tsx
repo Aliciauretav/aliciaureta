@@ -93,7 +93,7 @@ export function Contact() {
                 </span>
                 aliciauretav@gmail.com
               </a>
-              <a href="https://linkedin.com/in/aliciauretavergara" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-foreground/75 hover:text-primary transition-colors">
+              <a href="https://www.linkedin.com/in/aliciauretavergara" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-foreground/75 hover:text-primary transition-colors">
                 <span style={{ width: "36px", height: "36px", borderRadius: "50%", border: "1px solid var(--border)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, transition: "border-color .2s" }}>
                   <Linkedin className="w-4 h-4" />
                 </span>
