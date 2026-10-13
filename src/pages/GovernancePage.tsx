@@ -61,7 +61,7 @@ const workSteps = [
 ];
 
 const projects = [
-  { title: "Rediseño sitio público", body: "Reestructuré la arquitectura de información del sitio público. El análisis de uso mostró que cerca del 80% de la interacción se concentraba en solo dos secciones. Propuse consolidar los tres homes en uno con contenido perfilado por tipo de usuario. Post-lanzamiento, los mapas de calor confirmaron alta interacción con las secciones priorizadas." },
+  { title: "Rediseño sitio público", body: "Lideré, junto a otro integrante del equipo de diseño, la reestructuración de la arquitectura de información del sitio público. El análisis de uso mostró que cerca del 80% de la interacción se concentraba en solo dos secciones. Propuse consolidar los tres homes en uno con contenido perfilado por tipo de usuario. Meses después del lanzamiento volví a revisar el uso con mapas de calor y analítica de comportamiento: la gente ya no depende del menú para llegar a lo que necesita, y las sesiones en que alguien volvía atrás casi de inmediato bajaron entre un 15% y un 25% frente a los tres meses anteriores. Los datos también me muestran dónde mejorar en la próxima iteración." },
   { title: "Proyecto 311 — Digitalización de trámites", body: "Un proyecto de alta complejidad y largo alcance. Bajo una restricción de tiempo no negociable, apliqué la componentización del sistema para entregar los flujos pendientes con un 30% de reducción en tiempos de diseño — sin perder criterio de diseño ni la coherencia con el sistema." },
   { title: "Simplicidad — Tono y voz", body: "A través de la gestión y coordinación con distintas áreas, lideré la construcción del manual de tono y voz base con el que hoy trabajan los equipos para comunicarse con los usuarios." },
 ];
