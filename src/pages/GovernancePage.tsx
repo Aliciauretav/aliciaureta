@@ -5,6 +5,7 @@ import { ArrowUpRight, ArrowLeft, TrendingUp, Layers } from "lucide-react";
 import { Button } from "../components/ui/button";
 import { Link } from "react-router-dom";
 import { motion } from "motion/react";
+import { useIsMobile } from "../components/ui/use-mobile";
 
 // ─── DATOS ────────────────────────────────────────────────────────────────────
 
@@ -12,26 +13,6 @@ const metrics = [
   { icon: TrendingUp, value: "−80%", label: "Tiempo de un proceso de diseño estándar, de ~3 meses a ~15 días, gracias a componentización y flujos estandarizados" },
   { icon: TrendingUp, value: "−30%",              label: "Reducción en tiempos de diseño aplicando componentización (Atomic Design y design tokens) en el Proyecto 311, bajo plazo no negociable" },
   { icon: Layers,     value: "5 plataformas",     label: "Bajo gobernanza unificada" },
-];
-
-const steps_before = [
-  { id: 1, type: "origin", actor: "Origen del proyecto", action: "Stakeholder define qué diseñar · CX define cómo diseñar", isOrigin: true },
-  { id: 2, type: "design", actor: "UX/UI", action: "Ejecuta maqueta con librería existente" },
-  { id: 3, type: "review", actor: "CX", action: "Revisa diseño y define los textos" },
-  { id: 4, type: "change", actor: "Aprobación stakeholders", action: "Solicita cambios según criterio propio" },
-  { id: 5, type: "design", actor: "UX/UI", action: "Edita solicitudes sin argumentación" },
-  { id: 6, type: "dev",    actor: "Desarrollo", action: "Modifica lo que considera no factible sin coordinación" },
-  { id: 7, type: "approval", actor: "Paso a producción", action: "Analista aprueba que el flujo se complete — no la experiencia" },
-];
-
-const steps_after = [
-  { id: 1, type: "origin", actor: "Origen del proyecto", action: "Necesidad normativa · Auditoría UX/contenido · Solicitud stakeholder", isOrigin: true },
-  { id: 2, type: "design", actor: "UX/UI", action: "Define qué y cómo diseñar: tipo de entregable, fundamentos de diseño y tono y voz" },
-  { id: 3, type: "review", actor: "UX Manager", action: "Revisa cumplimiento de estándar de diseño y tono y voz" },
-  { id: 4, type: "input",  actor: "Aprobación stakeholders", action: "Recibe propuesta fundamentada — decisiones de diseño son argumentadas" },
-  { id: 5, type: "design", actor: "UX/UI", action: "Itera sobre observaciones acordadas con UX Manager" },
-  { id: 6, type: "dev",    actor: "Desarrollo", action: "Implementa con entregables estandarizados — problemas de alcance se acuerdan con UX Manager" },
-  { id: 7, type: "approval", actor: "Paso a producción", action: "UX Manager + UX/UI revisan usabilidad y coherencia. Analista revisa cumplimiento de reglas de negocio" },
 ];
 
 const platforms = [
@@ -49,15 +30,21 @@ const sharedLayers = [
   "Flujo de trabajo estandarizado",
 ];
 
-const workSteps = [
-  { id: 1, phase: "Investigación",              actor: "UX/UI",                          description: "Desk research, análisis de logs y benchmark a partir de los antecedentes de la necesidad", minimum: "Síntesis de hallazgos documentada", decision: null },
-  { id: 2, phase: "Propuesta de diseño",        actor: "UX/UI",                          description: "Propuesta con componentes del UI Kit. Si se requiere algo nuevo, se construye el componente", minimum: "Prototipo de alta fidelidad + componentes documentados", decision: null },
-  { id: 3, phase: "Preaprobación interna",      actor: "UX Manager",                     description: "Revisión de la propuesta. Si aprueba, avanza. Si no, vuelve a propuesta", minimum: "Visto bueno antes de escalar", decision: { yes: "Aprueba → escala", no: "Itera → vuelve a propuesta" } },
-  { id: 4, phase: "Aprobación interna",         actor: "Aprobación interna",              description: "Revisión según alcance e importancia del proyecto", minimum: "Aprobación antes de presentar a stakeholder", decision: { yes: "Aprueba → stakeholder", no: "Itera con UX Manager" } },
-  { id: 5, phase: "Presentación a stakeholder", actor: "UX Manager / UX/UI",              description: "PPT con hallazgos de investigación y prototipo de alta fidelidad con la solución propuesta", minimum: "Presentación con hallazgos + prototipo", decision: { yes: "Aprueba → implementación", no: "Itera → preaprobación interna" } },
-  { id: 6, phase: "Implementación",             actor: "Desarrollo / UX Manager",         description: "Generación de front o handoff según ambiente. Problemas técnicos se negocian con UX Manager para mantener funcionalidad", minimum: "Handoff completo o front generado", decision: null },
-  { id: 7, phase: "Revisión final",             actor: "UX Manager + UX/UI + Analista",   description: "UX revisa que funcione y se vea como el prototipo. En paralelo, analista revisa cumplimiento de reglas de negocio", minimum: "Aprobación de experiencia + reglas de negocio", decision: null },
-  { id: 8, phase: "Análisis post-lanzamiento",  actor: "UX Manager + UX/UI",              description: "Revisión de interacción 1 semana post-producción. Mapas de calor y patrones de comportamiento para identificar hallazgos y mejoras.", minimum: "Informe de hallazgos con propuesta de mejoras priorizadas", decision: null },
+const stages = [
+  { phase: "Investigación",                   actor: "UX/UI",                      minimum: "Síntesis de hallazgos documentada" },
+  { phase: "Propuesta de diseño",             actor: "UX/UI",                      minimum: "Prototipo de alta fidelidad y componentes documentados" },
+  { phase: "Revisión interna",                actor: "Líder de Diseño",                 minimum: "Visto bueno y aprobación, según el alcance, antes de presentar" },
+  { phase: "Presentación a stakeholder",      actor: "Líder de Diseño · UX/UI",         minimum: "Hallazgos y prototipo, con las decisiones argumentadas" },
+  { phase: "Implementación y revisión final", actor: "Desarrollo · UX · Analista", minimum: "Handoff completo; experiencia y reglas de negocio revisadas" },
+  { phase: "Análisis post-lanzamiento",       actor: "Líder de Diseño · UX/UI",         minimum: "Informe de hallazgos con mejoras priorizadas, una semana después" },
+];
+
+const stageColumns = "minmax(0,1.3fr) minmax(0,1fr) minmax(0,2fr)";
+
+const outcomes = [
+  { title: "Decisiones con evidencia", body: "Cada propuesta llega a stakeholders con hallazgos y prototipo, y con la decisión argumentada." },
+  { title: "Menos iteraciones innecesarias", body: "Los mínimos definen cuándo se avanza y cuándo se vuelve atrás, en lugar de rondas de cambios por preferencia." },
+  { title: "Aprender después del lanzamiento", body: "El uso se revisa una semana después y otra vez meses más tarde." },
 ];
 
 const projects = [
@@ -68,46 +55,11 @@ const projects = [
 
 const skills = ["Liderazgo UX", "Arquitectura de información", "Gobernanza de diseño", "Diseño de procesos", "Gestión de stakeholders", "Sistemas de diseño", "Design Tokens", "UX Writing", "Desarrollo de equipo"];
 
-// ─── SUBCOMPONENTES ───────────────────────────────────────────────────────────
-
-interface StepData {
-  id: number;
-  type: string;
-  actor: string;
-  action: string;
-  isOrigin?: boolean;
-}
-
-const stepDotColor: Record<string, string> = {
-  origin: "#9B7EC8", input: "#6B4F8C", design: "#9B8060",
-  review: "#9B7EC8", change: "#B45050", dev: "#888", approval: "#50A078",
-};
-
-function FlowStep({ step, isLast }: { step: StepData; isLast: boolean }) {
-  const dot = stepDotColor[step.type] ?? "#888";
-  const isOrigin = step.isOrigin;
-  return (
-    <div className="flex flex-col">
-      <div
-        className="rounded-xl px-5 py-4 flex flex-col gap-2 text-xs"
-        style={{
-          border: isOrigin ? "1px dashed rgba(107,79,140,0.4)" : "none",
-          background: isOrigin ? "rgba(107,79,140,0.06)" : "var(--background-3)",
-          minHeight: "92px",
-        }}
-      >
-        <span className="font-semibold uppercase tracking-wider text-[10px]" style={{ color: dot }}>{step.actor}</span>
-        <span className="leading-relaxed text-foreground/60">{step.action}</span>
-      </div>
-      {!isLast && <div className="h-4" />}
-    </div>
-  );
-}
-
 // ─── PÁGINA ───────────────────────────────────────────────────────────────────
 
 export function GovernancePage() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
+  const isMobile = useIsMobile();
 
   return (
     <div className="min-h-screen">
@@ -210,64 +162,81 @@ export function GovernancePage() {
                   })}
                 </div>
 
-                {/* Cambios de estado */}
-                <div className="mt-8">
-                  <p className="text-xs font-medium tracking-widest uppercase text-primary mb-4">Cambios de estado</p>
-                  <ul className="space-y-3">
-                    {[
-                      "De retrabajo reactivo a ciclos de revisión definidos",
-                      "De decisiones por jerarquía a propuestas fundamentadas con evidencia",
-                      "Inicio del análisis post-lanzamiento como práctica sistemática",
-                    ].map((item) => (
-                      <li key={item} className="flex items-start gap-3 text-sm text-foreground/60">
-                        <span className="mt-1.5 w-1.5 h-1.5 rounded-full shrink-0 bg-primary" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
               </div>
 
-              {/* ── ANTES Y DESPUÉS (FLUJO) ── */}
+              {/* ── CÓMO TRABAJA EL EQUIPO HOY ── */}
               <div className="px-8 lg:px-12 py-12 border-t border-border">
-                <p className="text-xs font-medium tracking-widest uppercase text-primary mb-2">Cómo cambió el proceso</p>
-                <h2 className="text-xl text-foreground mb-2" style={{ fontFamily: "var(--font-serif)" }}>Cómo se toman las decisiones de diseño</h2>
-                <p className="text-sm text-foreground/50 mb-8 max-w-lg">El cambio no fue solo visual — fue estructural. Redefinir quién decide, con qué criterio y en qué momento fue la base de todo lo que vino después.</p>
+                <p className="text-xs font-medium tracking-widest uppercase text-primary mb-2">Cómo trabaja el equipo hoy</p>
+                <h2 className="text-xl text-foreground mb-2" style={{ fontFamily: "var(--font-serif)" }}>De iterar por preferencia a avanzar con mínimos</h2>
+                <p className="text-sm text-foreground/50 mb-8 max-w-lg">Cada etapa tiene un mínimo exigible antes de pasar a la siguiente. Eso evita rondas de cambios sin fundamento y deja claro quién decide, con qué criterio y en qué momento.</p>
 
-                <div className="grid md:grid-cols-2 gap-6">
-                  {/* Antes */}
-                  <div className="rounded-2xl overflow-hidden">
-                    <div className="px-6 py-4 flex items-center justify-between" style={{ background: "rgba(163,45,45,0.07)" }}>
-                      <span className="text-xs font-bold uppercase tracking-wider" style={{ color: "#A32D2D" }}>Antes</span>
-                      <span className="text-xs text-foreground/40">⏱ ~3 meses por proceso</span>
-                    </div>
-                    <div className="p-6 flex flex-col gap-0 bg-card">
-                      {steps_before.map((step, i) => (
-                        <FlowStep key={step.id} step={step} isLast={i === steps_before.length - 1} />
-                      ))}
-                      <div className="mt-4 rounded-xl px-5 py-4 text-xs" style={{ background: "rgba(163,45,45,0.05)", border: "1px dashed rgba(163,45,45,0.2)" }}>
-                        <span className="font-semibold uppercase tracking-wider block mb-1" style={{ color: "rgba(163,45,45,0.6)", fontSize: "9px" }}>Post lanzamiento</span>
-                        <span className="text-foreground/40">Las mejoras quedaban sujetas a control de cambios — sin revisión proactiva de experiencia</span>
-                      </div>
-                    </div>
+                {/* Antes / Hoy */}
+                <div className="grid md:grid-cols-2 gap-4 mb-6">
+                  <div className="rounded-xl" style={{ background: "rgba(163,45,45,0.07)", padding: "16px 20px" }}>
+                    <p className="text-xs uppercase tracking-wider" style={{ fontWeight: 700, marginBottom: "4px", color: "#A32D2D" }}>Antes</p>
+                    <p className="text-sm text-foreground/60 leading-relaxed">Cambios por preferencia y retrabajo reactivo. Cerca de 3 meses por proceso.</p>
                   </div>
+                  <div className="rounded-xl" style={{ background: "rgba(107,79,140,0.07)", padding: "16px 20px" }}>
+                    <p className="text-xs uppercase tracking-wider text-primary" style={{ fontWeight: 700, marginBottom: "4px" }}>Hoy</p>
+                    <p className="text-sm text-foreground/60 leading-relaxed">Decisiones argumentadas y ciclos de revisión definidos. Cerca de 15 días por proceso.</p>
+                  </div>
+                </div>
 
-                  {/* Después */}
-                  <div className="rounded-2xl overflow-hidden">
-                    <div className="px-6 py-4 flex items-center justify-between" style={{ background: "rgba(107,79,140,0.07)" }}>
-                      <span className="text-xs font-bold uppercase tracking-wider text-primary">Después</span>
-                      <span className="text-xs text-foreground/40">⏱ ~15 días por proceso</span>
+                {/* Secuencia */}
+                <div className="rounded-xl border border-border bg-card" style={{ overflow: "hidden" }}>
+                  {!isMobile && (
+                    <div style={{ display: "grid", gridTemplateColumns: stageColumns, gap: "16px", padding: "10px 20px", background: "var(--background-3)", fontSize: "9px", fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase", color: "color-mix(in srgb, var(--foreground) 45%, transparent)" }}>
+                      <span style={{ paddingLeft: "36px" }}>Etapa</span>
+                      <span>Responsable</span>
+                      <span>Mínimo exigible</span>
                     </div>
-                    <div className="p-6 flex flex-col gap-0 bg-card">
-                      {steps_after.map((step, i) => (
-                        <FlowStep key={step.id} step={step} isLast={i === steps_after.length - 1} />
-                      ))}
-                      <div className="mt-4 rounded-xl px-5 py-4 text-xs" style={{ background: "rgba(107,79,140,0.06)", border: "1px dashed rgba(107,79,140,0.3)" }}>
-                        <span className="font-semibold uppercase tracking-wider block mb-1 text-primary" style={{ fontSize: "9px" }}>Mejora continua</span>
-                        <span className="text-foreground/50">1 semana post-lanzamiento: revisión de interacción, hallazgos y mejoras en base a patrones de comportamiento</span>
+                  )}
+                  {stages.map((stage, i) => (
+                    <div
+                      key={stage.phase}
+                      style={{
+                        display: "grid",
+                        gridTemplateColumns: isMobile ? "1fr" : stageColumns,
+                        gap: isMobile ? "4px" : "16px",
+                        alignItems: "center",
+                        padding: "14px 20px",
+                        borderTop: !isMobile || i > 0 ? "1px solid var(--border)" : "none",
+                      }}
+                    >
+                      <div className="flex items-center gap-3">
+                        <span className="w-6 h-6 rounded-full border border-border text-primary flex items-center justify-center shrink-0" style={{ background: "var(--background-3)", fontSize: "11px", fontWeight: 600 }}>{i + 1}</span>
+                        <span className="text-sm font-semibold text-foreground">{stage.phase}</span>
                       </div>
+                      <p style={{ fontSize: "10px", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--primary)", margin: isMobile ? "0 0 0 36px" : 0 }}>{stage.actor}</p>
+                      <p style={{ fontSize: "12px", lineHeight: 1.5, margin: isMobile ? "0 0 0 36px" : 0, color: "color-mix(in srgb, var(--foreground) 60%, transparent)" }}>
+                        {isMobile && <span style={{ fontSize: "9px", fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase", color: "color-mix(in srgb, var(--foreground) 45%, transparent)" }}>Mínimo · </span>}
+                        {stage.minimum}
+                      </p>
                     </div>
-                  </div>
+                  ))}
+                </div>
+                <div className="flex gap-2 flex-wrap" style={{ marginTop: "16px" }}>
+                  <span style={{ fontSize: "10px", padding: "2px 8px", borderRadius: "4px", background: "rgba(80,160,120,0.1)", border: "1px solid rgba(80,160,120,0.3)", color: "#3B8060" }}>✓ Cumple el mínimo → avanza</span>
+                  <span style={{ fontSize: "10px", padding: "2px 8px", borderRadius: "4px", background: "rgba(180,80,80,0.08)", border: "1px solid rgba(180,80,80,0.3)", color: "#A03030" }}>↩ No lo cumple → vuelve a la etapa anterior, con observaciones acordadas</span>
+                </div>
+
+                {/* Qué cambió para el producto */}
+                <p className="text-xs font-medium tracking-widest uppercase text-primary" style={{ marginTop: "40px", marginBottom: "16px" }}>Qué cambió para el producto</p>
+                <div className="grid md:grid-cols-3 gap-4">
+                  {outcomes.map((o, i) => (
+                    <motion.div
+                      key={o.title}
+                      initial={{ opacity: 0, y: 12 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: i * 0.08 }}
+                      className="rounded-2xl border border-border transition-colors"
+                      style={{ background: "var(--background-3)", padding: "24px" }}
+                    >
+                      <p className="text-sm font-medium text-foreground" style={{ marginBottom: "8px" }}>{o.title}</p>
+                      <p style={{ fontSize: "12px", lineHeight: 1.6, color: "color-mix(in srgb, var(--foreground) 60%, transparent)" }}>{o.body}</p>
+                    </motion.div>
+                  ))}
                 </div>
               </div>
 
@@ -315,47 +284,8 @@ export function GovernancePage() {
                 <p className="text-xs text-foreground/35 mt-3 leading-relaxed">Cada plataforma construye su UI Kit a partir de los lineamientos compartidos, adaptado a su ambiente de desarrollo y alcances técnicos.</p>
               </div>
 
-              {/* ── PROCESO ESTANDARIZADO ── */}
-              <div className="px-8 lg:px-12 py-12 border-t border-border">
-                <p className="text-xs font-medium tracking-widest uppercase text-primary mb-2">Cómo trabaja el equipo hoy</p>
-                <h2 className="text-xl text-foreground mb-2" style={{ fontFamily: "var(--font-serif)" }}>Proceso de diseño estandarizado</h2>
-                <p className="text-sm text-foreground/50 mb-8 max-w-lg">Cada etapa tiene un mínimo exigible antes de avanzar. Las iteraciones tienen un camino definido — no se resuelven ad hoc.</p>
-
-                <div className="space-y-4">
-                  {workSteps.map((step, i) => (
-                    <motion.div
-                      key={step.id}
-                      initial={{ opacity: 0, y: 10 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: i * 0.05 }}
-                      className="rounded-xl border border-border p-6 bg-card hover:border-primary/20 transition-colors"
-                    >
-                      <div className="flex items-start justify-between gap-4 mb-2">
-                        <div className="flex items-center gap-3">
-                          <span className="w-6 h-6 rounded-full border border-border text-[11px] font-semibold text-primary flex items-center justify-center shrink-0" style={{ background: "var(--background-3)" }}>{i + 1}</span>
-                          <span className="text-sm font-semibold text-foreground">{step.phase}</span>
-                        </div>
-                        <span className="text-[10px] font-bold uppercase tracking-wider text-primary shrink-0 whitespace-nowrap">{step.actor}</span>
-                      </div>
-                      <p className="text-sm text-foreground/60 leading-relaxed ml-9 mb-2">{step.description}</p>
-                      <p className="text-[11px] text-foreground/35 ml-9">
-                        <span className="uppercase tracking-wider font-semibold text-[9px]">Mínimo · </span>
-                        {step.minimum}
-                      </p>
-                      {step.decision && (
-                        <div className="flex gap-2 ml-9 mt-2 flex-wrap">
-                          <span className="text-[10px] px-2 py-0.5 rounded" style={{ background: "rgba(80,160,120,0.1)", border: "1px solid rgba(80,160,120,0.3)", color: "#3B8060" }}>✓ {step.decision.yes}</span>
-                          <span className="text-[10px] px-2 py-0.5 rounded" style={{ background: "rgba(180,80,80,0.08)", border: "1px solid rgba(180,80,80,0.3)", color: "#A03030" }}>↩ {step.decision.no}</span>
-                        </div>
-                      )}
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-
               {/* ── CÓMO SE VE CUANDO FUNCIONA ── */}
-              <div className="px-8 lg:px-12 py-12 border-t border-border bg-muted/40">
+              <div className="px-8 lg:px-12 py-12 border-t border-border">
                 <p className="text-xs font-medium tracking-widest uppercase text-primary mb-4">Cómo se ve cuando funciona</p>
                 <p className="text-lg text-foreground/70 leading-relaxed mb-6">Los proyectos son la evidencia de que el sistema escala:</p>
                 <div className="space-y-6">
@@ -370,7 +300,7 @@ export function GovernancePage() {
               </div>
 
               {/* ── LO QUE APRENDÍ ── */}
-              <div className="px-8 lg:px-12 py-12 border-t border-border">
+              <div className="px-8 lg:px-12 py-12 border-t border-border bg-muted/40">
                 <p className="text-xs font-medium tracking-widest uppercase text-primary mb-4">Lo que aprendí</p>
                 <p className="text-lg text-foreground/60 leading-relaxed max-w-3xl mb-4">
                   Entrar a una organización sin rol de diseño definido significa que nadie sabe exactamente qué esperar de ti — y que tienes que demostrarlo con cada decisión. Lo más difícil no fue construir el sistema: fue construir la convicción, dentro del equipo y hacia arriba, de que el diseño tiene criterio propio y que ese criterio mejora los productos.
@@ -381,7 +311,7 @@ export function GovernancePage() {
               </div>
 
               {/* ── CTA ── */}
-              <div className="px-8 lg:px-12 py-12 border-t border-border bg-muted/40">
+              <div className="px-8 lg:px-12 py-12 border-t border-border">
                 <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
                   <div>
                     <p className="text-lg font-medium text-foreground mb-1" style={{ fontFamily: "var(--font-serif)" }}>
